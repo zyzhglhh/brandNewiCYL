@@ -159,7 +159,7 @@ angular.module('icyl.services', ['ngResource'])
 //用户操作函数
 .factory('User', 
   [ '$ionicModal', 
-    '$ionicAnimation',
+    //'$ionicAnimation',
     'Storage', 
     'Data', 
     'Alert', 
@@ -170,7 +170,7 @@ angular.module('icyl.services', ['ngResource'])
     //'$stateParams',
   function(
     $ionicModal, 
-    $ionicAnimation, 
+    //$ionicAnimation, 
     Storage, 
     Data, 
     Alert, 

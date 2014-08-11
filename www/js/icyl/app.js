@@ -144,6 +144,30 @@ angular.module('icyl', dependencies)
       }
     })
 
+
+
+    .state('main.knowlbase', {
+      url:'/knowlbase',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/knowlbase.html',
+          controller: 'mainKnowlBase'
+        }
+      }
+    })
+
+    .state('main.sysmgmt', {
+      url:'/sysmgmt',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/sysmgmt.html',
+          controller: 'mainSysMgmt'
+        }
+      }
+    })
+
     .state('main.mine', {
       url:'/mine',
       access: { authenticate: true, offline: 'main.mineoffline' },

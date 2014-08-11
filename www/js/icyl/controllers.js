@@ -80,55 +80,116 @@ angular.module('icyl.controllers', [])
 //默认主页控制器
 .controller('mainDefault', ['$scope', '$window', 'Storage', function($scope, $window, Storage) {
 
-    $scope.url = {
-      sysmgmt: { url: 'http://17f.go5le.net/mall/index/login_app.asp'},
-      news   : { url: 'http://17f.go5le.net/99_tj/991/index.asp?lx=%CD%C5%C7%E0%B6%AF%CC%AC'},
-      test   : { url: 'http://www.baidu.com'}
-    };
-
-    $scope.cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003';//Storage.kget('cookie');
-
-    // var inAppBrowser = $window.open('http://17f.go5le.net/preload.html','_blank','hidden=yes');
-    // var setcookie = function() {
-    //   inAppBrowser.executeScript({
-    //     code: "document.cookie='xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003';"
-    //   });
+    // $scope.url = {
+    //   sysmgmt:  { url: 'http://17f.go5le.net/mall/index/login_app.asp'},
+    //   news   :  { url: 'http://17f.go5le.net/99_tj/991/index.asp?lx=%CD%C5%C7%E0%B6%AF%CC%AC'},
+    //   knowlbase:{ url: 'http://17f.go5le.net/99_tj/991/index.asp?lx=%CD%C5%C7%E0%B6%AF%CC%AC'},
+    //   test   :  { url: 'http://www.baidu.com'}
     // };
-    // // var closeonce = function() {
-    // //   inAppBrowser.removeEventListener('loadstart', setcookie);
-    // //   inAppBrowser.removeEventListener('loadstop', closeonce);
-    // //   //inAppBrowser.close();
+
+    // $scope.cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003';//Storage.kget('cookie');
+
+    // // var inAppBrowser = $window.open('http://17f.go5le.net/preload.html','_blank','hidden=yes');
+    // // var setcookie = function() {
+    // //   inAppBrowser.executeScript({
+    // //     code: "document.cookie='xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003';"
+    // //   });
     // // };
-    // // inAppBrowser.addEventListener('loadstart', setcookie);
-    // inAppBrowser.addEventListener('loadstop', setcookie);
-    // inAppBrowser.removeEventListener('loadstop', setcookie);
-    // inAppBrowser.close();
+    // // // var closeonce = function() {
+    // // //   inAppBrowser.removeEventListener('loadstart', setcookie);
+    // // //   inAppBrowser.removeEventListener('loadstop', closeonce);
+    // // //   //inAppBrowser.close();
+    // // // };
+    // // // inAppBrowser.addEventListener('loadstart', setcookie);
+    // // inAppBrowser.addEventListener('loadstop', setcookie);
+    // // inAppBrowser.removeEventListener('loadstop', setcookie);
+    // // inAppBrowser.close();
 
               
           
     
 
 
-    $scope.actions = [];
-    $scope.closeBrowser = function(){
-      //$window.alert($scope.actions.toString());    //====================test
-      $scope.actions.push("Exit");
-    };
-    $scope.loadOpen = function(){
-      //$window.alert('Load Open');
-      $scope.actions.push("Open");
-    };
-    $scope.loadStop = function(){
-      //$window.alert('Load Stop #1');    //====================test
-      //$window.alert('Load Stop #2');    //====================test
-      $scope.actions.push("Stop");
-    };
-    $scope.loadError = function(){
-      //$window.alert('Load Error');    //====================test
-      $scope.actions.push("Error");
-    };
+    // $scope.actions = [];
+    // $scope.closeBrowser = function(){
+    //   //$window.alert($scope.actions.toString());    //====================test
+    //   $scope.actions.push("Exit");
+    // };
+    // $scope.loadOpen = function(){
+    //   //$window.alert('Load Open');
+    //   $scope.actions.push("Open");
+    // };
+    // $scope.loadStop = function(){
+    //   //$window.alert('Load Stop #1');    //====================test
+    //   //$window.alert('Load Stop #2');    //====================test
+    //   $scope.actions.push("Stop");
+    // };
+    // $scope.loadError = function(){
+    //   //$window.alert('Load Error');    //====================test
+    //   $scope.actions.push("Error");
+    // };
 
 }])
+
+
+
+
+
+
+
+
+
+//团青时讯页面控制器
+.controller('mainNews', ['$scope', function($scope) {
+
+}])
+
+//智汇共享页面控制器
+.controller('mainKnowlBase', ['$scope', function($scope) {
+
+}])
+
+//智慧链接页面控制器
+.controller('mainLink', ['$scope', function($scope) {
+
+}])
+
+//一团一品页面控制器
+.controller('mainBrand', ['$scope', function($scope) {
+
+}])
+
+//青年创业页面控制器
+.controller('mainCareer', ['$scope', function($scope) {
+
+}])
+
+//智会相亲页面控制器
+.controller('mainLove', ['$scope', function($scope) {
+
+}])
+
+//最美浙江页面控制器
+.controller('mainBeauty', ['$scope', function($scope) {
+
+}])
+
+//智慧生活页面控制器
+.controller('mainLife', ['$scope', function($scope) {
+
+}])
+
+//系统管理页面控制器
+.controller('mainSysMgmt', ['$scope', function($scope) {
+
+}])
+
+
+
+
+
+
+
 
 //用户在线页面控制器
 .controller('mainMine', ['$scope', '$ionicNavBarDelegate', '$timeout', function($scope, $ionicNavBarDelegate, $timeout) {
@@ -143,14 +204,9 @@ angular.module('icyl.controllers', [])
   //     $ionicNavBarDelegate.showBackButton(false);
   //   },1);
   // }
-    
-	
-
 }])
 //用户离线页面控制器
 .controller('mainMineOffline', ['$scope', function($scope) {
-
-
 
 }])
 
@@ -218,9 +274,5 @@ angular.module('icyl.controllers', [])
       
     }
   };
-
-
-
-
 
 }]);

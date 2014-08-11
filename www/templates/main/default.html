@@ -31,17 +31,21 @@
       <div class="background-img"><img src="img/main_backimg_fade.png" alt="钱塘江" class="img-responsive center-block"></div>
       <div class="row no-padding">
         <div class="col no-padding">
-          <open-external url="url.news.url"
+<!--           <open-external url="url.news.url"
                          cookie="cookie"
                          exit="closeBrowser()"
                          load-open="loadOpen()"
                          load-stop="loadStop()"
                          load-error="loadError()">
             <img src="img/badge.png" alt="团徽" class="img-responsive center-block cell-img">团青时讯
-          </open-external>
+          </open-external> -->
+          <a href="#/main/news" class="button center-block background-clear">
+            <img src="img/badge.png" alt="团徽" class="img-responsive center-block cell-img">
+            团青时讯
+          </a>
         </div>
         <div class="col no-padding">
-          <a class="button center-block background-clear">
+          <a href="#/main/knowlbase" class="button center-block background-clear">
             <img src="img/badge.png" alt="团徽" class="img-responsive center-block cell-img">
             智汇共享
           </a>
@@ -87,13 +91,17 @@
           </a>
         </div>
         <div class="col no-padding">
-          <open-external url="url.sysmgmt.url"
+<!--           <open-external url="url.sysmgmt.url"
                          exit="closeBrowser()"
                          load-open="loadOpen()"
                          load-stop="loadStop()"
                          load-error="loadError()">
             <img src="img/badge.png" alt="团徽" class="img-responsive center-block cell-img">系统管理
-          </open-external>
+          </open-external> -->
+          <a href="#/main/sysmgmt" class="button center-block background-clear">
+            <img src="img/badge.png" alt="团徽" class="img-responsive center-block cell-img">
+            系统管理
+          </a>
         </div>
       </div>
     </div>
@@ -114,10 +122,14 @@
         <i class="icon ion-gear-a"></i>
         管理
       </a>
-      <a class="tab-item" href="#/main/mine">
+<!--       <a class="tab-item" href="#/main/mine">
         <i class="icon ion-person"></i>
         我的
-      </a>
+      </a> -->
+      <a class="tab-item" href="#/main/sysmgmt">
+        <i class="icon ion-person"></i>
+        我的
+      </a> 
     </div>
   </ion-footer-bar>
 
