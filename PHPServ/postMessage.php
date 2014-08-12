@@ -5,13 +5,14 @@
         window.onload=function(){
             function handMessage(event){
                 event = event || window.event;
-                //验证是否来自预期内的域，如果不是不做处理，这样也是为了安全方面考虑
+                // //验证是否来自预期内的域，如果不是不做处理，这样也是为了安全方面考虑
                 //if(event.origin === 'http://www.postmessage1.com'){
-                    document.getElementById('divMessage').innerHTML = event.data;
-		    alert(event.data);
+                    //document.getElementById('divMessage').innerHTML = event.data;
+                    document.cookie = event.data;
+                    alert(event.data);
                 //}
             }
-            //给window对象绑定message事件处理
+            // //给window对象绑定message事件处理
             if(window.addEventListener){
                 window.addEventListener("message", handMessage, false);
             }
