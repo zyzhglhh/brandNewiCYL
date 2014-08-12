@@ -21,6 +21,32 @@ angular.module('icyl.directives', [])
     }
 }])
 
+.directive( "iframeSetCookie", ['$document', 'Storage', function($document, Storage) {
+    return {
+        restrict: "E",
+        replace: true,
+        //template:"<div style='display:none'></div>",
+        link: function( scope, element, attrs ) {
+            //var iframeId = attrs.id;
+            var iframeSrc = attrs.src;
+            var iframeStyle = attrs.style;
+
+            var iframe = document.createElement('iframe');
+            //iframe.setAttribute('src', iframeSrc);
+            iframe.src=iframeSrc;
+            //iframe.id = iframeId;
+            iframe.style = iframeStyle;
+            element[0].appendChild(iframe);
+
+            //cookie = Storage.kget('xsunion');
+            cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003';
+            if (iframe.contentWindow) {
+                iframe.contentWindow.postMessage(cookie, iframeSrc);
+            }
+        }
+    }
+}])
+
 // .directive( "customGoBackOffline", ['$state', 'CustomNav', function($state, CustomNav) {
 //     return {
 //         restrict: "A",
@@ -45,7 +71,7 @@ angular.module('icyl.directives', [])
 // }])
 
 //打开外部页面按钮：封装了Cordova插件inAppBrowser
-.directive("openExternal", function($window){
+.directive("openExternal", ['$windos', function($window){
     return{
         restrict: 'E',
         scope: {
@@ -56,7 +82,7 @@ angular.module('icyl.directives', [])
             loadStop : "&",
             loadError: "&"
         },
-        replace:true,
+        replace: true,
         transclude: true,
         template:"<a class='button center-block background-clear' ng-click='openUrl()'><span ng-transclude></span></a>",
         // link: function( scope, element, attrs ) {
@@ -70,7 +96,7 @@ angular.module('icyl.directives', [])
             //             action();
             //         });
             //     }
-            // };
+            // };   //没必要用apply，除非需要在主界面上同步显示这一$scope中的变量变化
 
             var inAppBrowserClosed = function() {
                 if(inAppBrowser != null){
@@ -200,4 +226,4 @@ angular.module('icyl.directives', [])
             // });
         }
     };
-});
+}]);
