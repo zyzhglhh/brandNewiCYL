@@ -144,7 +144,16 @@ angular.module('icyl', dependencies)
       }
     })
 
-
+    .state('main.news', {
+      url:'/news',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/news.html',
+          controller: 'mainNews'
+        }
+      }
+    })
 
     .state('main.knowlbase', {
       url:'/knowlbase',
@@ -153,6 +162,72 @@ angular.module('icyl', dependencies)
         'main-container': {
           templateUrl: 'templates/main/knowlbase.html',
           controller: 'mainKnowlBase'
+        }
+      }
+    })
+
+    .state('main.link', {
+      url:'/link',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/link.html',
+          controller: 'mainLink'
+        }
+      }
+    })
+
+    .state('main.brand', {
+      url:'/brand',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/brand.html',
+          controller: 'mainBrand'
+        }
+      }
+    })
+
+    .state('main.career', {
+      url:'/career',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/career.html',
+          controller: 'mainCareer'
+        }
+      }
+    })
+
+    .state('main.love', {
+      url:'/love',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/love.html',
+          controller: 'mainLove'
+        }
+      }
+    })
+
+    .state('main.beauty', {
+      url:'/beauty',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/beauty.html',
+          controller: 'mainBeauty'
+        }
+      }
+    })
+
+    .state('main.life', {
+      url:'/life',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/life.html',
+          controller: 'mainLife'
         }
       }
     })
@@ -168,49 +243,49 @@ angular.module('icyl', dependencies)
       }
     })
 
-    .state('main.mine', {
-      url:'/mine',
-      access: { authenticate: true, offline: 'main.mineoffline' },
-      views: {
-        'main-container': {
-          templateUrl: 'templates/main/mine.html',
-          controller: 'mainMine'
-        }
-      }
-    })
+    // .state('main.mine', {
+    //   url:'/mine',
+    //   access: { authenticate: true, offline: 'main.mineoffline' },
+    //   views: {
+    //     'main-container': {
+    //       templateUrl: 'templates/main/mine.html',
+    //       controller: 'mainMine'
+    //     }
+    //   }
+    // })
 
-    .state('main.mineoffline', {
-      url:'/mineoffline',
-      access: { authenticate: false },
-      views: {
-        'main-container': {
-          templateUrl: 'templates/main/mineoffline.html',
-          controller: 'mainMineOffline'
-        }
-      }
-    })
+    // .state('main.mineoffline', {
+    //   url:'/mineoffline',
+    //   access: { authenticate: false },
+    //   views: {
+    //     'main-container': {
+    //       templateUrl: 'templates/main/mineoffline.html',
+    //       controller: 'mainMineOffline'
+    //     }
+    //   }
+    // })
 
-    .state('main.account', {
-      url:'/account',
-      access: { authenticate: true },
-      views: {
-        'main-container': {
-          templateUrl: 'templates/main/account.html',
-          controller: 'mainAccount'
-        }
-      }
-    })
+    // .state('main.account', {
+    //   url:'/account',
+    //   access: { authenticate: true },
+    //   views: {
+    //     'main-container': {
+    //       templateUrl: 'templates/main/account.html',
+    //       controller: 'mainAccount'
+    //     }
+    //   }
+    // })
 
-    .state('main.userinfo', {
-      url:'/userinfo',
-      access: { authenticate: true },
-      views: {
-        'main-container': {
-          templateUrl: 'templates/main/userinfo.html',
-          controller: 'mainUserInfo'
-        }
-      }
-    })
+    // .state('main.userinfo', {
+    //   url:'/userinfo',
+    //   access: { authenticate: true },
+    //   views: {
+    //     'main-container': {
+    //       templateUrl: 'templates/main/userinfo.html',
+    //       controller: 'mainUserInfo'
+    //     }
+    //   }
+    // })
 
     ;
 
