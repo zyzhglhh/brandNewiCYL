@@ -13,10 +13,10 @@
                 //}
             }
             function storageEvent(e){
-                console.log(e);
-                parent.postMessage(e,"http://10.12.43.168");
+                //console.log(e);
+                parent.postMessage(e.newValue,"*");
             }
-            // //给window对象绑定message事件处理
+            // //给window对象绑定message和storage事件处理
             if(window.addEventListener){
                 window.addEventListener("message", handMessage, false);
                 window.addEventListener("storage", storageEvent, true);
@@ -26,7 +26,7 @@
                 window.attachEvent("storage", storageEvent);
             }
 
-            parent.postMessage("ready","http://10.12.43.168");
+            parent.postMessage("ready","*");
         }        
     </script>
 </head>

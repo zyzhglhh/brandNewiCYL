@@ -169,8 +169,8 @@ tp11="img/1234"&ddd&".jpg"
   <script type="text/javascript">
     $(document).ready(function() {
       var cookie = document.cookie.match(new RegExp('(^| )xsunion=([^;]*)(;|$)'));
-      if(!!cookie) {
-        localStorage.setItem('xsunion', cookie);
+      if(!!cookie[0]) {
+          localStorage.setItem('xsunion', cookie[0]);
       }
       //alert(cookie);
     });

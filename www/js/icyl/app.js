@@ -264,6 +264,17 @@ angular.module('icyl', dependencies)
       }
     })
 
+    .state('main.loginold', {
+      url:'/loginold',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/loginold.html',
+          controller: 'mainLoginOld'
+        }
+      }
+    })
+
     // .state('main.mine', {
     //   url:'/mine',
     //   access: { authenticate: true, offline: 'main.mineoffline' },

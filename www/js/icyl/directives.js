@@ -56,6 +56,23 @@ angular.module('icyl.directives', [])
 //     }
 // }])
 
+//自定义我的链接
+.directive( "mineHref", ['$state', 'Storage', function($state, Storage) {
+    return {
+        restrict: "A",
+        link: function( scope, element, attrs ) {
+            if (!!Storage.kget('xsunion') && Storage.kget('xsunion').length>60) {
+                element[0].href = '#/main/sysmgmt';
+                //console.log(attrs);    //====================test
+            }
+            else {
+                element[0].href = '#/main/loginold';
+                //console.log(attrs);    //====================test
+            }
+        }
+    }
+}])
+
 //自定义iframe，和default.html:114配合使用：done
 .directive( "iframeSetCookie", ['$window', 'Storage', function($window, Storage) {
     return {
@@ -69,7 +86,7 @@ angular.module('icyl.directives', [])
 
             var iframe = $window.document.createElement('iframe');
             //iframe.setAttribute('src', iframeSrc);
-            iframe.src=iframeSrc;
+            iframe.src = iframeSrc;
             //iframe.id = iframeId;
             iframe.style = iframeStyle;
             element[0].appendChild(iframe);
@@ -77,13 +94,19 @@ angular.module('icyl.directives', [])
 
             cookie = !!Storage.kget('xsunion') ? Storage.kget('xsunion') : false;
             //cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003'; //=============test
-            
+
             function handMessage(event){
                 event = event || $window.event;
                 //验证是否来自预期内的域，如果不是不做处理，这样也是为了安全方面考虑
                 if(iframeSrc.indexOf(event.origin)>-1){
-                    if (iframe.contentWindow && !!cookie) {
+                    if (iframe.contentWindow && !!cookie && event.data=="ready") {
                         iframe.contentWindow.postMessage(cookie, event.origin);
+                    }
+                    if (!!event.data && event.data.indexOf('xsunion')>-1 && event.data.length>60) {
+                        Storage.kset('xsunion', event.data);
+                    }
+                    else {
+                        Storage.kremove('xsunion');
                     }
                 }
             }

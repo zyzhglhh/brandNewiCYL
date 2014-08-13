@@ -186,6 +186,12 @@ angular.module('icyl.controllers', [])
 
 }])
 
+//用户登录页面控制器
+.controller('mainLoginOld', ['$scope', function($scope) {
+
+}])
+
+
 
 
 
