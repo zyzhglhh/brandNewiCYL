@@ -137,11 +137,19 @@ angular.module('icyl', dependencies)
       url:'/default',
       access: { authenticate: false },
       views: {
+        // 'main-header': {
+        //   templateUrl: 'templates/main/header.html'
+        //   //, controller: 'mainDefault'
+        // },
         'main-container': {
           templateUrl: 'templates/main/default.html',
           controller: 'mainDefault'
-        }
+        }//,
+        // 'main-footer': {
+        //   templateUrl: 'templates/main/footer.html'
+        // }
       }
+      //, controller: 'mainDefault'
     })
 
     .state('main.news', {
