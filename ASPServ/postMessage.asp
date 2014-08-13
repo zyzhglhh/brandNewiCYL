@@ -12,12 +12,18 @@
                     //alert(event.data);
                 //}
             }
+            function storageEvent(e){
+                console.log(e);
+                parent.postMessage(e,"http://10.12.43.168");
+            }
             // //给window对象绑定message事件处理
             if(window.addEventListener){
                 window.addEventListener("message", handMessage, false);
+                window.addEventListener("storage", storageEvent, true);
             }
             else{
                 window.attachEvent("onmessage", handMessage);
+                window.attachEvent("storage", storageEvent);
             }
 
             parent.postMessage("ready","http://10.12.43.168");
