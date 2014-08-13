@@ -128,6 +128,8 @@ angular.module('icyl.controllers', [])
     //   //$window.alert('Load Error');    //====================test
     //   $scope.actions.push("Error");
     // };
+    
+    //console.log('mainDefault'); //=============test
 
 }])
 

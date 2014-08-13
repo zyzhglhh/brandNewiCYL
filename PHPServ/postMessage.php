@@ -9,7 +9,7 @@
                 //if(event.origin === 'http://www.postmessage1.com'){
                     //document.getElementById('divMessage').innerHTML = event.data;
                     document.cookie = event.data;
-                    alert(event.data);
+                    //alert(event.data);
                 //}
             }
             // //给window对象绑定message事件处理
@@ -18,7 +18,9 @@
             }
             else{
                 window.attachEvent("onmessage", handMessage);
-            }      
+            }
+
+            parent.postMessage("ready","http://10.12.43.168");
         }        
     </script>
 </head>

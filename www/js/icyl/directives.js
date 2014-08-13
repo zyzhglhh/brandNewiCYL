@@ -21,50 +21,82 @@ angular.module('icyl.directives', [])
     }
 }])
 
-//自定义iframe set cookie按钮
-.directive( "iframeSetCookie", ['Storage', function(Storage) {
-    return {
-        restrict: "E",
-        replace: true,
-        //transclude: true,
-        template:"<button class='button center-block'>设置cookie</button>",
-        link: function( scope, element, attrs ) {
-            element.bind( "click", function () {
-                var iframeWindow = document.getElementById('setcookie').contentWindow;
-                //cookie = Storage.kget('xsunion');
-                cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003';
-                iframeWindow.postMessage(cookie, 'http://17f.go5le.net/postMessage.asp');
-            });
-        }
-    }
-}])
-
-// //自定义iframe，和default.html:114配合使用：in process
-// .directive( "iframeSetCookie", ['$document', 'Storage', function($document, Storage) {
+// //自定义iframe set cookie按钮
+// .directive( "iframeSetCookie", ['$window', '$document', 'Storage', function($window, $document, Storage) {
 //     return {
 //         restrict: "E",
 //         replace: true,
-//         //template:"<div style='display:none'></div>",
+//         //transclude: true,
+//         template:"<button class='button center-block'>设置cookie</button>",
 //         link: function( scope, element, attrs ) {
-//             //var iframeId = attrs.id;
-//             var iframeSrc = attrs.src;
-//             var iframeStyle = attrs.style;
-
-//             var iframe = document.createElement('iframe');
-//             //iframe.setAttribute('src', iframeSrc);
-//             iframe.src=iframeSrc;
-//             //iframe.id = iframeId;
-//             iframe.style = iframeStyle;
-//             element[0].appendChild(iframe);
-
-//             //cookie = Storage.kget('xsunion');
-//             cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003';
-//             if (iframe.contentWindow) {
-//                 iframe.contentWindow.postMessage(cookie, iframeSrc);
+//             console.log('iframeSetCookie'); //=============test
+//             element.bind( "click", function () {
+//                 var iframeWindow = $document.getElementById('setcookie').contentWindow;
+//                 //cookie = !!Storage.kget('xsunion') ? Storage.kget('xsunion') : false;
+//                 cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003';
+//                 if (iframeWindow && !!cookie) {
+//                     iframeWindow.postMessage(cookie, 'http://17f.go5le.net');
+//                 }
+//             });
+//             function handMessage(event){
+//                 event = event || $window.event;
+//                 // //验证是否来自预期内的域，如果不是不做处理，这样也是为了安全方面考虑
+//                 if(event.origin.match(/^http:\/\/17f.go5le.net/)){
+//                     console.log('parent received message!:', event.data, event.origin);
+//                 }
+//             }
+//             // //给window对象绑定message事件处理
+//             if($window.addEventListener){
+//                 $window.addEventListener("message", handMessage, false);
+//             }
+//             else{
+//                 $window.attachEvent("onmessage", handMessage);
 //             }
 //         }
 //     }
 // }])
+
+//自定义iframe，和default.html:114配合使用：in process
+.directive( "iframeSetCookie", ['$window', 'Storage', function($window, Storage) {
+    return {
+        restrict: "E",
+        replace: true,
+        //template:"<div style='display:none'></div>",
+        link: function( scope, element, attrs ) {
+            //var iframeId = attrs.id;
+            var iframeSrc = attrs.src;
+            var iframeStyle = attrs.style;
+
+            var iframe = $window.document.createElement('iframe');
+            //iframe.setAttribute('src', iframeSrc);
+            iframe.src=iframeSrc;
+            //iframe.id = iframeId;
+            iframe.style = iframeStyle;
+            element[0].appendChild(iframe);
+            //console.log('iframeSetCookie'); //=============test
+
+            //cookie = !!Storage.kget('xsunion') ? Storage.kget('xsunion') : false;
+            cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003'; //=============test
+            
+            function handMessage(event){
+                event = event || $window.event;
+                //验证是否来自预期内的域，如果不是不做处理，这样也是为了安全方面考虑
+                if(iframeSrc.indexOf(event.origin)>-1){
+                    if (iframe.contentWindow && !!cookie) {
+                        iframe.contentWindow.postMessage(cookie, event.origin);
+                    }
+                }
+            }
+            //给window对象绑定message事件处理
+            if($window.addEventListener){
+                $window.addEventListener("message", handMessage, false);
+            }
+            else{
+                $window.attachEvent("onmessage", handMessage);
+            }
+        }
+    }
+}])
 
 // .directive( "customGoBackOffline", ['$state', 'CustomNav', function($state, CustomNav) {
 //     return {
