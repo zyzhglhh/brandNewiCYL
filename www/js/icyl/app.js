@@ -132,24 +132,37 @@ angular.module('icyl', dependencies)
     //     }
     //   }
     // })
+
+    // //分模块加载
+    // .state('main.default', {
+    //   url:'/default',
+    //   access: { authenticate: false },
+    //   views: {
+    //     'main-header': {
+    //       templateUrl: 'templates/main/header.html'
+    //       //, controller: 'mainDefault'
+    //     },
+    //     'main-container': {
+    //       templateUrl: 'templates/main/default.html'
+    //       //, controller: 'mainDefault'
+    //     },
+    //     'main-footer': {
+    //       templateUrl: 'templates/main/footer.html'
+    //     }
+    //   },
+    //   controller: 'mainDefault'
+    // })
     
+    //一次加载整个页面
     .state('main.default', {
       url:'/default',
       access: { authenticate: false },
       views: {
-        // 'main-header': {
-        //   templateUrl: 'templates/main/header.html'
-        //   //, controller: 'mainDefault'
-        // },
         'main-container': {
           templateUrl: 'templates/main/default.html',
           controller: 'mainDefault'
-        }//,
-        // 'main-footer': {
-        //   templateUrl: 'templates/main/footer.html'
-        // }
+        }
       }
-      //, controller: 'mainDefault'
     })
 
     .state('main.news', {
