@@ -63,7 +63,8 @@ angular.module('icyl.directives', [])
         link: function( scope, element, attrs ) {
             if (!!Storage.kget('xsunion') && Storage.kget('xsunion').length>60) {
                 element[0].href = '#/main/sysmgmt';
-                //console.log(attrs);    //====================test
+                //console.log(Storage.kget('xsunion'));    //====================test
+                //window.alert(Storage.kget('xsunion'));    //====================test
             }
             else {
                 element[0].href = '#/main/loginold';
@@ -101,12 +102,16 @@ angular.module('icyl.directives', [])
                 if(iframeSrc.indexOf(event.origin)>-1){
                     if (iframe.contentWindow && !!cookie && event.data=="ready") {
                         iframe.contentWindow.postMessage(cookie, event.origin);
-                    }
-                    if (!!event.data && event.data.indexOf('xsunion')>-1 && event.data.length>60) {
-                        Storage.kset('xsunion', event.data);
+                        //console.log(event.data); //=============test
                     }
                     else {
-                        Storage.kremove('xsunion');
+                        //console.log(event.data); //=============test
+                        if (!!event.data && event.data.indexOf('xsunion')>-1 && event.data.length>60) {
+                            Storage.kset('xsunion', event.data);
+                        }
+                        else {
+                            Storage.kremove('xsunion');
+                        }
                     }
                 }
             }
