@@ -1,0 +1,3 @@
+# view AndroidManifest.xml #generated:6
+-keep class net.go5le.iCYL.iCYLbeta { <init>(...); }
+
