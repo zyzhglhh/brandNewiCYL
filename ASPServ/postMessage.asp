@@ -23,7 +23,7 @@
             }
             else{
                 window.attachEvent("onmessage", handMessage);
-                window.attachEvent("storage", storageEvent);
+                window.attachEvent("onstorage", storageEvent);
             }
 
             parent.postMessage("ready","*");
