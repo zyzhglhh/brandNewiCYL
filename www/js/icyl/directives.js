@@ -85,12 +85,15 @@ angular.module('icyl.directives', [])
             var iframeSrc = attrs.src;
             var iframeStyle = attrs.style;
 
+            //console.log(element);    //====================test
+
             var iframe = $window.document.createElement('iframe');
             //iframe.setAttribute('src', iframeSrc);
             iframe.src = iframeSrc;
             //iframe.id = iframeId;
             iframe.style = iframeStyle;
             element[0].appendChild(iframe);
+            //console.log(iframe);    //====================test
             //console.log('iframeSetCookie'); //=============test
 
             cookie = !!Storage.kget('xsunion') ? Storage.kget('xsunion') : false;
@@ -99,19 +102,38 @@ angular.module('icyl.directives', [])
             function handMessage(event){
                 event = event || $window.event;
                 //验证是否来自预期内的域，如果不是不做处理，这样也是为了安全方面考虑
-                if(iframeSrc.indexOf(event.origin)>-1){
-                    if (iframe.contentWindow && !!cookie && event.data=="ready") {
-                        iframe.contentWindow.postMessage(cookie, event.origin);
+                // if(iframeSrc.indexOf(event.origin)>-1){
+                //     if (iframe.contentWindow && !!cookie && event.data=="ready") {
+                //         iframe.contentWindow.postMessage(cookie, event.origin);
+                //         //console.log(event.data); //=============test
+                //     }
+                //     else {
+                //         //console.log(event.data); //=============test
+                //         if (!!event.data && event.data.indexOf('xsunion')>-1 && event.data.length>60) {
+                //             Storage.kset('xsunion', event.data);
+                //         }
+                //         else {
+                //             Storage.kremove('xsunion');
+                //         }
+                //     }
+                // }
+                if(iframe.contentWindow && !!event.data && iframeSrc.indexOf(event.origin)>-1){
+                    if (event.data=="ready") {
+                        if (!!cookie) {
+                            iframe.contentWindow.postMessage(cookie, event.origin);
                         //console.log(event.data); //=============test
+                        }
                     }
-                    else {
-                        //console.log(event.data); //=============test
-                        if (!!event.data && event.data.indexOf('xsunion')>-1 && event.data.length>60) {
+                    if (event.data.indexOf('xsunion')>-1) {
+                        if (event.data.length>60) {
                             Storage.kset('xsunion', event.data);
                         }
                         else {
                             Storage.kremove('xsunion');
                         }
+                    }
+                    if (event.data.indexOf('http://')>-1) {
+                        Storage.kset('iframeLocation', event.data);
                     }
                 }
             }
