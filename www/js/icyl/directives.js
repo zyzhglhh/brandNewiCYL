@@ -21,41 +21,6 @@ angular.module('icyl.directives', [])
     }
 }])
 
-// //自定义iframe set cookie按钮
-// .directive( "iframeSetCookie", ['$window', '$document', 'Storage', function($window, $document, Storage) {
-//     return {
-//         restrict: "E",
-//         replace: true,
-//         //transclude: true,
-//         template:"<button class='button center-block'>设置cookie</button>",
-//         link: function( scope, element, attrs ) {
-//             console.log('iframeSetCookie'); //=============test
-//             element.bind( "click", function () {
-//                 var iframeWindow = $document.getElementById('setcookie').contentWindow;
-//                 //cookie = !!Storage.kget('xsunion') ? Storage.kget('xsunion') : false;
-//                 cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003';
-//                 if (iframeWindow && !!cookie) {
-//                     iframeWindow.postMessage(cookie, 'http://17f.go5le.net');
-//                 }
-//             });
-//             function handMessage(event){
-//                 event = event || $window.event;
-//                 // //验证是否来自预期内的域，如果不是不做处理，这样也是为了安全方面考虑
-//                 if(event.origin.match(/^http:\/\/17f.go5le.net/)){
-//                     console.log('parent received message!:', event.data, event.origin);
-//                 }
-//             }
-//             // //给window对象绑定message事件处理
-//             if($window.addEventListener){
-//                 $window.addEventListener("message", handMessage, false);
-//             }
-//             else{
-//                 $window.attachEvent("onmessage", handMessage);
-//             }
-//         }
-//     }
-// }])
-
 //自定义我的链接
 .directive( "mineHref", ['$state', 'Storage', function($state, Storage) {
     return {
@@ -121,7 +86,7 @@ angular.module('icyl.directives', [])
                     if (event.data=="ready") {
                         if (!!cookie) {
                             iframe.contentWindow.postMessage(cookie, event.origin);
-                        //console.log(event.data); //=============test
+                            //console.log(event); //=============test
                         }
                     }
                     if (event.data.indexOf('xsunion')>-1) {
@@ -133,7 +98,11 @@ angular.module('icyl.directives', [])
                         }
                     }
                     if (event.data.indexOf('http://')>-1) {
-                        Storage.kset('iframeLocation', event.data);
+                        var socialSharing = event.data.split("<$separate$>");
+                        Storage.kset('sharedlink', socialSharing[0]);
+                        Storage.kset('sharedmessage', socialSharing[1]);
+                        Storage.kset('sharedsubject', socialSharing[2]);
+                        Storage.kset('sharedmedia', socialSharing[3]);
                     }
                 }
             }
@@ -148,28 +117,29 @@ angular.module('icyl.directives', [])
     }
 }])
 
-// .directive( "customGoBackOffline", ['$state', 'CustomNav', function($state, CustomNav) {
-//     return {
-//         restrict: "A",
-//             link: function( scope, element, attrs ) {
-//             element.bind( "click", function () {
-// 			    !!CustomNav.fromState ? $state.go(CustomNav.fromState) : $state.go(CustomNav.defaultback($state.current.name));
-// 			});
-//         }
-//     }
-// }])
-
-// //在线校验指令按钮
-// .directive( "offlineCheck", ['$window', 'CustomNav', function($window, CustomNav) {
-//     return {
-//         restrict: "A",
-//         link: function( scope, element, attrs ) {
-//             element.bind( "click", function () {
-            
-//             });
-//         }
-//     }
-// }])
+//自定义分享按钮
+.directive( "socialSharing", ['Storage', function(Storage) {
+    return {
+        restrict: "A",
+        link: function( scope, element, attrs ) {
+            element.bind( "click", function () {
+                window.plugins.socialsharing.share(
+                    !!Storage.kget('sharedmessage') ? Storage.kget('sharedmessage') : '这个平台不错的！',   //'信息、主题图片和链接', 
+                    !!Storage.kget('sharedsubject') ? Storage.kget('sharedsubject') : '请关注这个平台！',   //'主题', 
+                    !!Storage.kget('sharedmedia') ? Storage.kget('sharedmedia') : null, 
+                    !!Storage.kget('sharedlink') ? Storage.kget('sharedlink') : 'http://17f.go5le.net/bootstrap-3.1.1/',
+                    function (result) {
+                        console.log('result: ' + result);
+                        //window.alert('result: ' + result);    //===============test
+                    },
+                    function (error) {
+                        window.alert('error: ' + result);
+                    }
+                );
+            });
+        }
+    }
+}])
 
 //打开外部页面按钮：封装了Cordova插件inAppBrowser
 .directive("openExternal", ['$windos', function($window){
@@ -329,32 +299,89 @@ angular.module('icyl.directives', [])
     };
 }])
 
+// //自定义iframe set cookie按钮
+// .directive( "iframeSetCookie", ['$window', '$document', 'Storage', function($window, $document, Storage) {
+//     return {
+//         restrict: "E",
+//         replace: true,
+//         //transclude: true,
+//         template:"<button class='button center-block'>设置cookie</button>",
+//         link: function( scope, element, attrs ) {
+//             console.log('iframeSetCookie'); //=============test
+//             element.bind( "click", function () {
+//                 var iframeWindow = $document.getElementById('setcookie').contentWindow;
+//                 //cookie = !!Storage.kget('xsunion') ? Storage.kget('xsunion') : false;
+//                 cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003';
+//                 if (iframeWindow && !!cookie) {
+//                     iframeWindow.postMessage(cookie, 'http://17f.go5le.net');
+//                 }
+//             });
+//             function handMessage(event){
+//                 event = event || $window.event;
+//                 // //验证是否来自预期内的域，如果不是不做处理，这样也是为了安全方面考虑
+//                 if(event.origin.match(/^http:\/\/17f.go5le.net/)){
+//                     console.log('parent received message!:', event.data, event.origin);
+//                 }
+//             }
+//             // //给window对象绑定message事件处理
+//             if($window.addEventListener){
+//                 $window.addEventListener("message", handMessage, false);
+//             }
+//             else{
+//                 $window.attachEvent("onmessage", handMessage);
+//             }
+//         }
+//     }
+// }])
 
-//自定义微信分享按钮
-.directive( "wechatShare", ['Storage', function(Storage) {
-    return {
-        restrict: "A",
-        link: function( scope, element, attrs ) {
-            element.bind( "click", function () {
-                Wechat.share({
-                    message: {
-                       title: "Message Title",
-                       description: "Message Description(optional)",
-                       mediaTagName: "Media Tag Name(optional)",
-                       thumb: "http://YOUR_THUMBNAIL_IMAGE",
-                       media: {
-                           type: Wechat.Type.WEBPAGE,   // webpage
-                           webpageUrl: "https://github.com/xu-li/cordova-plugin-wechat"    // webpage
-                       }
-                   },
-                   scene: Wechat.Scene.TIMELINE   // share to Timeline
-                }, function () {
-                    alert("Success");
-                }, function (reason) {
-                    alert("Failed: " + reason);
-                });
-            });
-        }
-    }
-}])
+// .directive( "customGoBackOffline", ['$state', 'CustomNav', function($state, CustomNav) {
+//     return {
+//         restrict: "A",
+//             link: function( scope, element, attrs ) {
+//             element.bind( "click", function () {
+// 			    !!CustomNav.fromState ? $state.go(CustomNav.fromState) : $state.go(CustomNav.defaultback($state.current.name));
+// 			});
+//         }
+//     }
+// }])
+
+// //在线校验指令按钮
+// .directive( "offlineCheck", ['$window', 'CustomNav', function($window, CustomNav) {
+//     return {
+//         restrict: "A",
+//         link: function( scope, element, attrs ) {
+//             element.bind( "click", function () {
+            
+//             });
+//         }
+//     }
+// }])
+
+// //自定义微信分享按钮
+// .directive( "wechatShare", ['Storage', function(Storage) {
+//     return {
+//         restrict: "A",
+//         link: function( scope, element, attrs ) {
+//             element.bind( "click", function () {
+//                 Wechat.share({
+//                     message: {
+//                        title: "Message Title",
+//                        description: "Message Description(optional)",
+//                        mediaTagName: "Media Tag Name(optional)",
+//                        thumb: "http://YOUR_THUMBNAIL_IMAGE",
+//                        media: {
+//                            type: Wechat.Type.WEBPAGE,   // webpage
+//                            webpageUrl: "https://github.com/xu-li/cordova-plugin-wechat"    // webpage
+//                        }
+//                    },
+//                    scene: Wechat.Scene.TIMELINE   // share to Timeline
+//                 }, function () {
+//                     alert("Success");
+//                 }, function (reason) {
+//                     alert("Failed: " + reason);
+//                 });
+//             });
+//         }
+//     }
+// }])
 
