@@ -22,10 +22,10 @@ Procedure	:
 4. cordova plugin add https://github.com/xu-li/cordova-plugin-wechat;
 5. 将libammsdk.jar放置到\platforms\android\CordovaLib\libs和\platforms\android\libs;
 6. cordova build; 编译出错, 按照错误提示作如下修改:
-7. 修改\platforms\android\src\xu\li\cordova\wechat\Wechat.java, 即Android插件代码; 
+7. 修改\plugins\xu.li.cordova.wechat\src\android\Wechat.java和\platforms\android\src\xu\li\cordova\wechat\Wechat.java, 即Android插件代码;
 7.1 将line:23@ public class Weixin extends CordovaPlugin { 中的Weixin改为Wechat, 插件作者有误;
 7.2 将line:17@ import com.tencent.mm.sdk.openapi.SendMessageToWX; 中的openapi改为modelmsg, 微信接口更新, 查阅Android_SDK.zip中的文档发现;
 7.3 将line:19, 20, 21@ 作相同修改;
 7.4 将line:25@ public static final String WXAPPID_PROPERTY_KEY = "weixinappid"; 中的weixinappid改为wechatappid, 插件作者笔误;
 7.5 将line:1@ package xu.li.cordova.Wechat; 中的Weixin改为Wechat;
-8. 在\platforms\android\res\xml\config.xml中加入<preference name="wechatappid" value="wx427f444432aef6cc" />; 这里的wechatappid和上面的WXAPPID_PROPERTY_KEY对应;
+8. 在\www\config.xml中加入<preference name="wechatappid" value="wx427f444432aef6cc" />; 不要在\platforms\android\res\xml\config.xml中加，每次ionic build或cordova build后，这个config.xml都会被\www\config.xml覆盖; 这里的wechatappid和上面的WXAPPID_PROPERTY_KEY对应;
