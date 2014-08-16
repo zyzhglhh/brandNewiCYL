@@ -327,4 +327,34 @@ angular.module('icyl.directives', [])
             // });
         }
     };
-}]);
+}])
+
+
+//自定义微信分享按钮
+.directive( "wechatShare", ['Storage', function(Storage) {
+    return {
+        restrict: "A",
+        link: function( scope, element, attrs ) {
+            element.bind( "click", function () {
+                Wechat.share({
+                    message: {
+                       title: "Message Title",
+                       description: "Message Description(optional)",
+                       mediaTagName: "Media Tag Name(optional)",
+                       thumb: "http://YOUR_THUMBNAIL_IMAGE",
+                       media: {
+                           type: Wechat.Type.WEBPAGE,   // webpage
+                           webpageUrl: "https://github.com/xu-li/cordova-plugin-wechat"    // webpage
+                       }
+                   },
+                   scene: Wechat.Scene.TIMELINE   // share to Timeline
+                }, function () {
+                    alert("Success");
+                }, function (reason) {
+                    alert("Failed: " + reason);
+                });
+            });
+        }
+    }
+}])
+
