@@ -124,10 +124,10 @@ angular.module('icyl.directives', [])
                 if (!!Storage.kget('socialSharing')) {
                     var sharing = Storage.kget('socialSharing').split("<$separate$>");
                     window.plugins.socialsharing.share(
-                        !!sharing[0] ? sharing[0] : '这个平台不错的！',   //'信息、主题图片和链接', 
-                        !!sharing[1] ? sharing[1] : '请关注这个平台！',   //'主题', 
-                        !!sharing[2] ? sharing[2] : null, 
-                        !!sharing[3] ? sharing[3] : 'http://17f.go5le.net/bootstrap-3.1.1/',
+                        null,   //!!sharing[0] ? sharing[0] : '这个平台不错的！',   //'信息、主题图片和链接', 
+                        null,   //!!sharing[1] ? sharing[1] : '请关注这个平台！',   //'主题', 
+                        null,   //!!sharing[2] ? sharing[2] : null,     //'图片地址',
+                        !!sharing[3] ? sharing[3] : 'http://17f.go5le.net/bootstrap-3.1.1/',    //'网址',
                         function (result) {
                             console.log('result: ' + result);
                             window.alert('result: ' + result);    //===============test
