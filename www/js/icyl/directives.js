@@ -97,12 +97,9 @@ angular.module('icyl.directives', [])
                             Storage.kremove('xsunion');
                         }
                     }
-                    if (event.data.indexOf('http://')>-1) {
-                        var socialSharing = event.data.split("<$separate$>");
-                        Storage.kset('sharedlink', socialSharing[0]);
-                        Storage.kset('sharedmessage', socialSharing[1]);
-                        Storage.kset('sharedsubject', socialSharing[2]);
-                        Storage.kset('sharedmedia', socialSharing[3]);
+                    if (event.data.indexOf('http://')==0) {
+                        //var socialSharing = event.data.split("<$separate$>");
+                        Storage.kset('socialSharing', event.data);
                     }
                 }
             }
@@ -117,25 +114,31 @@ angular.module('icyl.directives', [])
     }
 }])
 
-//自定义分享按钮
+//自定义分享按钮(每个页面只能有一个本元素)
 .directive( "socialSharing", ['Storage', function(Storage) {
     return {
         restrict: "A",
         link: function( scope, element, attrs ) {
+            Storage.kremove('socialSharing');
             element.bind( "click", function () {
-                window.plugins.socialsharing.share(
-                    !!Storage.kget('sharedmessage') ? Storage.kget('sharedmessage') : '这个平台不错的！',   //'信息、主题图片和链接', 
-                    !!Storage.kget('sharedsubject') ? Storage.kget('sharedsubject') : '请关注这个平台！',   //'主题', 
-                    !!Storage.kget('sharedmedia') ? Storage.kget('sharedmedia') : null, 
-                    !!Storage.kget('sharedlink') ? Storage.kget('sharedlink') : 'http://17f.go5le.net/bootstrap-3.1.1/',
-                    function (result) {
-                        console.log('result: ' + result);
-                        //window.alert('result: ' + result);    //===============test
-                    },
-                    function (error) {
-                        window.alert('error: ' + result);
-                    }
-                );
+                if (!!Storage.kget('socialSharing')) {
+                    var sharing = Storage.kget('socialSharing').split("<$separate$>");
+                    window.plugins.socialsharing.share(
+                        !!sharing[0] ? sharing[0] : '这个平台不错的！',   //'信息、主题图片和链接', 
+                        !!sharing[1] ? sharing[1] : '请关注这个平台！',   //'主题', 
+                        !!sharing[2] ? sharing[2] : null, 
+                        !!sharing[3] ? sharing[3] : 'http://17f.go5le.net/bootstrap-3.1.1/',
+                        function (result) {
+                            console.log('result: ' + result);
+                            //window.alert('result: ' + result);    //===============test
+                            Storage.kremove('socialSharing');
+                        },
+                        function (error) {
+                            window.alert('error: ' + result);
+                            Storage.kremove('socialSharing');
+                        }
+                    );
+                }
             });
         }
     }

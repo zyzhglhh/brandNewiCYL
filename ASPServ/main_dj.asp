@@ -172,6 +172,14 @@ tp11="img/1234"&ddd&".jpg"
       if(!!cookie[0]) {
           localStorage.setItem('xsunion', cookie[0]);
       }
+      var sharing = location.href + '<$separate$>'
+                        + document.title + '<$separate$>'
+                        + document.title + '<$separate$>'
+                        + document.getElementsByTagName('img')[0].src;
+
+      if (!!sharing) {
+          parent.postMessage(sharing,"*");
+      }
       //alert(cookie);
     });
   </script>
