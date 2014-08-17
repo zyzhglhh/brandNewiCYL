@@ -119,3 +119,10 @@
 /*.has-header iframe {
 	padding-top: 0;
 }*/
+
+.button .img-size .icon:before {
+	display: block;
+	margin-top: 0.5em;
+	font-size: 3em;
+	color: blue;
+}
