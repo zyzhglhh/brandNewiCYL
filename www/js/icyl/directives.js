@@ -130,12 +130,12 @@ angular.module('icyl.directives', [])
                         !!sharing[3] ? sharing[3] : 'http://17f.go5le.net/bootstrap-3.1.1/',
                         function (result) {
                             console.log('result: ' + result);
-                            //window.alert('result: ' + result);    //===============test
-                            Storage.kremove('socialSharing');
+                            window.alert('result: ' + result);    //===============test
+                            //Storage.kremove('socialSharing');
                         },
                         function (error) {
                             window.alert('error: ' + result);
-                            Storage.kremove('socialSharing');
+                            //Storage.kremove('socialSharing');
                         }
                     );
                 }
