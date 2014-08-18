@@ -140,10 +140,10 @@ angular.module('icyl', dependencies)
     //   url:'/default',
     //   access: { authenticate: false },
     //   views: {
-    //     'main-header': {
-    //       templateUrl: 'templates/main/header.html'
-    //       //, controller: 'mainDefault'
-    //     },
+    //     // 'main-header@': {
+    //     //   templateUrl: 'templates/main/header.html'
+    //     //   //, controller: 'mainDefault'
+    //     // },
     //     'main-container': {
     //       templateUrl: 'templates/main/default.html'
     //       //, controller: 'mainDefault'
@@ -151,8 +151,8 @@ angular.module('icyl', dependencies)
     //     'main-footer': {
     //       templateUrl: 'templates/main/footer.html'
     //     }
-    //   },
-    //   controller: 'mainDefault'
+    //   }
+    //   //, controller: 'mainDefault'
     // })
     
     //一次加载整个页面
