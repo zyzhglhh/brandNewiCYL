@@ -190,7 +190,7 @@ angular.module('icyl.services', ['ngResource'])
 
         //console.log("#18----------"+$scope.$id);  //=====================test
         // Create the login modal that we will use later
-        $ionicModal.fromTemplateUrl('templates/main/login.html', {
+        $ionicModal.fromTemplateUrl('templates/common/login.html', {
           scope: $scope
           //,animation: 'no-animation'
         }).then(function(modal) {
@@ -224,7 +224,7 @@ angular.module('icyl.services', ['ngResource'])
           if (data.err_code == 0) { 
               //Alert(data.data.user + ' 您好，欢迎回来！' ); 
               $scope.loginmodal.remove();
-              // $ionicModal.fromTemplateUrl('templates/main/login.html', {
+              // $ionicModal.fromTemplateUrl('templates/common/login.html', {
               //  scope: $scope
               // }).then(function(modal) {
               //  $scope.loginmodal = modal;
@@ -273,7 +273,7 @@ angular.module('icyl.services', ['ngResource'])
         //Alert(registerData.gender);
 
         // Create the login modal that we will use later
-        $ionicModal.fromTemplateUrl('templates/main/register.html', {
+        $ionicModal.fromTemplateUrl('templates/common/register.html', {
           scope: $scope
           //,animation: 'no-animation'
         }).then(function(modal) {
@@ -307,7 +307,7 @@ angular.module('icyl.services', ['ngResource'])
             if (data.err_code == 0) { 
               //Alert(data.data.user + ' 注册成功，用户名：' + data.data.username ); 
               $scope.registermodal.remove();
-              $ionicModal.fromTemplateUrl('templates/main/register.html', {
+              $ionicModal.fromTemplateUrl('templates/common/register.html', {
                scope: $scope
               }).then(function(modal) {
                $scope.registermodal = modal;
