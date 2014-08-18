@@ -123,6 +123,7 @@ angular.module('icyl.directives', [])
             element.bind( "click", function () {
                 if (!!Storage.kget('socialSharing')) {
                     var sharing = Storage.kget('socialSharing').split("<$separate$>");
+                    window.alert(sharing);    //===============test
                     window.plugins.socialsharing.share(
                         null,   //!!sharing[0] ? sharing[0] : '这个平台不错的！',   //'信息、主题图片和链接', 
                         null,   //!!sharing[1] ? sharing[1] : '请关注这个平台！',   //'主题', 

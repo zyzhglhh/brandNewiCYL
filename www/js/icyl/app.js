@@ -227,10 +227,11 @@ angular.module('icyl', dependencies)
       views: {
         'main-container': {
           templateUrl: 'templates/main/love.html'
-        },
-        'main-footer': {
-          templateUrl: 'templates/common/footer.html'
         }
+        // ,
+        // 'main-footer': {
+        //   templateUrl: 'templates/common/footer.html'
+        // }
       },
       controller: 'mainLove'
     })
