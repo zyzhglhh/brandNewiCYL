@@ -133,6 +133,9 @@ angular.module('icyl.directives', [])
                             console.log('result: ' + result);
                             //window.alert('result: ' + result);    //===============test
                             //Storage.kremove('socialSharing');
+                            scope.$apply(function() {
+                                element[0].value = sharing[0]+sharing[2]+sharing[3]+result;
+                            });
                         },
                         function (error) {
                             window.alert('error: ' + result);
