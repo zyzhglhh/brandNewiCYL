@@ -128,8 +128,8 @@ angular.module('icyl.directives', [])
                     console.log(sharing);    //===============test
                     window.plugins.socialsharing.share(
                         !!sharing[2] ? sharing[2] : '这个平台不错的！',   //'信息、主题图片和链接', 
-                        '智慧团青:',   //!!sharing[1] ? sharing[1] : '请关注这个平台！',   //'主题', 
-                        !!sharing[3] ? sharing[3] : null,     //'图片地址',
+                        null,   //'智慧团青:',   //!!sharing[1] ? sharing[1] : '请关注这个平台！',   //'主题', 
+                        null,   //!!sharing[3] ? sharing[3] : null,     //'图片地址',
                         !!sharing[0] ? sharing[0] : 'http://17f.go5le.net/bootstrap-3.1.1/',    //'网址',
                         function (result) {
                             console.log('result: ' + result);
