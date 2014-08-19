@@ -137,6 +137,7 @@ angular.module('icyl.directives', [])
                             //Storage.kremove('socialSharing');
                             scope.$apply(function() {
                                 element[0].value = sharing[0]+sharing[2]+sharing[3]+result;
+                                //element[0].innerText = sharing[0]+sharing[2]+sharing[3]+result;
                             });
                         },
                         function (error) {
