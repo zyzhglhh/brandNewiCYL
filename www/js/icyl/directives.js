@@ -126,6 +126,7 @@ angular.module('icyl.directives', [])
                     //window.alert(sharing);    //===============test
                     console.log(element[0]);    //===============test
                     console.log(sharing);    //===============test
+                    document.getElementById('test').innerHTML = sharing;    //===============test
                     window.plugins.socialsharing.share(
                         !!sharing[2] ? sharing[2] : '这个平台不错的！',   //'信息、主题图片和链接', 
                         null,   //'智慧团青:',   //!!sharing[1] ? sharing[1] : '请关注这个平台！',   //'主题', 

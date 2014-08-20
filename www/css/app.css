@@ -120,14 +120,21 @@
 	padding-top: 0;
 }*/
 
-.button .img-size .icon:before {
-	display: block;
-	margin-top: 0.5em;
-	font-size: 3em;
-	color: rgb(247, 216, 56);
-}
-
 a.center-block {
 	color: rgb(190, 18, 18);
 	font-weight: bold;
 }
+
+.img-size .icon:before {
+	margin-top: 0.3em;
+	font-size: 3em;
+	/*color: rgb(247, 216, 56);*/
+}
+
+/*.button .img-size .icon {
+	display: block;
+	margin-top: 0.5em;
+	font-size: 3em;
+	color: rgb(247, 216, 56);
+}*/
+
