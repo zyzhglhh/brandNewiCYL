@@ -260,13 +260,13 @@ angular.module('icyl', dependencies)
       url:'/life',
       access: { authenticate: false },
       views: {
-        'main-header': {
-          templateUrl: 'templates/common/header.html'
-        }
-        // ,
-        // 'main-container': {
-        //   templateUrl: 'templates/main/life.html'
+        // 'main-header': {
+        //   templateUrl: 'templates/common/header.html'
         // }
+        // ,
+        'main-container': {
+          templateUrl: 'templates/main/life.html'
+        }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
