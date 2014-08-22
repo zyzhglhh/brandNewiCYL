@@ -24,9 +24,9 @@ angular.module('icyl', dependencies)
     }
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
-      //StatusBar.styleDefault();
-      StatusBar.overlaysWebView(false); //iOS6 style
-      StatusBar.styleLightContent();
+      StatusBar.styleDefault();
+      // StatusBar.overlaysWebView(false); //iOS6 style
+      // StatusBar.styleLightContent();
     }
     //window.ionic.Platform.showStatusBar(false)
     //window.ionic.Platform.fullScreen(true,false);
