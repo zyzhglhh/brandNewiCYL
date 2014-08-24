@@ -231,14 +231,15 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/love.html'
+          templateUrl: 'templates/main/love.html',
+          controller: 'mainLove'
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainLove'
+      }
+      
     })
 
     .state('main.beauty', {

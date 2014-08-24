@@ -168,7 +168,20 @@ angular.module('icyl.controllers', [])
 
 //智会相亲页面控制器
 .controller('mainLove', ['$scope', function($scope) {
-
+  $scope.items = [1,2,3];
+  var count = 4;
+  $scope.doRefresh = function() {
+    // $scope.$apply(function(){
+      $scope.items.push(count);
+      count++;
+      $scope.items.push(count);
+      count++;
+      $scope.items.push(count);
+      count++;
+    // });
+    $scope.$broadcast('scroll.refreshComplete');
+  };
+  
 }])
 
 //最美浙江页面控制器
