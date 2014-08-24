@@ -167,7 +167,7 @@ angular.module('icyl.controllers', [])
 }])
 
 //智会相亲页面控制器
-.controller('mainLove', ['$scope', function($scope) {
+.controller('mainLove', ['$scope', '$timeout', function($scope, $timeout) {
   $scope.items = [1,2,3];
   var count = 4;
   $scope.doRefresh = function() {
@@ -181,6 +181,27 @@ angular.module('icyl.controllers', [])
     // });
     $scope.$broadcast('scroll.refreshComplete');
   };
+
+  //$scope.items = [];
+  $scope.loadMoreData = function() {
+    $scope.items.push(count);
+    count++;
+    $scope.items.push(count);
+    count++;
+    $scope.items.push(count);
+    count++;
+    $timeout(function(){
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+    },1000);
+  };
+
+  $scope.moreDataCanBeLoaded = function() {
+    return true;
+  };
+
+  $scope.$on('stateChangeSuccess', function() {
+    $scope.loadMoreData();
+  });
   
 }])
 
