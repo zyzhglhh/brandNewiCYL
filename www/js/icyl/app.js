@@ -156,14 +156,14 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/news.html'
+          templateUrl: 'templates/main/news.html',
+          controller: 'mainNews'
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainNews'
+      }
     })
 
     .state('main.knowlbase', {
@@ -171,14 +171,14 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/knowlbase.html'
+          templateUrl: 'templates/main/knowlbase.html',
+          controller: 'mainKnowlBase'
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainKnowlBase'
+      }
     })
 
     .state('main.link', {
@@ -186,14 +186,14 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/link.html'
+          templateUrl: 'templates/main/link.html',
+          controller: 'mainLink'      
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainLink'
+      }
     })
 
     .state('main.brand', {
@@ -201,14 +201,14 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/brand.html'
+          templateUrl: 'templates/main/brand.html',
+          controller: 'mainBrand'
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainBrand'
+      }
     })
 
     .state('main.career', {
@@ -216,14 +216,14 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/career.html'
+          templateUrl: 'templates/main/career.html',
+          controller: 'mainCareer'
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainCareer'
+      }
     })
 
     .state('main.love', {
@@ -231,14 +231,14 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/love.html'
+          templateUrl: 'templates/main/love.html',
+          controller: 'mainLove'
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainLove'
+      }
     })
 
     .state('main.beauty', {
@@ -246,14 +246,14 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/beauty.html'
+          templateUrl: 'templates/main/beauty.html',
+          controller: 'mainBeauty'
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainBeauty'
+      }
     })
 
     .state('main.life', {
@@ -265,14 +265,14 @@ angular.module('icyl', dependencies)
         // }
         // ,
         'main-container': {
-          templateUrl: 'templates/main/life.html'
+          templateUrl: 'templates/main/life.html',
+          controller: 'mainLife'
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainLife'
+      }
     })
 
     .state('main.sysmgmt', {
@@ -280,14 +280,14 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/sysmgmt.html'
+          templateUrl: 'templates/main/sysmgmt.html',
+          controller: 'mainSysMgmt'
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainSysMgmt'
+      }
     })
 
     .state('main.loginold', {
@@ -295,14 +295,14 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/loginold.html'
+          templateUrl: 'templates/main/loginold.html',
+          controller: 'mainLoginOld'
         }
         // ,
         // 'main-footer': {
         //   templateUrl: 'templates/common/footer.html'
         // }
-      },
-      controller: 'mainLoginOld'
+      }
     })
 
     // .state('main.mine', {
