@@ -71,20 +71,20 @@ Result~~~~~~~~~~~~~~~~~~~
 =========================
 =#2======================
 
-Subject   : 
-Date      : 
+Subject   : gulp构建工具使用
+Date      : 20140902
 Author    : Alex Zhou
 Abstract  : 
-Key Words : 
+Key Words : gulp, grunt, package.json, gulpfile.js, uglify
 
 Main Body----------------
 
 Method & Material~~~~~~~~
-Online    : 
+Online    : http://handyxuefeng.blog.163.com/blog/static/4545217220142264922146/
 Code      : 
 
 Procedure~~~~~~~~~~~~~~~~
-
+注意点: 要安装好gulp任务相关的工具包, npm install gulp-util --save-dev //安装到node_modules目录下, 同时加入到package.json的devDependencies中, 如果--save-dev 改为--save, 则加入到package.json的dependencies中;
 Result~~~~~~~~~~~~~~~~~~~
 
 
