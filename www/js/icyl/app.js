@@ -11,6 +11,7 @@ var dependencies = ['ionic',
                     'icyl.directives',
                     //'icyl.filters',
                     'icyl.controllers',
+                    'demo.controllers',
                     'w5c.validator'];
 
 angular.module('icyl', dependencies)
