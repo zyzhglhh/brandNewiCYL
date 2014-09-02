@@ -383,13 +383,20 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/test/test.html',
+          templateUrl: 'templates/test/test_list.html',
           controller: 'mainTest'
         }
-        // ,
-        // 'main-footer': {
-        //   templateUrl: 'templates/common/footer.html'
-        // }
+      }
+    })
+
+    .state('main.testr', {
+      url:'/testr',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/test/test_repeat.html',
+          controller: 'mainTestR'
+        }
       }
     })
 
