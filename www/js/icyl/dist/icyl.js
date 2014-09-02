@@ -377,6 +377,21 @@ angular.module('icyl', dependencies)
     //   },
     //   controller: 'mainUserInfo'
     // })
+    
+    .state('main.test', {
+      url:'/test',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/test/test.html',
+          controller: 'mainTest'
+        }
+        // ,
+        // 'main-footer': {
+        //   templateUrl: 'templates/common/footer.html'
+        // }
+      }
+    })
 
     ;
 
@@ -620,7 +635,43 @@ angular.module('icyl.controllers', [])
 
 
 
+//测试
+.controller('mainTest', ['$scope', function($scope) {
+  $scope.items = [1,2,3];
+  var count = 4;
+  $scope.doRefresh = function() {
+    // $scope.$apply(function(){
+      $scope.items.push(count);
+      count++;
+      $scope.items.push(count);
+      count++;
+      $scope.items.push(count);
+      count++;
+    // });
+    $scope.$broadcast('scroll.refreshComplete');
+  };
 
+  //$scope.items = [];
+  $scope.loadMoreData = function() {
+    $scope.items.push(count);
+    count++;
+    $scope.items.push(count);
+    count++;
+    $scope.items.push(count);
+    count++;
+    $timeout(function(){
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+    },1000);
+  };
+
+  $scope.moreDataCanBeLoaded = function() {
+    return true;
+  };
+
+  $scope.$on('stateChangeSuccess', function() {
+    $scope.loadMoreData();
+  });
+}])
 
 
 

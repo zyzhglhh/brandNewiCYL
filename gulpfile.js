@@ -31,8 +31,10 @@ gulp.task('sass', function(done) {
 gulp.task('once', ['lint', 'minifycss', 'scripts']);
 
 // 所有上线前任务：实时监听
-gulp.task('watchall', function(){
-    gulp.run('lint', 'minifycss', 'scripts');
+gulp.task('watchall', ['lint', 'minifycss', 'scripts', 'callwatchall']);
+
+//监听函数
+gulp.task('callwatchall', function(){
 
     // 监听js文件变化
     gulp.watch('./www/js/icyl/*.js', function(){

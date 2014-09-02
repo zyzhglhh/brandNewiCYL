@@ -377,6 +377,21 @@ angular.module('icyl', dependencies)
     //   },
     //   controller: 'mainUserInfo'
     // })
+    
+    .state('main.test', {
+      url:'/test',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/test/test.html',
+          controller: 'mainTest'
+        }
+        // ,
+        // 'main-footer': {
+        //   templateUrl: 'templates/common/footer.html'
+        // }
+      }
+    })
 
     ;
 
