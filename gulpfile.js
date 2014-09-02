@@ -1,8 +1,10 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
+var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
@@ -17,6 +19,52 @@ gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
     .pipe(sass())
     .pipe(gulp.dest('./www/css/'))
+    .pipe(minifyCss({
+      keepSpecialComments: 0
+    }))
+    .pipe(rename({ extname: '.min.css' }))
+    .pipe(gulp.dest('./www/css/'))
+    .on('end', done);
+});
+
+// 所有上线前任务：执行一次
+gulp.task('once', ['lint', 'minifycss', 'scripts']);
+
+// 所有上线前任务：实时监听
+gulp.task('watchall', function(){
+    gulp.run('lint', 'minifycss', 'scripts');
+
+    // 监听js文件变化
+    gulp.watch('./www/js/icyl/*.js', function(){
+        gulp.run('lint', 'scripts');
+    });
+
+    // 监听css文件变化
+    gulp.watch('./www/css/app.css', function(){
+        gulp.run('minifycss');
+    });
+});
+
+// 检查脚本
+gulp.task('lint', function() {
+    gulp.src('./www/js/icyl/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
+
+// 合并，压缩文件
+gulp.task('scripts', function() {
+    gulp.src('./www/js/icyl/*.js')
+        .pipe(concat('icyl.js'))
+        .pipe(gulp.dest('./www/js/icyl/dist/'))
+        .pipe(rename('icyl.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./www/js/icyl/dist/'));
+});
+
+//压缩CSS
+gulp.task('minifycss', function(done) {
+  gulp.src('./www/css/app.css')
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))

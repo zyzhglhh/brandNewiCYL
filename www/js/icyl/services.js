@@ -90,7 +90,8 @@ angular.module('icyl.services', ['ngResource'])
     return this.histories[0];
   };
   this.new = function () {
-    this.histories = new Array();
+    //this.histories = new Array();
+    this.histories = [];
   };
   this.remove = function (start, count) {
     this.histories.splice(start, count);
@@ -202,7 +203,7 @@ angular.module('icyl.services', ['ngResource'])
         // Triggered in the login modal to close it
         $scope.actions.closeLogin = function() {
           $scope.loginmodal.hide();
-        },
+        };
 
         // Open the login modal
         $scope.actions.login = function() {
@@ -221,7 +222,7 @@ angular.module('icyl.services', ['ngResource'])
 
           Data.User.signin($scope.loginData, function(data) {
 
-          if (data.err_code == 0) { 
+          if (data.err_code === 0) { 
               //Alert(data.data.user + ' 您好，欢迎回来！' ); 
               $scope.loginmodal.remove();
               // $ionicModal.fromTemplateUrl('templates/common/login.html', {
@@ -229,7 +230,7 @@ angular.module('icyl.services', ['ngResource'])
               // }).then(function(modal) {
               //  $scope.loginmodal = modal;
               // });
-              if ($scope.loginData.rememberPwd == true) {
+              if ($scope.loginData.rememberPwd === true) {
                 Storage.kset('password', data.data.password);
               }
               Storage.kset('username', data.data.username);
@@ -304,7 +305,7 @@ angular.module('icyl.services', ['ngResource'])
           Data.User.signup($scope.registerData, function(data) {
             //Alert($scope.registerData.genderFlag);
             
-            if (data.err_code == 0) { 
+            if (data.err_code === 0) { 
               //Alert(data.data.user + ' 注册成功，用户名：' + data.data.username ); 
               $scope.registermodal.remove();
               $ionicModal.fromTemplateUrl('templates/common/register.html', {
@@ -425,12 +426,12 @@ angular.module('icyl.services', ['ngResource'])
     'Session',
     '$q',
   function(
-    Storage
-    , Data 
-    ,Alert
-    //, Actions
-    , Session
-    , $q
+    Storage, 
+    Data, 
+    Alert, 
+    //Actions,
+    Session, 
+    $q
   ) {
     return {
       checkToken: function() {
@@ -443,7 +444,7 @@ angular.module('icyl.services', ['ngResource'])
         if (Storage.kget('username') && Storage.kget('password')) {
           if (Session.token) {
             Data.User.checktoken({token: Session.token}, function(data) {
-              if (data.err_code == 0) { 
+              if (data.err_code === 0) { 
                 //Actions.mineClick.allowed($scope);
                 //console.log("#5----------"+$scope.$id);  //=====================test
                 //return true;
@@ -451,7 +452,7 @@ angular.module('icyl.services', ['ngResource'])
               }
               else {
                 Data.User.signin({username: Storage.kget('username'), password: Storage.kget('password')}, function(data) {
-                  if (data.err_code == 0) { 
+                  if (data.err_code === 0) { 
                     Storage.kset('token', data.data.token);
                     Session.create(data.data.token);
                     //Actions.mineClick.allowed($scope);
@@ -479,7 +480,7 @@ angular.module('icyl.services', ['ngResource'])
           }
           else {
             Data.User.signin({username: Storage.kget('username'), password: Storage.kget('password')}, function(data) {
-              if (data.err_code == 0) { 
+              if (data.err_code === 0) { 
                   Storage.kset('token', data.data.token);
                   Session.create(data.data.token);
                   //Actions.mineClick.allowed($scope);
@@ -504,7 +505,7 @@ angular.module('icyl.services', ['ngResource'])
           if (Session.token) {
             //console.log("#10----------"+$scope.$id);  //=====================test
             Data.User.checktoken({token: Session.token}, function(data) {
-              if (data.err_code == 0) { 
+              if (data.err_code === 0) { 
                 //Actions.mineClick.allowed($scope);
                 //console.log("#11----------"+$scope.$id);  //=====================test
                 // return true;

@@ -6,12 +6,12 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 
-var dependencies = ['ionic'
-                   ,'icyl.services'
-                   ,'icyl.directives'
-                   //,'icyl.filters'
-                   ,'icyl.controllers'
-                   ,'w5c.validator'];
+var dependencies = ['ionic',
+                    'icyl.services',
+                    'icyl.directives',
+                    //'icyl.filters',
+                    'icyl.controllers',
+                    'w5c.validator'];
 
 angular.module('icyl', dependencies)
 
@@ -45,7 +45,7 @@ angular.module('icyl', dependencies)
       }
       else {
         Identification.checkToken().then( function (data) {
-          if (data.err_code != 0) {
+          if (data.err_code !== 0) {
             $rootScope.actions = {
               toState: toState
             };

@@ -18,7 +18,7 @@ angular.module('icyl.directives', [])
 			    //!!CustomNav.goback() ? $state.go(CustomNav.goback()) : $state.go(CustomNav.defaultback($state.current.name));
 			});
         }
-    }
+    };
 }])
 
 //自定义我的链接
@@ -36,7 +36,7 @@ angular.module('icyl.directives', [])
                 //console.log(attrs);    //====================test
             }
         }
-    }
+    };
 }])
 
 //自定义iframe，和default.html:114配合使用：done
@@ -97,7 +97,7 @@ angular.module('icyl.directives', [])
                             Storage.kremove('xsunion');
                         }
                     }
-                    if (event.data.indexOf('http://')==0) {
+                    if (event.data.indexOf('http://')===0) {
                         //var socialSharing = event.data.split("<$separate$>");
                         Storage.kset('socialSharing', event.data);
                     }
@@ -111,7 +111,7 @@ angular.module('icyl.directives', [])
                 $window.attachEvent("onmessage", handMessage);
             }
         }
-    }
+    };
 }])
 
 //自定义分享按钮(每个页面只能有一个本元素)
@@ -150,7 +150,7 @@ angular.module('icyl.directives', [])
                 }
             });
         }
-    }
+    };
 }])
 
 //打开外部页面按钮：封装了Cordova插件inAppBrowser
@@ -182,7 +182,7 @@ angular.module('icyl.directives', [])
             // };   //没必要用apply，除非需要在主界面上同步显示这一$scope中的变量变化
 
             var inAppBrowserClosed = function() {
-                if(inAppBrowser != null){
+                if(inAppBrowser !== null){
                     //console.log("did it");    //====================test
                     //inAppBrowser.removeEventListener('exit', wrappedFunction($scope.exit));
                     if($scope.loadOpen){
@@ -203,9 +203,9 @@ angular.module('icyl.directives', [])
                     }
                     $scope.exit();
                 }
-            }
+            };
             var inAppBrowserStart = function() {
-                if(inAppBrowser != null){
+                if(inAppBrowser !== null){
                     if($scope.loadOpen){
                         //$window.alert($scope.url);
                         inAppBrowser.executeScript({
@@ -219,9 +219,9 @@ angular.module('icyl.directives', [])
                         $scope.loadOpen();
                     }
                 }
-            }
+            };
             var inAppBrowserStop = function() {
-                if(inAppBrowser != null){
+                if(inAppBrowser !== null){
                     if($scope.loadStop){
                         //$window.alert($scope.url);
                         inAppBrowser.executeScript({
@@ -235,7 +235,7 @@ angular.module('icyl.directives', [])
                         $scope.loadStop();
                     }
                 }
-            }
+            };
             //console.log("did it");    //====================test
             //$scope.exit(); //====================test
             //console.log($scope.$id);    //====================test
@@ -397,3 +397,4 @@ angular.module('icyl.directives', [])
 //     }
 // }])
 
+;

@@ -233,7 +233,7 @@ angular.module('icyl.controllers', [])
 .controller('mainUserInfo', ['$scope', '$state', 'User', 'Identification', 'Alert', function($scope, $state, User, Identification, Alert) {
 
 	User.getUserInfo().then( function (data) {
-	  if (data.err_code == 0) {
+	  if (data.err_code === 0) {
 		//console.log(data.data); //=====================test
 	    $scope.updateUserInfo = {
 	      name: data.data.Name,
@@ -261,7 +261,7 @@ angular.module('icyl.controllers', [])
     update: function () {
       Identification.checkToken().then( function (data) {
         User.updateUserInfo($scope.updateUserInfo).then( function (data) {
-          if (data.err_code == 0) {
+          if (data.err_code === 0) {
             //console.log(data.data); //=====================test
             $state.go('main.account');
           }
@@ -278,7 +278,7 @@ angular.module('icyl.controllers', [])
       }, function (err) {
         console.log('错误：Identification.checkToken()' + err);
         Alert('请检查网络！');
-      })
+      });
       
     }
   };
