@@ -671,6 +671,24 @@ angular.module('icyl.controllers', [])
   $scope.$on('stateChangeSuccess', function() {
     $scope.loadMoreData();
   });
+
+  $scope.data = {
+    showDelete: false,
+    showReorder: false
+  };
+  
+  $scope.share = function(item) {
+    alert('Share Item: ' + item);
+  };
+  
+  $scope.moveItem = function(item, fromIndex, toIndex) {
+    $scope.items.splice(fromIndex, 1);
+    $scope.items.splice(toIndex, 0, item);
+  };
+  
+  $scope.onItemDelete = function(item) {
+    $scope.items.splice($scope.items.indexOf(item), 1);
+  };
 }])
 
 

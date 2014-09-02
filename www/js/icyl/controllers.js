@@ -195,8 +195,12 @@ angular.module('icyl.controllers', [])
 
 //测试
 .controller('mainTest', ['$scope', '$timeout', function($scope, $timeout) {
+
   $scope.items = [1,2,3];
   var count = 4;
+
+
+  //下拉刷新
   $scope.doRefresh = function() {
     // $scope.$apply(function(){
       $scope.items.push(count);
@@ -209,6 +213,8 @@ angular.module('icyl.controllers', [])
     $scope.$broadcast('scroll.refreshComplete');
   };
 
+
+  //上拉加载
   //$scope.items = [];
   $scope.loadMoreData = function() {
     $scope.items.push(count);
@@ -221,14 +227,31 @@ angular.module('icyl.controllers', [])
       $scope.$broadcast('scroll.infiniteScrollComplete');
     },1000);
   };
-
   $scope.moreDataCanBeLoaded = function() {
     return true;
   };
-
   $scope.$on('stateChangeSuccess', function() {
     $scope.loadMoreData();
   });
+
+
+  //删除、排序、滑动选项
+  $scope.data = {
+    showDelete: false,  //可以注释掉
+    showReorder: false  //可以注释掉
+  };
+  $scope.share = function(item) {
+    alert('Share Item: ' + item);
+  };
+  $scope.moveItem = function(item, fromIndex, toIndex) {
+    $scope.items.splice(fromIndex, 1);
+    $scope.items.splice(toIndex, 0, item);
+  };
+  $scope.onItemDelete = function(item) {
+    $scope.items.splice($scope.items.indexOf(item), 1);
+  };
+
+
 }])
 
 
