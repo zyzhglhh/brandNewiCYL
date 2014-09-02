@@ -636,7 +636,7 @@ angular.module('icyl.controllers', [])
 
 
 //测试
-.controller('mainTest', ['$scope', function($scope) {
+.controller('mainTest', ['$scope', '$timeout', function($scope, $timeout) {
   $scope.items = [1,2,3];
   var count = 4;
   $scope.doRefresh = function() {
