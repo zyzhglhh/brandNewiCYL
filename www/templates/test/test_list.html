@@ -36,6 +36,11 @@
 
     <ion-toggle ng-model="data.showDelete" ng-click="data.showReorder = false">显示删除按钮?</ion-toggle>
 
+    <ion-checkbox ng-model="isChecked">{{isChecked}}</ion-checkbox>
+    <ion-radio ng-model="choice" ng-value="'A'">Choose A</ion-radio>
+    <ion-radio ng-model="choice" ng-value="'B'">Choose B</ion-radio>
+    <ion-radio ng-model="choice" ng-value="'C'">Choose C</ion-radio>
+
     <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" icon="ion-loading-c" on-infinite="loadMoreData()" distance="1%">
     </ion-infinite-scroll>
 
