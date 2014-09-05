@@ -384,7 +384,7 @@ angular.module('icyl', dependencies)
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/test/test_list.html',
+          templateUrl: 'templates/test/test.html',
           controller: 'mainTest'
         }
       }
@@ -397,6 +397,28 @@ angular.module('icyl', dependencies)
         'main-container': {
           templateUrl: 'templates/test/test_repeat.html',
           controller: 'mainTestR'
+        }
+      }
+    })
+
+    .state('main.testl', {
+      url:'/testl',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/test/test_list.html',
+          controller: 'mainTestL'
+        }
+      }
+    })
+
+    .state('main.tests', {
+      url:'/tests',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/test/test_scroll.html',
+          controller: 'mainTestS'
         }
       }
     })

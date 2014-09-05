@@ -1,7 +1,15 @@
 angular.module('demo.controllers', [])
 
+.controller('mainTest', ['$scope', function($scope) {
+
+}])
+
+.controller('mainTestS', ['$scope', function($scope) {
+  
+}])
+
 //测试
-.controller('mainTest', ['$scope', '$timeout', function($scope, $timeout) {
+.controller('mainTestL', ['$scope', '$timeout', function($scope, $timeout) {
 
   $scope.items = [1,2,3];
   var count = 4;
