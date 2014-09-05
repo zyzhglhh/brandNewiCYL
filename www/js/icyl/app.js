@@ -423,6 +423,28 @@ angular.module('icyl', dependencies)
       }
     })
 
+    .state('main.testp', {
+      url:'/testp',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/test/test_popover.html',
+          controller: 'mainTestP'
+        }
+      }
+    })
+
+    .state('main.testa', {
+      url:'/testa',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/test/test_actionsheet.html',
+          controller: 'mainTestA'
+        }
+      }
+    })
+
     ;
 
   // if none of the above states are matched, use this as the fallback

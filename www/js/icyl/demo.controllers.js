@@ -8,6 +8,63 @@ angular.module('demo.controllers', [])
   
 }])
 
+.controller('mainTestP', ['$scope', '$ionicPopover', function($scope, $ionicPopover) {
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
+}])
+
+.controller('mainTestA', ['$scope', '$ionicActionSheet', '$timeout', function($scope, $ionicActionSheet, $timeout) {
+
+  // Triggered on a button click, or some other target
+  $scope.show = function() {
+
+    // Show the action sheet
+    var hideSheet = $ionicActionSheet.show({
+      buttons: [
+        { text: '<b>Share</b> This' },
+        { text: 'Move' }
+      ],
+      destructiveText: 'Delete',
+      titleText: 'Modify your album',
+      cancelText: 'Cancel',
+      cancel: function() {
+          // add cancel code..
+      },
+      buttonClicked: function(index) {
+        console.log(index);
+        return true;
+      }
+    });
+
+    // For example's sake, hide the sheet after two seconds
+    $timeout(function() {
+      hideSheet();
+    }, 2000);
+
+  };
+}])
+
 //测试
 .controller('mainTestL', ['$scope', '$timeout', function($scope, $timeout) {
 
