@@ -8,7 +8,8 @@ angular.module('demo.controllers', [])
   
 }])
 
-.controller('mainTestP', ['$scope', '$ionicPopover', function($scope, $ionicPopover) {
+.controller('mainTestP', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+
   $ionicPopover.fromTemplateUrl('my-popover.html', {
     scope: $scope,
   }).then(function(popover) {
@@ -32,6 +33,65 @@ angular.module('demo.controllers', [])
   $scope.$on('popover.removed', function() {
     // Execute action
   });
+
+
+
+  // Triggered on a button click, or some other target
+  $scope.showPopup = function() {
+    $scope.data = {}
+    // An elaborate, custom popup
+    var myPopup = $ionicPopup.show({
+      template: '<input type="password" ng-model="data.wifi">',
+      title: 'Enter Wi-Fi Password',
+      subTitle: 'Please use normal things',
+      scope: $scope,
+      buttons: [
+        { text: 'Cancel' },
+        {
+          text: '<b>Save</b>',
+          type: 'button-positive',
+          onTap: function(e) {
+            if (!$scope.data.wifi) {
+              //don't allow the user to close unless he enters wifi password
+              e.preventDefault();
+            } else {
+              return $scope.data.wifi;
+            }
+          }
+        },
+      ]
+    });
+    myPopup.then(function(res) {
+      console.log('Tapped!', res);
+    });
+    $timeout(function() {
+      myPopup.close(); //close the popup after 3 seconds for some reason
+    }, 3000);
+  };
+  // A confirm dialog
+  $scope.showConfirm = function() {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Consume Ice Cream',
+      template: 'Are you sure you want to eat this ice cream?'
+    });
+    confirmPopup.then(function(res) {
+      if(res) {
+        console.log('You are sure');
+      } else {
+        console.log('You are not sure');
+      }
+    });
+  };
+  // An alert dialog
+  $scope.showAlert = function() {
+    var alertPopup = $ionicPopup.alert({
+      title: 'Don\'t eat that!',
+      template: 'It might taste good'
+    });
+    alertPopup.then(function(res) {
+      console.log('Thank you for not eating my delicious ice cream cone');
+    });
+  };
 }])
 
 .controller('mainTestA', ['$scope', '$ionicActionSheet', '$timeout', function($scope, $ionicActionSheet, $timeout) {
@@ -43,24 +103,37 @@ angular.module('demo.controllers', [])
     var hideSheet = $ionicActionSheet.show({
       buttons: [
         { text: '<b>Share</b> This' },
-        { text: 'Move' }
+        { text: 'Delay to Cancel' }
       ],
       destructiveText: 'Delete',
       titleText: 'Modify your album',
       cancelText: 'Cancel',
       cancel: function() {
-          // add cancel code..
+        // add cancel code..
       },
       buttonClicked: function(index) {
         console.log(index);
+        if (index == 0) {
+          return true;
+        }
+        if (index == 1) {
+          $timeout(function() {
+            hideSheet();
+            //return true;
+          }, 2000);
+        }
+        //return true;
+      },
+      destructiveButtonClicked: function() {
         return true;
-      }
+      },
+      cancelOnStateChange: true
     });
 
     // For example's sake, hide the sheet after two seconds
-    $timeout(function() {
-      hideSheet();
-    }, 2000);
+    // $timeout(function() {
+    //   hideSheet();
+    // }, 2000);
 
   };
 }])
