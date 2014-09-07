@@ -122,18 +122,18 @@ angular.module('icyl.services', ['ngResource'])
 //数据模型函数
 .factory('Data', ['$resource', function($resource){
   return {
-    User: $resource('http://:baseurl/:path/lp.php', 
+    User: $resource('http://17f.go5le.net/mall/index/chklogin_app.asp', 
                     {
-                      baseurl:'localhost', 
-                      path:'PHPServ'
-                      //, callback: 'JSON_CALLBACK' //jsonp_flag
+                      //baseurl:'localhost', 
+                      //path:'PHPServ'
+                      callback: 'JSON_CALLBACK' //jsonp_flag
                     }, 
                     {
-                      signin: {method:'POST', params:{c:'user', a:'get_token'}, timeout: 3000},//json_flag
-                      signup: {method:'POST', params:{c:'user', a:'register'}, timeout: 3000}, //json_flag
-                      checktoken: {method:'POST', params:{c:'user', a:'user_verify'}, timeout: 3000}, //json_flag
-                      updateuserinfo: {method:'POST', params:{c:'user', a:'update_userinfo'}, timeout: 3000},  //json_flag
-                      // signin: {method:'JSONP', params:{c:'user', a:'get_token'}}, //jsonp_flag
+                      //signin: {method:'POST', params:{c:'user', a:'get_token'}, timeout: 3000},//json_flag
+                      //signup: {method:'POST', params:{c:'user', a:'register'}, timeout: 3000}, //json_flag
+                      //checktoken: {method:'POST', params:{c:'user', a:'user_verify'}, timeout: 3000}, //json_flag
+                      //updateuserinfo: {method:'POST', params:{c:'user', a:'update_userinfo'}, timeout: 3000},  //json_flag
+                      signin: {method:'JSONP', params:{c:'user', a:'get_token'}}, //jsonp_flag
                       // signup: {method:'JSONP', params:{c:'user', a:'register'}},  //jsonp_flag
                       // checktoken: {method:'JSONP', params:{c:'user', a:'user_verify'}}, //jsonp_flag
                       // updateuserinfo: {method:'JSONP', params:{c:'user', a:'update_userinfo'}},  //jsonp_flag
@@ -221,6 +221,7 @@ angular.module('icyl.services', ['ngResource'])
           console.log('正在登录', $scope.loginData);
 
           Data.User.signin($scope.loginData, function(data) {
+            console.log(data);
 
           if (data.err_code === 0) { 
               //Alert(data.data.user + ' 您好，欢迎回来！' ); 
@@ -253,7 +254,7 @@ angular.module('icyl.services', ['ngResource'])
               $scope.loginData.password = '';
             }
           }, function(err){
-              Alert('请检查网络！！！');
+              Alert('请检查网络！');
               console.log(' request fail for login !!!!! ' + err);
           });
         };
@@ -331,7 +332,7 @@ angular.module('icyl.services', ['ngResource'])
               // };
             }
           }, function(err){
-              Alert('请检查网络！！！');
+              Alert('请检查网络！！');
               console.log(' request fail for register !!!!! ' + err);
           });
         };
@@ -364,7 +365,7 @@ angular.module('icyl.services', ['ngResource'])
         Data.User.updateuserinfo(userinfo, function(data) {
           deferred.resolve(data);
         }, function(err) {
-            Alert('请检查网络！！！');
+            Alert('请检查网络！！！！');
             console.log(' request fail for updateUserInfo !!!!! ' + err);
             deferred.resolve(err);
         });
@@ -467,13 +468,13 @@ angular.module('icyl.services', ['ngResource'])
                     deferred.resolve(data);
                   }
                 }, function(err) {
-                  Alert('请检查网络！！！');
+                  Alert('请检查网络！！！！！');
                   console.log(' request fail for get_token !!!!! ' + err);
                   deferred.resolve(err);
                 });
               }
             }, function(err) {
-                Alert('请检查网络！！！');
+                Alert('请检查网络！！！！！！');
                 console.log(' request fail for check_token !!!!! ' + err);
                 deferred.resolve(err);
             });
@@ -495,7 +496,7 @@ angular.module('icyl.services', ['ngResource'])
                   deferred.resolve(data);
                 }
               }, function(err) {
-                Alert('请检查网络！！！');
+                Alert('请检查网络！！！！！！！');
                 console.log(' request fail for get_token !!!!! ' + err);
                 deferred.resolve(err);
               });
@@ -518,7 +519,7 @@ angular.module('icyl.services', ['ngResource'])
                 deferred.resolve(data);
               }
             }, function(err) {
-                Alert('请检查网络！！！');
+                Alert('请检查网络！！！！！！！！');
                 console.log(' request fail for check_token without username and password !!!!! ' + err);
                 deferred.resolve(err);
             });

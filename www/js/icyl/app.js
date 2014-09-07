@@ -306,78 +306,78 @@ angular.module('icyl', dependencies)
       }
     })
 
-    // .state('main.mine', {
-    //   url:'/mine',
-    //   access: { authenticate: true, offline: 'main.mineoffline' },
-    //   views: {
-    //     //'main-header': {
-    //     //  templateUrl: 'templates/common/header.html'
-    //     //},
-    //     'main-container': {
-    //       templateUrl: 'templates/user/mine.html'
-    //       //, controller: 'mainMine'
-    //     }
-    //     //,
-    //     //'main-footer': {
-    //     //  templateUrl: 'templates/common/footer.html'
-    //     //}
-    //   },
-    //   controller: 'mainMine'
-    // })
+    .state('main.mine', {
+      url:'/mine',
+      access: { authenticate: true, offline: 'main.mineoffline' },
+      views: {
+        //'main-header': {
+        //  templateUrl: 'templates/common/header.html'
+        //},
+        'main-container': {
+          templateUrl: 'templates/user/mine.html',
+          controller: 'mainMine'
+          //, controller: 'mainMine'
+        }
+        //,
+        //'main-footer': {
+        //  templateUrl: 'templates/common/footer.html'
+        //}
+      }
+    })
 
-    // .state('main.mineoffline', {
-    //   url:'/mineoffline',
-    //   access: { authenticate: false },
-    //   views: {
-    //     //'main-header': {
-    //     //  templateUrl: 'templates/common/header.html'
-    //     //},
-    //     'main-container': {
-    //       templateUrl: 'templates/user/mineoffline.html',
-    //     }
-    //     //,
-    //     //'main-footer': {
-    //     //  templateUrl: 'templates/common/footer.html'
-    //     //}
-    //   },
-    //   controller: 'mainMineOffline'
-    // })
+    .state('main.mineoffline', {
+      url:'/mineoffline',
+      access: { authenticate: false },
+      views: {
+        //'main-header': {
+        //  templateUrl: 'templates/common/header.html'
+        //},
+        'main-container': {
+          templateUrl: 'templates/user/mineoffline.html',
+          controller: 'mainMineOffline'
+        }
+        //,
+        //'main-footer': {
+        //  templateUrl: 'templates/common/footer.html'
+        //}
+      }
+    })
 
-    // .state('main.account', {
-    //   url:'/account',
-    //   access: { authenticate: true },
-    //   views: {
-    //     //'main-header': {
-    //     //  templateUrl: 'templates/common/header.html'
-    //     //},
-    //     'main-container': {
-    //       templateUrl: 'templates/user/account.html',
-    //     }
-    //     //,
-    //     //'main-footer': {
-    //     //  templateUrl: 'templates/common/footer.html'
-    //     //}
-    //   },
-    //   controller: 'mainAccount'
-    // })
+    .state('main.account', {
+      url:'/account',
+      access: { authenticate: true },
+      views: {
+        //'main-header': {
+        //  templateUrl: 'templates/common/header.html'
+        //},
+        'main-container': {
+          templateUrl: 'templates/user/account.html',
+          controller: 'mainAccount'
+        }
+        //,
+        //'main-footer': {
+        //  templateUrl: 'templates/common/footer.html'
+        //}
+      }
+    })
 
-    // .state('main.userinfo', {
-    //   url:'/userinfo',
-    //   access: { authenticate: true },
-    //   views: {
-    //     //'main-header': {
-    //     //  templateUrl: 'templates/common/header.html'
-    //     //},
-    //     'main-container': {
-    //       templateUrl: 'templates/user/userinfo.html',
-    //     }
-    //     //,
-    //     //'main-footer': {
-    //     //  templateUrl: 'templates/common/footer.html'
-    //     //}
-    //   },
-    //   controller: 'mainUserInfo'
-    // })
+    .state('main.userinfo', {
+      url:'/userinfo',
+      access: { authenticate: true },
+      views: {
+        //'main-header': {
+        //  templateUrl: 'templates/common/header.html'
+        //},
+        'main-container': {
+          templateUrl: 'templates/user/userinfo.html',
+          controller: 'mainUserInfo'
+        }
+        //,
+        //'main-footer': {
+        //  templateUrl: 'templates/common/footer.html'
+        //}
+      }
+    })
     
     .state('main.test', {
       url:'/test',
