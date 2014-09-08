@@ -1,5 +1,11 @@
 <ion-view>
 
+  <style type="text/css">
+    .button {
+      margin-top: 2px;
+    }
+  </style>
+
   <ion-nav-bar class="bar-stable nav-title-slide-ios7">
       <ion-nav-buttons side="left">
         <button class="button button-clear" custom-go-back>
@@ -8,7 +14,7 @@
       </ion-nav-buttons>
   </ion-nav-bar>
 
-  <ion-content>
+  <ion-content scroll="false">
 
     <p>
         <button ng-click="openPopover($event)" class="button button-block">浮动弹出</button>
@@ -23,7 +29,36 @@
     <button class="button button-positive" ng-click="showAlert()">
       Alert
     </button>
-
+    <button class="button button-positive" on-hold="showAlert()">
+      on-hold
+    </button>
+    <button class="button button-positive" on-tap="showAlert()">
+      on-tap
+    </button>
+    <button class="button button-positive" on-touch="showAlert()">
+      on-touch
+    </button>
+    <button class="button button-positive" on-release="showAlert()">
+      on-release
+    </button>
+    <button class="button button-positive" on-drag="showAlert()">
+      on-drag
+    </button>
+    <button class="button button-positive" on-drag-up="showAlert()">
+      on-drag-up
+    </button>
+    <button class="button button-positive" on-swipe="showAlert()">
+      on-swipe
+    </button>
+    <button class="button button-positive" on-swipe-up="showAlert()">
+      on-swipe-up
+    </button>
+    <button class="button button-positive" ng-click="backDrop()">
+      Backdrop
+    </button>
+    <button class="button button-positive" ng-click="getPosition($event)">
+      Position
+    </button>
   </ion-content>
 
   <script id="my-popover.html" type="text/ng-template">

@@ -1,5 +1,6 @@
 angular.module('demo.controllers', [])
 
+
 .controller('mainTest', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
   $ionicPopover.fromTemplateUrl('my-popover.html', {
     scope: $scope,
@@ -26,11 +27,13 @@ angular.module('demo.controllers', [])
   });
 }])
 
+
 .controller('mainTestS', ['$scope', function($scope) {
   
 }])
 
-.controller('mainTestP', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+
+.controller('mainTestP', ['$scope', '$ionicPopover', '$ionicPopup', '$ionicBackdrop', '$timeout', '$ionicPosition', function($scope, $ionicPopover, $ionicPopup, $ionicBackdrop, $timeout, $ionicPosition) {
 
   $ionicPopover.fromTemplateUrl('my-popover.html', {
     scope: $scope,
@@ -55,8 +58,6 @@ angular.module('demo.controllers', [])
   $scope.$on('popover.removed', function() {
     // Execute action
   });
-
-
 
   // Triggered on a button click, or some other target
   $scope.showPopup = function() {
@@ -114,9 +115,25 @@ angular.module('demo.controllers', [])
       console.log('Thank you for not eating my delicious ice cream cone');
     });
   };
+
+  $scope.backDrop = function() {
+    $ionicBackdrop.retain();
+    $timeout(function() {
+      $ionicBackdrop.release();
+    }, 1000);
+  };
+
+  $scope.getPosition = function(e) {
+    //console.log(e);
+    //console.log(e.target == e.srcElement && e.srcElement == e.toElement);
+    var elem = angular.element(e.srcElement);
+    var elemPosition = $ionicPosition.position(elem);
+    console.log(elemPosition);
+  };
 }])
 
-.controller('mainTestA', ['$scope', '$ionicActionSheet', '$timeout', function($scope, $ionicActionSheet, $timeout) {
+
+.controller('mainTestA', ['$scope', '$ionicActionSheet', '$ionicLoading', '$timeout', function($scope, $ionicActionSheet, $ionicLoading, $timeout) {
 
   // Triggered on a button click, or some other target
   $scope.show = function() {
@@ -125,7 +142,8 @@ angular.module('demo.controllers', [])
     var hideSheet = $ionicActionSheet.show({
       buttons: [
         { text: '<b>Share</b> This' },
-        { text: 'Delay to Cancel' }
+        { text: 'Delay to Cancel' },
+        { text: 'Loading'}
       ],
       destructiveText: 'Delete',
       titleText: 'Modify your album',
@@ -135,11 +153,22 @@ angular.module('demo.controllers', [])
       },
       buttonClicked: function(index) {
         console.log(index);
-        if (index == 0) {
+        if (index === 0) {
           return true;
         }
-        if (index == 1) {
+        if (index === 1) {
           $timeout(function() {
+            hideSheet();
+            //return true;
+          }, 2000);
+        }
+        if (index === 2) {
+          $ionicLoading.show({
+            template: 'Loading...',
+            //noBackdrop: false
+          });
+          $timeout(function() {
+            $ionicLoading.hide();
             hideSheet();
             //return true;
           }, 2000);
@@ -160,12 +189,12 @@ angular.module('demo.controllers', [])
   };
 }])
 
+
 //测试
 .controller('mainTestL', ['$scope', '$timeout', function($scope, $timeout) {
 
   $scope.items = [1,2,3];
   var count = 4;
-
 
   //下拉刷新
   $scope.doRefresh = function() {
@@ -179,7 +208,6 @@ angular.module('demo.controllers', [])
     // });
     $scope.$broadcast('scroll.refreshComplete');
   };
-
 
   //上拉加载
   //$scope.items = [];
@@ -201,7 +229,6 @@ angular.module('demo.controllers', [])
     $scope.loadMoreData();
   });
 
-
   //删除、排序、滑动选项
   $scope.data = {
     showDelete: false,  //可以注释掉
@@ -219,8 +246,8 @@ angular.module('demo.controllers', [])
     $scope.items.splice($scope.items.indexOf(item), 1);
   };
 
-
 }])
+
 
 .controller('mainTestR', ['$scope', '$ionicScrollDelegate', 'filterFilter', function($scope, $ionicScrollDelegate, filterFilter) {
   var letters = $scope.letters = [];

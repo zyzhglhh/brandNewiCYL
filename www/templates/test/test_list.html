@@ -19,7 +19,7 @@
     </ion-refresher>
 
     <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
-      <ion-item ng-repeat="item in items" item="item" href="#/item/{{item}}">
+      <ion-item ng-repeat="item in items" item="item" href="#/item/{{item}}" on-hold="data.showDelete = !data.showDelete">
         Hello, Item {{item}}!
         <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)">
         </ion-delete-button>
