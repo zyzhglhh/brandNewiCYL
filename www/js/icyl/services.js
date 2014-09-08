@@ -133,10 +133,10 @@ angular.module('icyl.services', ['ngResource'])
                       //signup: {method:'POST', params:{c:'user', a:'register'}, timeout: 3000}, //json_flag
                       //checktoken: {method:'POST', params:{c:'user', a:'user_verify'}, timeout: 3000}, //json_flag
                       //updateuserinfo: {method:'POST', params:{c:'user', a:'update_userinfo'}, timeout: 3000},  //json_flag
-                      signin: {method:'JSONP', params:{c:'user', a:'get_token'}}, //jsonp_flag
-                      // signup: {method:'JSONP', params:{c:'user', a:'register'}},  //jsonp_flag
-                      // checktoken: {method:'JSONP', params:{c:'user', a:'user_verify'}}, //jsonp_flag
-                      // updateuserinfo: {method:'JSONP', params:{c:'user', a:'update_userinfo'}},  //jsonp_flag
+                      signin: {method:'JSONP', params:{c:'user', a:'get_token'}, timeout: 3000}, //jsonp_flag
+                      signup: {method:'JSONP', params:{c:'user', a:'register'}, timeout: 3000},  //jsonp_flag
+                      checktoken: {method:'JSONP', params:{c:'user', a:'user_verify'}, timeout: 3000}, //jsonp_flag
+                      updateuserinfo: {method:'JSONP', params:{c:'user', a:'update_userinfo'}, timeout: 3000},  //jsonp_flag
                       update_avatar: {method:'POST'},
                       update_mobile: {method:'POST'},
                       update_password: {method:'POST'}

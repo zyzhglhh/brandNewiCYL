@@ -141,3 +141,18 @@ a.center-block {
 /*ionic.css源代码里面找.bar-header, ios平台有专门针对bar-header的css语句, 将bar-header下移了20px, 因此对没有has-header的ion-content统一下移20px*/
 .platform-ios.platform-cordova:not(.fullscreen) ion-content.scroll-content:not(.has-header) {
   top: 20px; }
+
+.tabs-top .tabs {
+	top: 244px;
+}
+
+.tabs-top .pane .scroll-content {
+	top: 293px;
+	bottom: 55px;
+}
+
+.ad-banner, .ad-banner .box {
+	margin-top: 0;
+	max-height: 200px;
+	z-index: 99;
+}
