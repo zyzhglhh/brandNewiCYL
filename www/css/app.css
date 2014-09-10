@@ -135,3 +135,34 @@ a.center-block {
 .no-padding a {
 	color: #FF4500;
 }
+
+.no-padding > a > img{
+	min-height:4.5em;
+	vertical-align:middle
+}
+
+/*.tabs,.tabs-top{
+	top:10em;
+
+}
+.box img{
+	max-height: 10em;
+}
+
+.boxer .box{
+	top:10em;
+}*/
+
+.tabs-top .tabs {
+	top: 244px;
+}
+
+.tabs-top .pane .scroll-content {
+	top: 293px;
+}
+
+.ad-banner, .ad-banner .box {
+
+	max-height: 200px;
+	z-index: 99;
+}

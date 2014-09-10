@@ -1,0 +1,628 @@
+<ion-view title="团青时讯">
+
+<!--   <ion-nav-bar class="bar-stable nav-title-slide-ios7"> -->
+      <!-- <ion-nav-back-button class="button-clear hide"><i class="icon ion-ios7-arrow-back"></i> </ion-nav-back-button> --><!-- 前面这句废弃 -->
+<!--       <ion-nav-buttons side="left">
+        <button class="button button-clear" custom-go-back>
+          <i class="icon ion-ios7-arrow-back"></i>
+        </button>
+      </ion-nav-buttons>
+  </ion-nav-bar> -->
+
+<!--   <ion-content scroll="true" class="has-header iframe-wrapper">
+    <iframe seamless name="news" src="http://17f.go5le.net/99_tj/991/index.asp"></iframe>
+  </ion-content> -->
+  <link href="css/jbox.css" rel="stylesheet" type="text/css"> 
+  <link href="css/pic.css" rel="stylesheet" type="text/css"> 
+  <link href="css/pro.css" rel="stylesheet" type="text/css"> 
+  <link href="css/style.css" rel="stylesheet" type="text/css">   
+
+  <ion-content scroll="true" overflow-scroll="true" class="nne">
+     
+
+<div class="clear"></div>
+<div align="left">
+  <!-- 
+      <img src="../../imgs/111.png" border=0> <font size=2>登录：91&nbsp;&nbsp;
+    <a href="login_sj.asp" style="text-decoration:none;">注销</a>
+    &nbsp;&nbsp;
+    <a href="dingdan_list.asp?no=91002" style="text-decoration:none;"> <font size=3>下单查询</font>
+    </a>
+    <a href="pay_sj.asp?shopid=91002" style="text-decoration:none;">
+      已有参与：( <b id="cartnum">100</b>
+      )-->
+    </div>
+
+    <script src="../js/togoshoppingcart_dj.js" type="text/javascript"></script>
+    <div class="lanmu2" id="shopcart1" style="width:250px;position: absolute;position:fixed;top:145px;right:0px;z-index:200;display:none;border-bottom:0px" onclick="opencart();">
+      <div class="lanmu_title">
+        <span>购物下单</span>
+        <a href="pay_sj.asp?shopid=91002">打开</a>
+      </div>
+
+    </div>
+
+    <div class="lanmu2" id="shopcart" style="width:250px;position: absolute;position:fixed;top:145px;right:0px;z-index:199;display:none;">
+      <div class="lanmu_title">
+        <span>购物下单</span>
+        <a href="javascript:;" onclick="closecart();">关闭</a>
+      </div>
+      <div class="lanmu_con" style="background:#ffffff;font-size:12px;">
+
+        <form name="dingdan" action="dingdan.asp?fuc=add" method="post">
+          <div class="shop_cart_con">
+            <div class="shop_table_div">
+              <table class="shop_table" id="cartContent" cellpadding="0" cellspacing="0" style="width:100%;">
+                <script>ListCart()</script>
+              </table>
+            </div>
+            <div class="clear"></div>
+            <div class="shop_send">
+              <div style="line-height: 28px; padding: 0 2px">
+
+                <div id="myaddress">
+                  <ul>
+                    <input name="tbshopid" value="91002" type="hidden"></ul>
+                </div>
+              </div>
+              <p>
+                <span>您的称呼：</span>
+                <input name="tbname" type="text" id="tbname" class="info_box w_50p" value="91">
+                <!--
+                                    <label>
+                <input value="男" name="mysex" type="radio" id="mysex1" />
+                <span>男</span>
+              </label>
+              <label>
+                <input value="女" name="mysex" type="radio" id="mysex2" />
+                <span>女</span>
+              </label>
+              -->
+            </p>
+            <p>
+              <span class="letter_sp_01">联系电话：</span>
+              <input name="tbtel" type="text" id="tbtel" class="info_box w_140p" value="18868890016">
+              <br></p>
+            <p>
+              <span>邮编号码：</span>
+              <input name="zipcode" type="text" id="zipcode" class="info_box w_140p" value="">
+              <br></p>
+            <p>
+              <span>详细地址：</span>
+              <input name="tbaddress" type="text" id="tbaddress" class="info_box w_140p" value="">
+              <br></p>
+            <p></p>
+            <div style="line-height: 28px;">
+              <span style="float: left; font-size:13px">支付方式：</span>
+              <div>
+                <table id="rblpay" border="0" style="font-size:13px">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <input id="rblpay_0" type="radio" name="rblpay" value="0" checked="checked">
+                        <label for="rblpay_0">信用币</label>
+                      </td>
+                      <td>
+                        <input id="rblpay_1" type="radio" name="rblpay" value="1" disabled="">
+                        <label for="rblpay_1">支付宝</label>
+                        <input id="rblpay_2" type="radio" name="rblpay" value="2" disabled="">
+                        <label for="rblpay_2">统统付</label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="clear"></div>
+            <p></p>
+            <p>
+              <span>备注：</span>
+              <textarea name="tbremark" rows="2" cols="20" id="tbremark" onfocus="if(value=='您如有特殊需求，请在此填写（如尺寸、规格或发票等）') {value=''}" onblur="if (value=='') {value='您如有特殊需求，请在此填写（如尺寸、规格或发票等）'}" class="info_box w_170p" style="height: 50px; color: #B3B3B3">您如有特殊需求，请在此填写（如尺寸、规格或发票等）</textarea>
+            </p>
+
+            <div class="clear"></div>
+            <p align="center">
+              <input type="submit" name="btaddorder" value="提交订单" onclick="return checkorder();" id="btaddorder" class="btn_blue">
+              <input type="button" value="清空" onclick="deleteallcart();" class="btn_blue"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+function fun(e,o) { 
+        /* FF 下判断鼠标是否离开DIV */
+        if(window.navigator.userAgent.indexOf("Firefox")>=1) { 
+            var x = e.clientX + document.body.scrollLeft;
+            var y = e.clientY + document.body.scrollTop ;
+            var left = o.offsetLeft;
+            var top = o.offsetTop;
+            var w = o.offsetWidth;
+            var h = o.offsetHeight;
+            
+            if(y < top || y > (h + top) || x > left + w || x<left ) { 
+               closecart();
+            }
+        }
+
+        /* IE */
+        if(o.contains(event.toElement ) == false    ) 
+ closecart();
+        
+    }
+
+function cartheight(){
+  shopcartheight=$("#shopcart").height();
+}
+var shopcartheight=$("#shopcart").height();
+function opencart(){
+
+  $("#shopcart").show();
+  //$("#shopcart").animate({ height:shopcartheight},'slow');
+  $("#shopcart1").hide();
+
+  
+}
+function closecart(){
+
+  //$("#shopcart").animate({ height:'30'},'slow');
+  //$("#shopcart1").show();
+  $("#shopcart").hide();
+   
+}
+
+
+</script>
+
+  <title>活动报名</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+  <meta name="Keywords" content="会员企业联络员特别服务版块">
+
+  <meta name="Description" content="更时间">
+
+  <!--
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+  <link href="css/index.css" rel="stylesheet" type="text/css" />
+  -->
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/common.js"></script>
+
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/pro.css" type="text/css" rel="stylesheet">
+
+  <link href="../js/pro_pic/pic.css" type="text/css" rel="stylesheet">
+  <script>
+
+
+function qiehuan(id,type){
+if(id==1){
+document.getElementById(type+'_type1').className='title_on';
+document.getElementById(type+'_type2').className='title';
+document.getElementById(type+'_con1').style.display= 'block';
+document.getElementById(type+'_con2').style.display= 'none';
+};
+if(id==2){
+document.getElementById(type+'_type2').className='title_on';
+document.getElementById(type+'_type1').className='title';
+document.getElementById(type+'_con1').style.display= 'none';
+document.getElementById(type+'_con2').style.display= 'block';
+};
+
+}
+
+
+function show_detail(id){
+
+if(id=="detail_1"){
+document.getElementById('detail_2').style.display="none";
+document.getElementById('detail_3').style.display="none";
+document.getElementById('detail_4').style.display="none";
+}
+if(id=="detail_2"){
+document.getElementById('detail_1').style.display="none";
+document.getElementById('detail_3').style.display="none";
+document.getElementById('detail_4').style.display="none";
+}
+if(id=="detail_3"){
+document.getElementById('detail_1').style.display="none";
+document.getElementById('detail_2').style.display="none";
+document.getElementById('detail_4').style.display="none";
+}
+if(id=="detail_4"){
+document.getElementById('detail_1').style.display="none";
+document.getElementById('detail_2').style.display="none";
+document.getElementById('detail_3').style.display="none";
+}
+document.getElementById(id).style.display="block";
+}
+</script>
+
+  <script>
+
+var pid="2765";
+var kucun=$("#kucun").val();
+
+var userid="91";
+
+</script>
+
+  <input type="hidden" name="Hiddental" id="Hiddental" value="1">
+
+  <!--
+
+<div class="ad1000">
+  <a href="qd_show.asp?id=3" target="_blank">
+    <img  width=100 src="ad/ldkf.gif"  border="0"/>
+  </a>
+</div>
+-->
+<!--<img src="../../99/img/d123.png" width="100%" >
+-->
+<div class="center">
+
+  <div id="left" style="">
+
+    <div class="lanmu2" style="float:right;width:315px; margin-top:0px;">
+      <div class="lanmu_title">
+        <span>
+
+          <font color="#0666A4" size="3">【关于举行2013年度新申报省级青年文明号争创集体负责人培训班的通知】</font>
+        </span>
+      </div>
+      <div class="lanmu_con">
+
+        <div class="clear">
+          <table cellpadding="0" cellspacing="0" align="center" style="padding:10px 0;">
+            <tbody>
+              <tr>
+                <td align="left">
+                  <!-- slide start -->
+
+                  <div class="pro_pic" id="focus_bigpic" onmouseover="clearAuto()" onmouseout="setAuto()">
+
+                    <a class="pro-item">
+                      <img src="../../99/img/hd1.jpg"></a>
+
+                    <ul class="pro-toggle" id="focus_tabsbg">
+
+                      <li class="pro_current" onmouseover="Mea(0);">
+                        <img style="CURSOR: pointer" src="../../99/img/hd1.jpg" border="0"></li>
+
+                    </ul>
+                  </div>
+                  <script src="../js/pro_pic/pic.js" type="text/javascript"></script>
+                  <!-- slide end -->
+
+                  <table width="300" border="0" cellspacing="0" cellpadding="4" class="pro_right">
+                    <tbody>
+                      <tr>
+                        <td width="28%" align="right" class="td1"></td>
+                        <td width="78%" align="left">
+                          <span class="pro_title">
+                            <input id="pname" type="hidden" value="关于举行2013年度新申报省级青年文明号争创集体负责人培训班的通知"></span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td width="28%" height="30" align="right" class="td1">所需积分:</td>
+                        <td width="78%" align="left">
+                          <div class="price_2">
+
+                            <div class="huise">
+                              <span>
+                                <font color="red" size="3">壹积分</font>
+                              </span>
+                            </div>
+
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" class="td1" valign="top">参加人:</td>
+                        <td align="left" class="td2" valign="top">
+                          <font size="3"><input type="text" value="省团建" id="dgr" name="dgr" size="12"></font>
+                          *
+                          <font size="2">登录用户省团建</font>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" class="td1" valign="top">联系电话:</td>
+                        <td align="left" class="td2" valign="top">
+                          <font size="3">
+                            <input type="text" value="" id="tel" name="tel" size="16"></font>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td align="right" class="td1" valign="top">报名数目:</td>
+                        <td align="left">
+                          <div class="pro_num" style="margin-top:5px;">
+                            <a href="javascript:;" onclick="pro_num_pre();">
+                              <div class="pro_num_pre"></div>
+                            </a>
+                            <div class="pro_num_center">
+                              <input type="text" value="1" id="pro_num" name="pro_num"></div>
+                            <a href="javascript:;" onclick="pro_num_next();">
+                              <div class="pro_num_next"></div>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!--<tr>
+                      <td height="30" align="right" class="td1">评价：</td>
+                      <td align="left" class="td2">
+
+                        <div class="star" style="float:left;">
+                          <ul>
+                            <li class="star_blue"></li>
+                            <li class="star_blue"></li>
+                            <li class="star_blue"></li>
+                            <li class="star_hui"></li>
+                            <li class="star_hui"></li>
+                          </ul>
+                        </div>
+                        <div style=" float:left">（1234条买家评分）</div>
+                      </td>
+                    </tr>
+                    -->
+                    <tr>
+                      <td colspan="2" style="padding-left:12%;">
+
+                        <div style="margin-top:10px;float:center">
+                          <font color="white"></font>
+
+                          <input type="image" src="images/bm.gif" href="javascript:;" onclick="AddToShoppingCart('2765','关于举行2013年度新申报省级青年文明号争创集体负责人培训班的通知','0','0');">
+                          <a href="login_sj.asp?did=2765&amp;lt=33&amp;po=91">
+                            <img src="images/btn_dl.png" border="0"></a>
+
+                        </div>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <!--<td valign="top">
+              <div class="pinpai_logo">
+                <div class="pinpai_img">
+                  <img  width=100 src="images/pinpai_pic.png" width="80" height="80" border="0" />
+                </div>
+              </div>
+            </td>
+            -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    &nbsp;&nbsp;提示：此处为意向报名，点列表确认。可正式报名
+    <center>
+      <table border="0" width="310" bgcolor="#A8D7F5">
+        <!--<tr>
+        <td height=20 align="center" colspan=4>
+          <a href="pro_show_sj.asp?id=2765&nn=1&po=91">显示已有订购(请大家选择自己的订单进行下单)</a>
+          &nbsp;&nbsp;
+          <br></td>
+      </tr>
+      -->
+    </table>
+  </center>
+
+  <!--1-->
+  <div id="detail_1" style="display:block;">
+    <div class="detail_bar">
+      <ul>
+        <a href="javascript:;" onclick="show_detail('detail_1')">
+          <li class="d1">
+            <span>
+              <font size="3">详情</font>
+            </span>
+          </li>
+        </a>
+        <a href="javascript:;" onclick="show_detail('detail_2')">
+          <li class="d2">
+            <span>
+              <font size="3">评价</font>
+            </span>
+          </li>
+        </a>
+        <a href="javascript:window.location.href='../../99_tj/60/index.asp?no=91002&id=2765'">
+          <li class="d2">
+            <span>
+              <font size="3">相关详情</font>
+            </span>
+          </li>
+        </a>
+        <font size="3"></font>
+      </ul>
+      <font size="3"></font>
+    </div>
+    <font size="3">
+      <div style="width:92%; margin:2px auto;padding:20px 0;">
+        <font color="#0666A4" size="3">
+          【报名截止】离 2014-12-31仅 <b><font color="red" size="5">123</font></b> 
+          天
+          <br>【活动时间】2014-9-10</font>
+        <!--<span style=" font-size:14px;">导读：更时间</span>
+      <br>
+      &nbsp;&nbsp;-->
+      <br>
+      <font color="#0666A4" size="3">【详情说明】</font>
+      <p class="p0">
+        <span style="font-family:'仿宋_GB2312';font-size:18px;">各省“号、手”活动组委会成员单位、团市委青年文明号活动组委会，省属企业、省属高校团委，省直机关团工委：</span>
+        <span style="font-family:'仿宋_GB2312';font-size:17pt;"></span>
+      </p>
+      
+      
+    </div></font> 
+</div>
+<font size="3">
+  <!--2-->
+  <div id="detail_2" style="display:none;">
+    <div class="detail_bar">
+      <ul>
+        <a href="javascript:;" onclick="show_detail('detail_1')">
+          <li class="d1">
+            <span>
+              <font size="3">详情</font>
+            </span>
+          </li>
+        </a>
+        <a href="javascript:;" onclick="show_detail('detail_2')">
+          <li class="d2">
+            <span>
+              <font size="3">评价</font>
+            </span>
+          </li>
+        </a>
+        <a href="javascript:window.location.href='../../99_tj/60/index.asp?no=91002&id=2765'">
+          <li class="d2">
+            <span>
+              <font size="3">相关详情</font>
+            </span>
+          </li>
+        </a>
+
+      </ul>
+    </div>
+    <div style="width:96%; margin:0px auto;padding:20px 0;">此功能暂不开放</div>
+  </div>
+  <!--3-->
+  <div id="detail_3" style="display:none;">
+
+    <div class="detail_bar">
+      <ul>
+        <a href="javascript:;" onclick="show_detail('detail_1')">
+          <li class="d1">
+            <span>
+              <font size="3">详情</font>
+            </span>
+          </li>
+        </a>
+        <a href="javascript:;" onclick="show_detail('detail_2')">
+          <li class="d2">
+            <span>
+              <font size="3">评价</font>
+            </span>
+          </li>
+        </a>
+        <a href="javascript:window.location.href='../../99_tj/60/index.asp?no=91002&id=2765'">
+          <li class="d1">
+            <span>
+              <font size="3">相关详情</font>
+            </span>
+          </li>
+        </a>
+
+      </ul>
+    </div>
+    <div style="width:96%; margin:0px auto;padding:20px 0;">此功能暂不开放</div>
+  </div>
+
+  <!--4-->
+  <div id="detail_4" style="display:none;">
+
+    <div class="detail_bar">
+      <ul>
+        <a href="javascript:;" onclick="show_detail('detail_1')">
+          <li class="d1">
+            <span>详情</span>
+          </li>
+        </a>
+        <a href="javascript:;" onclick="show_detail('detail_2')">
+          <li class="d2">
+            <span>评价</span>
+          </li>
+        </a>
+        <a href="javascript:;" onclick="show_detail('detail_3')">
+          <li class="d2">
+            <span>相关详情</span>
+          </li>
+        </a>
+        <!--<a href="javascript:;" onClick="show_detail('detail_4')">
+        <li class="d1">
+          <span>售后服务</span>
+        </li>
+      </a>
+      -->
+    </ul>
+  </div>
+
+</div>
+<div class="lanmu_title">
+  <span>
+    <a href="http://17f.go5le.net/99_tj/main_dj.asp?po=91" target="_blank" style=" color:#0666A4; text-decoration:none;">
+      <font color="red" size="3">发布:浙江省团建</font>
+    </a>
+    <!--学习培训&nbsp;&nbsp;--> </span>
+  <span>
+    <a href="dingdan_list_dj.asp?no=91">
+      <font color="red" size="3">[我的报名]</font>
+    </a>
+  </span>
+</div>
+<!--lanmu_con--></font> 
+</div>
+<font size="3">
+
+<script>
+
+function open_rengou(pid){
+
+$.jBox("iframe:ajax_rengou.asp?id="+pid, {
+    title: "认购",
+    width: 400,
+    height: 300,
+    buttons: { '关闭': true }
+});
+}
+</script>
+<div class="clear"></div>
+</font>
+</div>
+<font size="3">
+<center>
+<input type="button" onclick="javascript:window.location.href=&quot;http://17f.go5le.net/99_tj/main_dj.asp?po=91&quot;" value="返回主页">
+&nbsp;&nbsp;
+<input type="button" onclick="javascript:history.go(-1)" value="返回上一页">
+&nbsp;&nbsp;
+<input type="button" onclick="javascript:window.location.href=&quot;http://17f.go5le.net/99_tj/38/index_sh.asp?po=91&quot;" value="我的"></center>
+<br>
+<br>
+<div class="clear"></div>
+</font>
+</div>
+<font size="3">
+<!--- -#include file="kf_sj.asp" - -->
+
+</font>
+</div>
+
+  </ion-content>
+
+  <ion-footer-bar class="bar-stable no-padding">
+    <div class="tabs tabs-icon-top">
+      <a class="tab-item" href="#/main/default">
+        <i class="icon ion-ios7-home"></i>
+        首页
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-star"></i>
+        收藏
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-gear-a"></i>
+        管理
+      </a>
+      <a class="tab-item" mine-href>
+        <i class="icon ion-person"></i>
+        我的
+      </a>
+    </div>
+  </ion-footer-bar>
+
+</ion-view>

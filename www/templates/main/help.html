@@ -1,0 +1,119 @@
+<ion-view>
+
+<!--   <ion-nav-bar class="bar-stable nav-title-slide-ios7"> -->
+      <!-- <ion-nav-back-button class="button-clear hide"><i class="icon ion-ios7-arrow-back"></i> </ion-nav-back-button> --><!-- 前面这句废弃 -->
+<!--       <ion-nav-buttons side="left">
+        <button class="button button-clear" custom-go-back>
+          <i class="icon ion-ios7-arrow-back"></i>
+        </button>
+      </ion-nav-buttons>
+  </ion-nav-bar> -->
+  <link href="css/ManageMent.css" rel="stylesheet" type="text/css">
+
+  <ion-content scroll="true" overflow-scroll="true" class="">
+
+
+  <form method="post" name="myform" onsubmit="return CheckForm();" action="ly_save_sj1.asp?action=add&amp;ly=1">
+    <center> <b></b>
+    </center>
+    <table width="300" border="0" align="center" cellpadding="3" cellspacing="2">
+      <tbody>
+        <tr>
+          <td colspan="2bgcolor=&quot;#C0C0C0&quot;" height="60">
+            <div align="center"> <font size="4">我要求助</font>
+            </div>
+          </td>
+
+        </tr>
+        <tr>
+          <td width="10%" height="22" bgcolor="#C0C0C0">
+            <div align="center">姓名</div>
+          </td>
+          <td width="80%" bgcolor="#E3E3E3">
+            <input type="text" name="fbr" value="" size="10">  
+            * 留言号
+            <input type="text" name="staff_id2" value="91" size="10">  
+            <input type="hidden" name="staff_id" value="91">  
+            <input type="hidden" name="ly_id" value="1">  
+            <input type="hidden" name="qy" value="浙江省团建"></td>
+        </tr>
+        <tr>
+          <td width="10%" height="22" bgcolor="#C0C0C0">
+            <div align="center">所在单位</div>
+          </td>
+          <td width="80%" bgcolor="#E3E3E3">
+            <input type="text" value="" name="qymc" size="10">  
+            *地址
+            <input type="text" name="addr" size="10" value="">*</td>
+        </tr>
+        <tr>
+          <td width="10%" height="22" bgcolor="#C0C0C0">
+            <div align="center">电话</div>
+          </td>
+          <td width="40%" bgcolor="#E3E3E3">
+            <input type="text" name="tel_nbr" size="10" value="18868890016">  
+            *QQ
+            <input type="text" name="qq" size="10" value="767641326"></td>
+        </tr>
+        <tr>
+          <td width="10%" height="22" bgcolor="#C0C0C0">
+            <div align="center">求助内容</div>
+          </td>
+          <td width="90%" bgcolor="#E3E3E3">
+            <textarea rows="6" name="Content" cols="30" style="font-size: 14px" class="smallInput"></textarea>
+          </td>
+
+        </tr>
+
+        <tr bgcolor="#C0C0C0">
+          <td height="22" colspan="2">
+            <div align="center">
+
+              <a href="wzmb.asp?no=91">
+                <img border="0" src="images/back1.gif" alt="关闭窗口"></a>
+              &nbsp;&nbsp;
+              <input type="hidden" name="page" value="">  
+              <input type="submit" name="Submit" value="提交">  
+              <input name="op" type="hidden">  
+              <!--<input name="del" type="button"   value="删除">--></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+  <script language="VBScript"> 
+<!--
+Sub del_onclick
+if msgbox("真的要删除吗？请确认！",1,"提示")=1 then
+   document.myform.op.value="9"
+   document.myform.submit
+end if
+end sub
+--> </script>
+  
+
+  </ion-content>
+
+  <ion-footer-bar class="bar-stable no-padding">
+    <div class="tabs tabs-icon-top">
+      <a class="tab-item" href="#/main/default">
+        <i class="icon ion-ios7-home"></i>
+        首页
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-star"></i>
+        收藏
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-gear-a"></i>
+        管理
+      </a>
+      <a class="tab-item" mine-href>
+        <i class="icon ion-person"></i>
+        我的
+      </a>
+    </div>
+  </ion-footer-bar>
+
+</ion-view>

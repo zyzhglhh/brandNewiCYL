@@ -277,6 +277,128 @@ angular.module('icyl', dependencies)
       }
     })
 
+    .state('main.nnews', {
+      url:'/nnews',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/nnews.html',
+          controller: 'nNews'
+        }
+      }
+    })
+
+    .state('main.nknowlbase', {
+      url:'/nknowlbase',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/nknowlbase.html',
+          controller: 'nKnowlbase'
+        }
+      }
+    })
+
+
+    .state('main.nlink', {
+      url:'/nlink',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/nlink.html',
+          controller: 'nLink'
+        }
+      }
+    })
+
+    .state('main.nlisto', {
+      url:'/nlisto',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/nlisto.html',
+          controller: 'nListo'
+        }
+      }
+    })
+
+    .state('main.nlistt', {
+      url:'/nlistt',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/nlistt.html',
+          controller: 'nListt'
+        }
+      }
+    })
+
+    .state('main.nlistf', {
+      url:'/nlistf',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/nlistf.html',
+          controller: 'nListf'
+        }
+      }
+    })
+
+    .state('main.nlists', {
+      url:'/nlists',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/nlists.html',
+          controller: 'nLists'
+        }
+      }
+    })
+
+    .state('main.bankoftime', {
+      url:'/bankoftime',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/bankoftime.html',
+          controller: 'bankOfTime'
+        }
+      }
+    })
+
+    .state('main.special', {
+      url:'/special',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/special.html',
+          controller: 'special'
+        }
+      }
+    })
+
+    .state('main.help', {
+      url:'/help',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/help.html',
+          controller: 'hElp'
+        }
+      }
+    })
+
+    .state('main.search', {
+      url:'/search',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/search.html',
+          controller: 'sEarch'
+        }
+      }
+    })
+
     // .state('main.mine', {
     //   url:'/mine',
     //   access: { authenticate: true, offline: 'main.mineoffline' },

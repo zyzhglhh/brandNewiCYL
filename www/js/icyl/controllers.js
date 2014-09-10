@@ -191,9 +191,79 @@ angular.module('icyl.controllers', [])
 
 }])
 
+.controller('nNews', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
+
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
+}])
 
 
 
+.controller('nKnowlbase', ['$scope', function($scope) {
+
+}])
+
+.controller('nLink', ['$scope', function($scope) {
+
+}])
+
+.controller('nListo', ['$scope', function($scope) {
+
+}])
+
+.controller('nListt', ['$scope', function($scope) {
+
+}])
+
+.controller('nListf', ['$scope', function($scope) {
+
+}])
+
+.controller('nLists', ['$scope', function($scope) {
+
+}])
+
+.controller('bankOfTime', ['$scope', function($scope) {
+
+}])
+
+.controller('special', ['$scope', function($scope) {
+
+}])
+
+.controller('hElp', ['$scope', function($scope) {
+
+}])
+
+.controller('sEarch', ['$scope', function($scope) {
+
+}])
 
 
 
