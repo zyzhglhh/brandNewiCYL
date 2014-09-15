@@ -153,11 +153,11 @@ a.center-block {
 	top:10em;
 }*/
 
-.tabs-top .tabs {
+.tabs-top-ad-banner .tabs {
 	top: 244px;
 }
 
-.tabs-top .pane .scroll-content {
+.tabs-top-ad-banner .pane .scroll-content {
 	top: 293px;
 }
 
@@ -166,3 +166,17 @@ a.center-block {
 	max-height: 200px;
 	z-index: 99;
 }
+
+.lovelist, .genderlist{
+	font-family: "微软雅黑";
+	font-weight: bold;
+	color: rgb(255, 0, 102);
+}
+.lovelist  .input-text {
+	margin-top:-0.375em;
+}
+
+.no-padding {
+	padding: 0;
+}
+

@@ -167,13 +167,69 @@ angular.module('icyl.controllers', [])
 }])
 
 //智会相亲页面控制器
-.controller('mainLove', ['$scope', function($scope) {
+.controller('mainLove', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png',name:'省团建',gender:'男',age:'20-30岁',company:'浙江省团建',address:'',tel:'15512345678'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png',name:'李剑锋',gender:'男',age:'20-30岁',company:'省农业厅',address:'杭州凤起东路29号',tel:'15543215678'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png',name:'李延吉',gender:'男',age:'20-30岁',company:'省人大办公室',address:'仁谐路1号',tel:'15512348765'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
 //最美浙江页面控制器
-.controller('mainBeauty', ['$scope', function($scope) {
+.controller('mainBeauty', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png',name:'省团建',gender:'男',age:'20-30岁',company:'浙江省团建',address:'',tel:'15512345678'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png',name:'李剑锋',gender:'男',age:'20-30岁',company:'省农业厅',address:'杭州凤起东路29号',tel:'15543215678'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png',name:'李延吉',gender:'男',age:'20-30岁',company:'省人大办公室',address:'仁谐路1号',tel:'15512348765'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
 //智慧生活页面控制器

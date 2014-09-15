@@ -1,178 +1,74 @@
+<style type="text/css">
+.margin-left{
+  margin-left: 0;
+  padding-left:  0;
+}
+</style>
 <ion-view>
+  <ion-header-bar class="bar-positive" align-title="center">
+      
+    <h1 class="title">
+      <a style="text-decoration:none">书海情缘<img src="img/badge.png" width="25">91私人制定</a>
+    </h1>
+    <div class="buttons">
+    <button class="button button-clear" ng-click="openPopover($event)"><i class="icon ion-navicon-round"></i></button>
+    </div>
 
-<!--   <ion-nav-bar class="bar-stable nav-title-slide-ios7"> -->
-      <!-- <ion-nav-back-button class="button-clear hide"><i class="icon ion-ios7-arrow-back"></i> </ion-nav-back-button> --><!-- 前面这句废弃 -->
-<!--       <ion-nav-buttons side="left">
-        <button class="button button-clear" custom-go-back>
-          <i class="icon ion-ios7-arrow-back"></i>
-        </button>
-      </ion-nav-buttons>
-  </ion-nav-bar> -->
 
-  <link href="css/22.css" rel="stylesheet" type="text/css">   
-  <script src="js/icyl/22.js" type="text/javascript"></script>    
-  <ion-content scroll="true" overflow-scroll="true" class="nne">
-  
-    <div class="html">
-      <div class="main">
-        <header>
-          <h1>
-            书海情缘
-            <a href="../main_dj.asp?no=91">
-              <img src="../img/tj3.png" width="25"></a>
-            91私人定制
-          </h1>
-          <center>
-            <img src="xq1.jpg" height="100"></center>
 
-        </header>
-        <!--header end-->  
-
-        <section>
-          <div style="position:fixed;"></div>
-          <div class="box-search">
-            <div class="box-form fl"></div>
-
-          </div>
-          <form method="post" id="form1" action="index_ds.asp?mc=1" style="margin:0;padding:0;">
-            <table width="100%" border="0" cellspacing="8" cellpadding="8">
-              <tbody>
-                <tr>
-                  <td align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;单位：
-                    <input name="staff_unit" type="text" value="" size="10">        
-                    &nbsp;&nbsp;姓名：
-                    <input name="staff_addr" type="text" value="" size="10"></td>
-                </tr>
-                <tr>
-                  <td align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="B1" type="radio" value="男" checked="">        
-                    单身男生
-                    <input name="B1" type="radio" value="女" checked="">        
-                    单身女生
-        &nbsp;&nbsp;
-                    <input type="submit" value=" 查 找 " class="btn"></td>
-                </tr>
-
-              </tbody>
-            </table>
-
-          </form>
-
-          <!-- begin list -->        
-          <div class="box box-list">
-            <a href="#" class="bd fw"> <b>姓名：保险公司&nbsp;性别：男&nbsp;&nbsp;年龄：20-30岁</b>
-              <p>所在单位：浙江省团建</p>
-              <p>地址：</p>
-              <p>[个人爱好]...</p>
-            </a>
-            <!-- 详情 -->        
-            <div class="ft table">
-              <!--  <a class="td" href="../../42/index_ds.asp?no=91002&lxt=91002">        
-              <img src="d1.png" border=0 height=20>我的订制空间</a>
-            -->
-            <a class="td" href="#main/nlistf">
-              <img src="dj101.png" border="0" height="20">了解我</a>
-
-            <a class="td" href="#main/nlists">
-              <img src="D1.png">留言</a>
-            <a class="td" href="tel:">
-              <img src="assets/micro_stores/ico-call.png">电话</a>
-          </div>
+  </ion-header-bar>
+  <ion-content class="has-footer">
+    <ion-list class="no-padding">
+      <ion-item>
+        <div class="lovelist row">
+          <div class="col col-20" >单位</div>
+          <div class="col"><input type="text" class="input-text"></div>
+          <div class="col col-20" >姓名</div>
+          <div class="col"><input type="text" class="input-text"></div>
         </div>
-
-        </section>
-
-  <div class="jiazai"></div>
-  </div>
-  </div>
-  <center>
-  <hr>  
-  <br>  
-  第1页首页 上一页&nbsp;下一页 尾页
-  总6条
-  </center>
-  <br>  
-  <center>
-  <input type="button" onclick="javascript:window.location.href=&quot;http://17f.go5le.net/99_tj/main_dj.asp?po=91&quot;" value="返回主页">  
-  &nbsp;&nbsp;
-  <input type="button" onclick="javascript:history.go(-1)" value="返回上一页">  
-  &nbsp;&nbsp;
-  <input type="button" onclick="javascript:window.location.href=&quot;http://17f.go5le.net/99_tj/38/index_sh.asp?po=91&quot;" value="我的"></center>
-  <br>  
-  <br>  
-  <style>
-<!--
-* {margin:0;padding:0;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
-html, body {
-    height: 100%
-}
-.html {min-height: 100%;}
-.main {
-overflow-x: hidden;
-overflow-y: auto;
-padding-bottom: 50px;}
-footer {position: relative;
-margin-top: -50px;
-height: 30px;
-clear:both;
-text-align:center; padding:20px 0 0 0; width: 100%;}
-body:before {
-content:"";
-height:100%;
-float:left;
-width:0;
-margin-top:-32767px;
-}
-/*footer*/
-footer,
-footer a{ color:#888; font-size: 12px; text-decoration: none;}
--->
-</style>
-
-  <script>
-  $(document).on("touchend",function(){
-    var maxH=$(".main").height()/2,
-      scrollTop=$(this).scrollTop();
-    if(scrollTop>=maxH){
-      // alert("刷到底了");
-      $("#next_branches").click();
-    }
-  })
-</script>
-  <style>
-.jiazai {
-  width: 75%;
-  margin: 0 auto;
-  padding: 6px;
-  text-align: center;
-}
-.jiazai a {
-  position: relative;
-  top: -5px;
-  color: #b0b0b0;
-  font-size: 12px;
-  padding-left: 5px;
-}
-</style>
-
-    
+        <div class="genderlist row">
+          <div class="col">
+          单身男生
+          <input type="radio" name="gender" value="单身男生" checked="checked"></div>
+          <div class="col">
+          单生女生
+          <input type="radio" name="gender" value="单身女生"></div>
+        </div>
+        <div class="row">
+          <button class="button button-assertive button-block" style="margin:auto">查找</button>
+        </div>
+      </ion-item>
+      <ion-item><img ng-src="img/badge.png" /></ion-item>
+      <ion-item ng-repeat="item in items">
+        <p class="lovefirstline">姓名：{{item.name}} 性别：{{item.gender}} 年龄：{{item.age}}</p>
+        <p class="lovesecondline">所在单位：{{item.company}}</p>
+        <p class="lovethirdline">地址：{{item.address}}</p>
+        <p class="loveforthline">[个人爱好]…</p>
+        <hr>
+        <button class="button  icon-left ion-chatboxes button-clear button-assertive margin-left" >了解我</button>
+        <button class="button   button-clear button-assertive"><img src="img/badge.png" width="16">留言</button>
+        <button class="button  icon-left ion-ios7-telephone button-clear button-assertive">{{item.tel}}</button>
+      </ion-item>
+      
+    </ion-list>
   </ion-content>
 
+<ng-include src = "'footer.html'"></ng-include>
+</ion-view>
+
+  <script id="footer.html" type="text/ng-template">
+      
   <ion-footer-bar class="bar-stable no-padding">
     <div class="tabs tabs-icon-top">
-      <a class="tab-item" href="#/main/default">
-        <i class="icon ion-ios7-home"></i>
+      <a class="tab-item" href="#/main/default"> <i class="icon ion-ios7-home"></i>
         首页
       </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-star"></i>
+      <a class="tab-item" href="#"> <i class="icon ion-star"></i>
         收藏
       </a>
-      <a class="tab-item" social-sharing>
+      <a class="tab-item" href="#">
         <i class="icon ion-gear-a"></i>
-        转发
+        管理
       </a>
       <a class="tab-item" mine-href>
         <i class="icon ion-person"></i>
@@ -180,5 +76,16 @@ footer a{ color:#888; font-size: 12px; text-decoration: none;}
       </a>
     </div>
   </ion-footer-bar>
+      
+  </script>
 
-</ion-view>
+<script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-header-bar>
+      <h1 class="title">My Popover Title</h1>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-popover-view>
+</script>

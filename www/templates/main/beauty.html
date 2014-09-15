@@ -1,309 +1,117 @@
-<ion-view>
+<ion-view title="最美浙江">
 
-<!--   <ion-nav-bar class="bar-stable nav-title-slide-ios7"> -->
-      <!-- <ion-nav-back-button class="button-clear hide"><i class="icon ion-ios7-arrow-back"></i> </ion-nav-back-button> --><!-- 前面这句废弃 -->
-<!--       <ion-nav-buttons side="left">
-        <button class="button button-clear" custom-go-back>
-          <i class="icon ion-ios7-arrow-back"></i>
-        </button>
-      </ion-nav-buttons>
-  </ion-nav-bar> -->
-  <link rel="stylesheet" type="text/css" href="css/m_index_style-20130715142717.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="css/add2home.css" media="screen">
-
-  <ion-content scroll="true" overflow-scroll="true" class="">
-
-    <div class="mbt-page">
-
-      <!--201209_移动站_公共头-->  
-      <header>
-        <!--<img src="img/f20b58e9-72b1-44ac-b000-92b4740ed4f2.png">  
-        -->
-        <img src="img/logo.jpg" height="50">  
-        <!--  <div class="m-download" id="m_download_top">  
-        <div class="m-download-apple"></div>
-        <a href="../ly_edit_sj1.asp?staff_id=91&qy=浙江省团建">我要求助</a>
-      </div>
-      -->
-    </header>
-
-    <!--201209_移动站_公共导航-->  
-    <nav class="m-nav">
-      <ul>
-        <li class="current">
-          <a href="#main/beauty">
-            <img src="img/home1.png" width="25"></a>
-          <s></s>
-        </li>
-        <li>
-          <a href="#main/bankoftime">心理一解一</a>
-          <s></s>
-        </li>
-        <li>
-          <a href="#main/bankoftime">时间银行</a>
-          <s></s>
-        </li>
-        <li>
-          <a href="#main/special">特色服务</a>
-          <s></s>
-        </li>
-        
-    </ul>
-  </nav>
-
-  <section class="m-search m-search-sou">
-    <div class="m-input-close-box">
-      <input type="search" id="txtkeyword" size="10" onkeydown="redirectBEnter(event)" autocomplete="off">  
-      <div class="m-input-close" id="txtclear" style="display: none;"></div>
-    </div>
-    <input type="submit" id="sugsubmit" value="" onclick="redirect()">  
-    <div class="m-sug" id="div_so_pop" style="display: none;"></div>
-    <script type="text/javascript" src="http://image.bitautoimg.com/bsearch/mobileScript/moblieSug20130409.min.js?v2"></script>
-    <script type="text/javascript">
-    new m_cheyisou_suggest(
-    {
-        input: document.getElementById("txtkeyword"),
-        close: document.getElementById("txtclear"),
-        sugdiv: document.getElementById("div_so_pop"),
-        submit: document.getElementById("sugsubmit"),
-        sugtype: "-100",
-        encode: "utf-8",
-        overclass: "current"
-    });
-</script>
-  </section>
-  <!-- top search end -->  
-  <!-- 201209_移动站_首页_车型导航  filter start -->  
-  <!--  <section class="m-index-filter">  
-  <ul>
-    <li class="m-btn-gray">
-      <a href="#">按品牌</a>
-    </li>
-    <li class="m-btn-gray">
-      <a href="#">按价格</a>
-    </li>
-    <li class="m-btn-gray">
-      <a href="#">按级别</a>
-    </li>
-  </ul>
-  </section>
-  --》
-  <!-- filter end -->  
-  <div class="clear"></div>
-  <!-- 焦点图 start -->  
-
-  <!-- 焦点图 end -->  
-  <section class="m-line-box">
-  <!-- tabs start -->  
-  <div class="m-tabs-box">
-
-    <input type="hidden" name="id1" value="../5/images/tp1.jpg">  
-    <input type="hidden" name="hd1" value="news_list1.asp?id=">  
-    <input type="hidden" name="nd1" value="暂时没有图片">  
-
-    <input type="hidden" name="id2" value="../../5/images/tp2.jpg">  
-    <input type="hidden" name="hd2" value="news_list1.asp?id=">  
-    <input type="hidden" name="nd2" value="暂时没有图片">  
-
-    <input type="hidden" name="id3" value="../5/images/tp3.jpg">  
-    <input type="hidden" name="hd3" value="qyzc/viewnews.asp?id=">  
-    <input type="hidden" name="nd3" value="暂时没有图片">  
-
- 
-    <div style="width:320px;height:200px;overflow:hidden;text-overflow:clip;">
-      <div>
-        <a id="url" href="http://17f.go5le.net/99_tj/51/news_list1.asp?id=">
-          <img id="pic" style="border:0px;filter:progid:dximagetransform.microsoft.wipe(gradientsize=1.0,wipestyle=4, motion=forward)" width="320" height="200" src="http://17f.go5le.net/99_tj/5/images/tp1.jpg"></a>
-      </div>
-      <div style="filter:alpha(style=1,opacity=10,finishOpacity=80);background: #ffffff;width:100%-2px;text-align:right;top:-12px;position:relative;margin:1px;height:12px;padding:0px;margin:0px;border:0px;">
-        <a href="javascript:changeimg(1);" id="xxjdjj1" class="bxx" target="_self"> <font color="white">1&nbsp;&nbsp;</font>
-        </a>
-        <a href="javascript:changeimg(2);" id="xxjdjj2" class="axx" target="_self"> <font color="white">2&nbsp;&nbsp;</font>
-        </a>
-        <a href="javascript:changeimg(3);" id="xxjdjj3" class="axx" target="_self">
-          <font color="white">3&nbsp;&nbsp;</font>
-        </a>
-      </div>
+  <ion-header-bar class="bar-positive" align-title="center">
+    <img src="img/badge.png" width="33">  
+    <h1 class="title">
+      <a href="#/main/beauty" style="text-decoration:none">最美浙江</a>
+    </h1>
+    <div class="buttons">
+    <button class="button button-clear" ng-click="openPopover($event)"><i class="icon ion-navicon-round"></i></button>
     </div>
 
-  </div>
 
-  <!-- tabs end -->  
-  <div id="FocusNews0">
-    <ul class="m-pic-news" id="focusNewsTu">
 
-      <li class="active ">
-        <div data-id="142" class="js_gotoNewsDetail">
-          <h3 class="newsTitle"> <em class="icon"></em>
-            <span class="name">
-              <a href="../991/news1.asp?id=131953">
-                ●团省委青农部盛乐部长一行来院调研...
-                <font color="#D0DCE8"></font>
-              </a>
-
-            </span>
-          </h3>
-
-        </div>
-      </li>
-
-      
-
-    </ul>
-    <div class="clear"></div>
-
-  </div>
-
-  </section>
-
-  <section class="m-line-box">
-  <!-- tabs start -->  
-  <div class="m-tabs-box">
-    <ul class="m-tabs">
-      <li class="current">
-        <span>
-          时间银行
-          <s></s>
-        </span>
-      </li>
-      <li>
-        <span>
-          <font color="#EEF6E8">-----------</font>
-          <a href="#main/help">
-            <font color="#085687">▇ 我要求助</font>
-          </a>
-          <s></s>
-        </span>
-      </li>
-    </ul>
-
-  </div>
-  <!-- tabs end -->  
-  <!-- 图文混排 start -->  
-  <ul class="m-pic-news m-baa-pic-news">
-
-    <li class="active " onclick="curl('#')">
-      <a href="../../mall/index/pro_show_dj3.asp?id=2579&amp;po=91">
-        <img src="../../mall/upfile/pro/-201481210258WHRPt2mZ.png" border="0" width="100"></a>
-      <dl>
-        <dt>
-          <a href="../../mall/index/pro_show_dj3.asp?id=2579&amp;po=91" style="TEXT-DECORATION:none">“琴”童小天才  音乐夏令营  正式接受</a>
-        </dt>
-        <dd>杭州市西湖区转塘长陇路10号翠庄艺术文化村...</dd>
-      </dl>
-      <dd>
-        <font color="#ED2801">[我要参加]</font>
-        报名人数：9
-      </dd>
-    </li>
-
-  </ul>
-  <!-- 图文混排 end --> </section>
-  <!-- 广告 -->  
-  <div class="m-index-ad-bottom">
-  <span>
-    <a href="#">每一份爱心付出,都会积累在需要的时候得到回报.</a>
-  </span>
-  </div>
-
-  <section class="m-line-box">
-  <!-- tabs start -->  
-  <div class="m-tabs-box">
-    <ul class="m-tabs">
-      <li class="current">
-        <span>
-          众筹公益
-          <s></s>
-        </span>
-      </li>
-      <!--<li>  
-      <span>
-        <font color="#EEF6E8">-----------</font>
-        <a href="../ly_edit_sj1.asp?staff_id=91&qy=浙江省团建">
-          <font color="#085687">▇ 我要求助</font>
-        </a>
-        <s></s>
-      </span>
-    </li>
-    -->
-  </ul>
-
-  </div>
-  <!-- tabs end -->  
-  <!-- 图文混排 start -->  
-  <ul class="m-pic-news m-baa-pic-news"></ul>
-  <!-- 图文混排 end --> </section>
-
-  <section class="m-line-box">
-  <!-- tabs start -->  
-  <div class="m-tabs-box">
-  <ul class="m-tabs">
-    <li class="current">
-      <span>
-        特色服务
-        <s></s>
-      </span>
-    </li>
-    <!--<li>  
-    <span>
-      <font color="#EEF6E8">-----------</font>
-      <a href="../ly_edit_sj1.asp?staff_id=91&qy=浙江省团建">
-        <font color="#085687">▇ 我要求助</font>
-      </a>
-      <s></s>
-    </span>
-  </li>
+  </ion-header-bar>
+  <!-- <ion-content scroll="true" overflow-scroll="true" class="nne" auto-play="true">  
   -->
-  </ul>
+  
 
-  </div>
-  <!-- tabs end -->  
-  <!-- 图文混排 start -->  
-  <ul class="m-pic-news m-baa-pic-news">
 
-  <li class="active ">
-  <div data-id="142" class="js_gotoNewsDetail">
-    <h3 class="newsTitle">
-      <em class="icon"></em>
-      <span class="name">
-        <a href="zhengwen.asp?id=131887">
-          八月“雷锋广场”志愿服务活动顺利...
-          <font color="#D0DCE8"></font>
-        </a>
 
-      </span>
-    </h3>
+  <ion-tabs class="tabs-positive tabs-icon-only  tabs-top ">
 
-  </div>
-  </li>
-  </ul>
-  <!-- 图文混排 end --> </section>
-  <!-- 应用推荐start -->  
+    <ion-tab title="通知公告" >
+      <ion-content class="has-footer ">
+        
+        <ion-list>
+          <ion-item>
+            <div class="list list-inset">
+              <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+                <button class="button button-clear icon-left ion-ios7-search"></button>
+              </label>
 
-  <!-- 应用推荐end -->  
-  <!-- 201209_移动站_搜索框bottom search start -->  
-  <div class="clear"></div>
-  <!-- bottom search end --> </div>
-  <!--JS-->  
+            </div>
+          </ion-item>
+          <ion-item>
+          <ion-slide-box does-continue="true" slide-interval="3000" auto-play="true" class="ad-banner">
+            <ion-slide>
+              <div class="box">
+                <img src="img/badge.png" class="img-responsive center-block">          
+                <!-- <div class="word-front center-block">          
+                <h3>建设美丽浙江 创造美好生活</h3>
+                <h4>浙江省直机关“智慧团青”</h4>
+              </div>
+              -->
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="box">
+              <img src="tj3.png" class="img-responsive center-block">          
+              <!-- <div class="word-front center-block">          
+              <h3>建设美丽浙江 创造美好生活</h3>
+              <h4>浙江省直机关“智慧团青”APP</h4>
+            </div>
+            -->
+          </div>
+          </ion-slide>
 
-  <!--201209_移动站_公共页底-->  
-  <div id="userInfoContainer" style="display:none;" class="m-popup-box m-popup-login"></div>
-  <!--- -#include file="footer.asp" - --->  
-  <!-- START OF SmartSource Data Collector TAG -->  
+          </ion-slide-box>
+          </ion-item>
 
-  <!-- END OF SmartSource Data Collector TAG -->  
-  <!--airui-->  
 
-  <!-- 返回顶部按钮 --> </ion-content>
+          <ion-item ng-repeat="item in items">Hello, {{item.id}}!</ion-item>
+          <ion-item>
+            <button class="button center-block icon-right ion-chevron-right">
+              了解更多
+            </button>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-tab>
 
+    <ion-tab title="团讯要闻" >
+      <ion-content class="has-footer">
+        <ion-list>
+          <ion-item ng-repeat="item in items"><img ng-src="{{item.imgsrc}}" />Hello, {{item.id}}!</ion-item>
+          <ion-item>
+            <button class="button center-block icon-right ion-chevron-right">
+              了解更多
+            </button>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab title="头条新闻">
+      <ion-content class="has-footer">
+        <ion-list>
+          <ion-item ng-repeat="item in items"><img ng-src="{{item.imgsrc}}" />Hello, {{item.id}}!</ion-item>
+          <ion-item>
+            <button class="button center-block icon-right ion-chevron-right">
+              了解更多
+            </button>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-tab>
+
+  </ion-tabs>
+    
+
+
+
+<ng-include src = "'footer.html'"></ng-include>
+</ion-view>
+
+  <script id="footer.html" type="text/ng-template">
+      
   <ion-footer-bar class="bar-stable no-padding">
     <div class="tabs tabs-icon-top">
-      <a class="tab-item" href="#/main/default">
-        <i class="icon ion-ios7-home"></i>
+      <a class="tab-item" href="#/main/default"> <i class="icon ion-ios7-home"></i>
         首页
       </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-star"></i>
+      <a class="tab-item" href="#"> <i class="icon ion-star"></i>
         收藏
       </a>
       <a class="tab-item" href="#">
@@ -316,5 +124,16 @@
       </a>
     </div>
   </ion-footer-bar>
+      
+  </script>
 
-</ion-view>
+  <script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-header-bar>
+      <h1 class="title">My Popover Title</h1>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-popover-view>
+</script>
