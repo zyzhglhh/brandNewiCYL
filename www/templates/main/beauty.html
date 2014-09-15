@@ -1,3 +1,12 @@
+<style type="text/css">
+.margin-top{
+  margin-top:0;
+}
+.right{
+  right:1em;
+}
+</style>
+
 <ion-view title="最美浙江">
 
   <ion-header-bar class="bar-positive" align-title="center">
@@ -20,15 +29,15 @@
 
   <ion-tabs class="tabs-positive tabs-icon-only  tabs-top ">
 
-    <ion-tab title="通知公告" >
+    <ion-tab title="最美浙江">
       <ion-content class="has-footer ">
         
         <ion-list>
           <ion-item>
-            <div class="list list-inset">
+            <div class="list list-inset margin-top">
               <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Search">
-                <button class="button button-clear icon-left ion-ios7-search"></button>
+                <input type="text" placeholder="Search" >
+                <button class="button button-clear icon-left ion-ios7-search right"></button>
               </label>
 
             </div>
@@ -60,37 +69,91 @@
           </ion-item>
 
 
-          <ion-item ng-repeat="item in items">Hello, {{item.id}}!</ion-item>
+          <ion-item ng-repeat="item in items" >Hello, {{item.id}}!</ion-item>
+          
           <ion-item>
-            <button class="button center-block icon-right ion-chevron-right">
-              了解更多
+            <button class="button button-assertive button-block icon-right ion-chevron-right">
+              众筹公益
             </button>
+          </ion-item>
+          <ion-item ng-repeat="item in items" class="item item-thumbnail-right">
+            <img ng-src="{{item.imgsrc}}" width="125px" />        
+            <h2>Hello, {{item.id}}!</h2>
+          </ion-item>
+          <ion-item>
+            <button class="button button-assertive button-block icon-right ion-chevron-right">
+              特色服务
+            </button>
+          </ion-item>
+          <ion-item ng-repeat="item in items" class="item item-thumbnail-right">
+            <img ng-src="{{item.imgsrc}}" width="125px" />        
+            <h2>{{item.name}}</h2>
+            <p>{{item.address}}
+            <br>
+            {{item.active}}</p>
           </ion-item>
         </ion-list>
       </ion-content>
     </ion-tab>
 
-    <ion-tab title="团讯要闻" >
+    <ion-tab title="心理一解一" >
       <ion-content class="has-footer">
         <ion-list>
-          <ion-item ng-repeat="item in items"><img ng-src="{{item.imgsrc}}" />Hello, {{item.id}}!</ion-item>
+          <ion-item ng-repeat="item in items" >
+                    
+            <h2>Hello, {{item.id}}!</h2>
+          </ion-item>
           <ion-item>
-            <button class="button center-block icon-right ion-chevron-right">
-              了解更多
-            </button>
+            <div class="list list-inset margin-top  right">
+              <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+                <button class="button button-clear icon-left ion-ios7-search"></button>
+              </label>
+
+            </div>
           </ion-item>
         </ion-list>
       </ion-content>
     </ion-tab>
 
-    <ion-tab title="头条新闻">
+    <ion-tab title="众筹公益" >
       <ion-content class="has-footer">
         <ion-list>
-          <ion-item ng-repeat="item in items"><img ng-src="{{item.imgsrc}}" />Hello, {{item.id}}!</ion-item>
+          <ion-item ng-repeat="item in items" class="item item-thumbnail-left">
+            <img ng-src="{{item.imgsrc}}" width="125px" />        
+            <h2>Hello, {{item.id}}!</h2>
+          </ion-item>
           <ion-item>
-            <button class="button center-block icon-right ion-chevron-right">
-              了解更多
-            </button>
+            <div class="list list-inset margin-top  right">
+              <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+                <button class="button button-clear icon-left ion-ios7-search"></button>
+              </label>
+
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab title="特色服务">
+      <ion-content class="has-footer">
+        <ion-list>
+          <ion-item ng-repeat="item in items" class="item item-thumbnail-left">
+            <img ng-src="{{item.imgsrc}}" width="125px" />        
+            <h2>{{item.name}}</h2>
+            <p>{{item.address}}
+            <br>
+            {{item.active}}</p>
+          </ion-item>
+          <ion-item>
+            <div class="list list-inset margin-top  right">
+              <label class="item item-input"> <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+                <button class="button button-clear icon-left ion-ios7-search"></button>
+              </label>
+
+            </div>
           </ion-item>
         </ion-list>
       </ion-content>

@@ -157,13 +157,70 @@ angular.module('icyl.controllers', [])
 }])
 
 //一团一品页面控制器
-.controller('mainBrand', ['$scope', function($scope) {
 
+.controller('mainBrand', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
+
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
 //青年创业页面控制器
-.controller('mainCareer', ['$scope', function($scope) {
+.controller('mainCareer', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
 //智会相亲页面控制器
@@ -202,9 +259,9 @@ angular.module('icyl.controllers', [])
 //最美浙江页面控制器
 .controller('mainBeauty', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
   // $scope.items=[1,2,3];
-  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png',name:'省团建',gender:'男',age:'20-30岁',company:'浙江省团建',address:'',tel:'15512345678'},
-                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png',name:'李剑锋',gender:'男',age:'20-30岁',company:'省农业厅',address:'杭州凤起东路29号',tel:'15543215678'},
-                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png',name:'李延吉',gender:'男',age:'20-30岁',company:'省人大办公室',address:'仁谐路1号',tel:'15512348765'}};
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png',name:'“琴”童小天才 音乐夏令营 正式接受',address:'杭州市西湖区转塘长陇路10号翠庄艺术文化村...',active:'[我要参加]'},
+                  item2:{id:2,imgsrc:'',name:'每一份爱心付出,都会积累在需要的时候得到回报.',address:'',active:''},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png',name:'省政协机关团委开展“送书送器材下...',address:'',active:''}};
 
   //-----
   $ionicPopover.fromTemplateUrl('my-popover.html', {
@@ -281,20 +338,134 @@ angular.module('icyl.controllers', [])
 
 
 
-.controller('nKnowlbase', ['$scope', function($scope) {
+.controller('nKnowlbase', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
-.controller('nLink', ['$scope', function($scope) {
 
+.controller('nLink', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
+
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
-.controller('nListo', ['$scope', function($scope) {
 
+.controller('nListo', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
+
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
-.controller('nListt', ['$scope', function($scope) {
+.controller('nListt', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
 .controller('nListf', ['$scope', function($scope) {

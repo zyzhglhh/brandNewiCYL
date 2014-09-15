@@ -136,9 +136,8 @@ a.center-block {
 	color: #FF4500;
 }
 
-.no-padding > a > img{
-	min-height:4.5em;
-	vertical-align:middle
+.default{
+	height:3.9375em;
 }
 
 /*.tabs,.tabs-top{
@@ -178,5 +177,35 @@ a.center-block {
 
 .no-padding {
 	padding: 0;
+}
+
+.item a{
+	text-decoration:none;
+	color: #000000;
+}
+
+
+.lili{
+ position:relative;
+ font-size: 16px;
+ font-weight: bold;
+}
+.lili span{
+ position:absolute;
+ right:3px;
+ text-decoration: none;
+ font-size: 12px;
+ font-weight: normal;
+}
+
+.back-top span{
+ position:absolute;
+ right:16px;
+ text-decoration: none;
+ font-size: 12px;
+ font-weight: normal;
+}
+.mes-top{
+	width: 40px;
 }
 

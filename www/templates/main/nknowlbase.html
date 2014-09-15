@@ -3,7 +3,7 @@
   <ion-header-bar class="bar-positive" align-title="center">
     <img src="img/badge.png" width="33">  
     <h1 class="title">
-      <a href="#/main/nnews" style="text-decoration:none">智汇共享</a>
+      <a href="#/main/nknowlbase" style="text-decoration:none">智汇共享</a>
     </h1>
     <div class="buttons">
     <button class="button button-clear" ng-click="openPopover($event)"><i class="icon ion-navicon-round"></i></button>
@@ -13,34 +13,14 @@
 
   </ion-header-bar>
   <!-- <ion-content scroll="true" overflow-scroll="true" class="nne" auto-play="true"> -->
-    <ion-slide-box does-continue="true" slide-interval="3000" auto-play="true" class="ad-banner has-header">
-      <ion-slide>
-        <div class="box">
-          <img src="img/badge.png" class="img-responsive center-block">  
-          <!-- <div class="word-front center-block">
-            <h3>建设美丽浙江 创造美好生活</h3>
-            <h4>浙江省直机关“智慧团青”</h4>
-          </div> -->
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div class="box">
-          <img src="tj3.png" class="img-responsive center-block">      
-          <!-- <div class="word-front center-block">
-            <h3>建设美丽浙江 创造美好生活</h3>
-            <h4>浙江省直机关“智慧团青”APP</h4>
-          </div> -->
-        </div>
-      </ion-slide>
    
-  </ion-slide-box>
 
-  <ion-tabs class="tabs-positive tabs-icon-only  tabs-top">
+  <ion-tabs class="tabs-positive tabs-icon-only  tabs-top ">
 
     <ion-tab title="书记寄语" >
       <ion-content class="has-footer">
         <ion-list>
-          <ion-item ng-repeat="item in items"><img ng-src="{{item.imgsrc}}" />Hello, {{item.id}}!</ion-item>
+          <ion-item ng-repeat="item in items" class="item item-thumbnail-right"><img ng-src="{{item.imgsrc}}" />Hello, {{item.id}}!</ion-item>
           <ion-item>
             <button class="button center-block icon-right ion-chevron-right">
               了解更多
@@ -53,7 +33,7 @@
     <ion-tab title="案例共享" >
       <ion-content class="has-footer">
         <ion-list>
-          <ion-item ng-repeat="item in items"><img ng-src="{{item.imgsrc}}" />Hello, {{item.id}}!</ion-item>
+          <ion-item ng-repeat="item in items" class="item item-thumbnail-right"><img ng-src="{{item.imgsrc}}" />Hello, {{item.id}}!</ion-item>
           <ion-item>
             <button class="button center-block icon-right ion-chevron-right">
               了解更多
@@ -66,7 +46,7 @@
     <ion-tab title="微客大咖">
       <ion-content class="has-footer">
         <ion-list>
-          <ion-item ng-repeat="item in items"><img ng-src="{{item.imgsrc}}" />Hello, {{item.id}}!</ion-item>
+          <ion-item ng-repeat="item in items" class="item item-thumbnail-right"><img ng-src="{{item.imgsrc}}" />Hello, {{item.id}}!</ion-item>
           <ion-item>
             <button class="button center-block icon-right ion-chevron-right">
               了解更多
@@ -77,7 +57,12 @@
     </ion-tab>
 
   </ion-tabs>
-  <ng-include src = "'footer.html'"></ng-include>
+
+
+
+
+
+<ng-include src = "'footer.html'"></ng-include>
 </ion-view>
 
   <script id="footer.html" type="text/ng-template">
