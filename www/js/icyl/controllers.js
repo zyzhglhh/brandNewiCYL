@@ -468,28 +468,168 @@ angular.module('icyl.controllers', [])
   });
 }])
 
-.controller('nListf', ['$scope', function($scope) {
+.controller('nListf', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
-.controller('nLists', ['$scope', function($scope) {
+.controller('nLists', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
-.controller('bankOfTime', ['$scope', function($scope) {
+.controller('companySearch', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
 .controller('special', ['$scope', function($scope) {
 
 }])
 
-.controller('hElp', ['$scope', function($scope) {
+.controller('hElp', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
-.controller('sEarch', ['$scope', function($scope) {
+.controller('sEarch', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
 

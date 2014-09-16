@@ -355,13 +355,13 @@ angular.module('icyl', dependencies)
       }
     })
 
-    .state('main.bankoftime', {
-      url:'/bankoftime',
+    .state('main.companysearch', {
+      url:'/companysearch',
       access: { authenticate: false },
       views: {
         'main-container': {
-          templateUrl: 'templates/main/bankoftime.html',
-          controller: 'bankOfTime'
+          templateUrl: 'templates/main/companysearch.html',
+          controller: 'companySearch'
         }
       }
     })

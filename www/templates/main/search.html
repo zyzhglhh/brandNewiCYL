@@ -1,360 +1,104 @@
-<ion-view>
+<ion-view title="信息搜索页">
 
-<!--   <ion-nav-bar class="bar-stable nav-title-slide-ios7"> -->
-      <!-- <ion-nav-back-button class="button-clear hide"><i class="icon ion-ios7-arrow-back"></i> </ion-nav-back-button> --><!-- 前面这句废弃 -->
-<!--       <ion-nav-buttons side="left">
-        <button class="button button-clear" custom-go-back>
-          <i class="icon ion-ios7-arrow-back"></i>
-        </button>
-      </ion-nav-buttons>
-  </ion-nav-bar> -->
-
-<link href="css/nne1.css" rel="stylesheet" type="text/css">   
-  <link href="css/nne2.css" rel="stylesheet" type="text/css">
-  
-  <ion-content scroll="true" overflow-scroll="true" class="nne">
-
-  <header>
-    <div class="loc_logo_nav">
-      <div class="loc_logo_navbtn">
-        <div class="loc_logo">
-          <div class="loc">
-            <a href="javascript:history.go(-1)">
-              <img src="images/2014/m/back_icon_50x50.jpg"></a>
-          </div>
-          <div class="logo">
-            <h1>
-              <a href="javascript:history.go(-1)">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <img src="../27/d1.png" width="28">所有信息</a>
-            </h1>
-          </div>
-        </div>
-        <div class="navbtn" id="navbtn"></div>
-      </div>
-      <nav>
-        <ul>
-
-          <li>
-            <a href="embedded.asp?no=91&amp;lx=通知公告">通知公告</a>
-          </li>
-
-         
-          <div class="clear"></div>
-
-          <div class="clear"></div>
-        </ul>
-      </nav>
+  <ion-header-bar class="bar-positive" align-title="center">
+    <img src="img/badge.png" width="33">  
+    <h1 class="title">
+      <a href="#/main/search" style="text-decoration:none">信息搜索页</a>
+    </h1>
+    <div class="buttons">
+    <button class="button button-clear" ng-click="openPopover($event)"><i class="icon ion-navicon-round"></i></button>
     </div>
-    <div class="clear"></div>
-  </header>
 
-  <!-- header end -->  
-  <script>
-var page = 3;
-function loaditem(){
-  $.ajax({
-      type: "get",
-      url: "../../showitem",
-      //data: "page="+encodeURIComponent(page),
-      data: {page:encodeURIComponent(page),special:"embedded",typeid:"-1"},
-      dataType:'json',
-      beforeSend: function(XMLHttpRequest) {
-          $(".click_list_more").html('正在加载 ......');
-      },
-      success: function(myjson) {
-        $(".hidden").append(myjson.text);
-        page = page+1;
-        $(".click_list_more").html('点击查看更多');
-        
-      }
-    });
-}
-</script>
-  <section class="clear">
-    <!--<img src="../img/d11.png" >  
-    -->
-    <div class="tabbed_content">
-      <div class="tabs" style="position:static">
-        <h2>
-          <form name="FM" action="embedded.asp?st=&amp;lx=" method="post">
-            <!--- -#include file="../../admin_manage/cp/type_tj.inc" - -->  
-            主题
-            <input type="text" name="mc" value="" size="4">  
-            时间
-            <input type="text" name="fbsj1" value="" size="6">  
-            -
-            <input type="text" name="fbsj2" value="" size="8">  
-            <input style="HEIGHT: 20px" type="submit" value="搜索"></form>
-        </h2>
-      </div>
 
-      <style>
-.ny2010{ width:100%; height:150px; margin:0 auto; background:#B00F15 0 0 no-repeat;}
-.ny2010 a{ text-decoration:none; color:#333333; font-size:12px;}
-.ny2010 td img{ width:120px; height:90px; display:block; margin:0 5px 2px 0; padding:1px; border:1px solid #CCCCCC;}
-.ny2010 td p{ margin:0 5px; padding:0; line-height:19px; font-size:14px; font-weight:bold;}
-.ny2010 td p span{ display:block; font-size:12px; font-weight:normal; color:#AE091B;}
-</style>
-      <script>
-var dir=1;//每步移动像素，大＝快
-var speed=30;//循环周期（毫秒）大＝慢
-var MyMar=null;
-function Marquee(){//正常移动
-var demo = document.getElementById("demo");
-var demo2 = document.getElementById("demo2");
-if (dir>0  && (demo2.offsetWidth-demo.scrollLeft)<=0)
-{
-demo.scrollLeft=0;
-}
-if (dir<0 &&(demo.scrollLeft<=0))
-{
-demo.scrollLeft=demo2.offsetWidth;
-}
-demo.scrollLeft+=dir;
-}
-function onmouseoverMy() {
-window.clearInterval(MyMar);
-}//暂停移动
-function onmouseoutMy() {
-MyMar=setInterval(Marquee,speed);
-}//继续移动
-function r_left()
-{
-if (dir==-1)
-dir=1;
-}//换向左移
-function r_right()
-{
-if (dir==1)
-dir=-1;
-}//换向右移
-function IsIE()
-{
-var browser=navigator.appName
-if ((browser=="Netscape"))
-{
-return false;
-}
-else if(browser=="Microsoft Internet Explorer")
-{
-return true;
-}
-else
-{
-return null;
-}
-}
-var _IsIE = IsIE();
-var _MousePX = 0;
-var _MousePY = 0;
-var _DivLeft = 0;
-var _DivRight = 0;
-var _AllDivWidth = 0;
-var _AllDivHeight = 0;
-function MoveDiv(e){
-var obj = document.getElementById("demo");
-_MousePX = _IsIE ? (document.body.scrollLeft + event.clientX) : e.pageX;
-_MousePY = _IsIE ? (document.body.scrollTop + event.clientY) : e.pageY;
-//Opera Browser Can Support ''window.event'' and ''e.pageX''
-var obj1 = null;
-if(obj.getBoundingClientRect)
-{
-//IE
-obj1 = document.getElementById("demo").getBoundingClientRect();
-_DivLeft = obj1.left;
-_DivRight = obj1.right;
-_AllDivWidth = _DivRight - _DivLeft;
-}
-else if(document.getBoxObjectFor)
-{
-//FireFox
-obj1 = document.getBoxObjectFor(obj);
-var borderwidth = (obj.style.borderLeftWidth != null && obj.style.borderLeftWidth != "") ? parseInt(obj.style.borderLeftWidth) : 0;
-_DivLeft = parseInt(obj1.x) - parseInt(borderwidth);
-_AllDivWidth = Cut_Px(obj.style.width);
-_DivRight = _DivLeft + _AllDivWidth;
-}
-else
-{
-//Other Browser(Opera)
-_DivLeft = obj.offsetLeft;
-_AllDivWidth = Cut_Px(obj.style.width);
-var parent = obj.offsetParent;
-if(parent != obj)
-{
-while (parent) {
-_DivLeft += parent.offsetLeft;
-parent = parent.offsetParent;
-}
-}
-_DivRight = _DivLeft + _AllDivWidth;
-}
-var pos1,pos2;
-pos1 = parseInt(_AllDivWidth * 0.4) + _DivLeft;
-pos2 = parseInt(_AllDivWidth * 0.6) + _DivLeft;
-if(_MousePX > _DivLeft && _MousePX < _DivRight)
-{
-if(_MousePX > _DivLeft && _MousePX < pos1)//Move left
-{
-r_left();
-}
-else if(_MousePX < _DivRight && _MousePX > pos2)//Move right
-{
-r_right();
-}
-if(_MousePX > pos1 && _MousePX < pos2)//Stop
-{
-onmouseoverMy();
-MyMar=null;
-}else if(_MousePX < pos1 || _MousePX > pos2)
-{
-if(MyMar==null)
-{
-MyMar=setInterval(Marquee,speed);
-}
-}
-}
-}
-function Cut_Px(cswidth)
-{
-cswidth = cswidth.toLowerCase();
-if(cswidth.indexOf("px") != -1)
-{
-cswidth.replace("px","");
-cswidth = parseInt(cswidth);
-}
-return cswidth;
-}
-function MoveOutDiv()
-{
-if(MyMar == null)
-{
-MyMar=setInterval(Marquee,speed);
-}
-}
-</script>
-      <center>
-        <div class="ny2010">
-          <div id="demo" style="overflow:hidden; width:95%; color:#333333; height:140px; margin:20px 10px 0 0; display:inline; float:right;" onmousemove="MoveDiv(event);" onmouseout="MoveOutDiv();">
-            <div id="demo1" style="width:100%;">
-              <table cellspacing="0" cellpadding="0">
-                <tbody>
-                  <tr valign="top">
-                    <td valign="top" nowrap="">
-                      <ul>
-                        <table>
 
-                          <tbody>
-                            <tr>
-
-                              <td>
-                                <a href="../../wzmb.asp?shopid=91" title="午间正能量：书海“琴”缘（音乐沙龙）" target="_blank">
-                                  <li>
-                                    <dl>
-                                      <dt>
-                                        <div class="pic">
-                                          <img src="../../admin_manage/upload_tp1/UploadFiles/2014821101518632.png" border="0" width="80" onerror="this.src=images/default_goods_image.gif'"></div>
-                                      </dt>
-
-                                      <dd>
-                                        <span style=" color:#ffffff; font-size:12px;">午间正能量：书海“琴”缘</span>
-                                      </dd>
-
-                                    </dl>
-                                  </li>
-                                </a>
-                              </td>
-
-                            </tr>
-                          </tbody>
-                        </table>
-                      </ul>
-                    </td>
-                    
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+  </ion-header-bar>
+  <!-- <ion-content scroll="true" overflow-scroll="true" class="nne" auto-play="true"> -->
+    <ion-slide-box does-continue="true" slide-interval="3000" auto-play="true" class="ad-banner has-header">
+      <ion-slide>
+        <div class="box">
+          <img src="img/badge.png" class="img-responsive center-block">  
+          <!-- <div class="word-front center-block">
+            <h3>建设美丽浙江 创造美好生活</h3>
+            <h4>浙江省直机关“智慧团青”</h4>
+          </div> -->
         </div>
-        <script type="text/javascript">
-document.getElementById("demo2").innerHTML = document.getElementById("demo1").innerHTML;
-MyMar=setInterval(Marquee,speed);
-</script>
-      </center>
-      <!--- -#include file="dx_top2.asp" - --->  
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <img src="tj3.png" class="img-responsive center-block">      
+          <!-- <div class="word-front center-block">
+            <h3>建设美丽浙江 创造美好生活</h3>
+            <h4>浙江省直机关“智慧团青”APP</h4>
+          </div> -->
+        </div>
+      </ion-slide>
+   
+  </ion-slide-box>
 
-      <div class="slide_content" style="position:static;">
-        <div class="tabslider">
-          <div></div>
-          <ul class="data-list">
+  <ion-tabs class="tabs-positive tabs-icon-only  tabs-top tabs-top-ad-banner">
 
-            <li>
-              <a href="news1.asp?id=131967&amp;no=91&amp;lx=通知公告" title="关于举办“书海琴缘”省直机关单身青年钢琴训练营的通知" rel="external" data-transition="slide">
-                <img src="../img/db1.png" height="10" width="15">关于举办“书海琴缘”省直机关单身青年钢琴训练营的通知(9-2)</a>
-              <span>
-                <!--<em>浏览
-  26次</em> 
-              2014-9-2
-            </span>
-            -->
-          </span>
-        </li>
+    <ion-tab title="通知公告" >
+      <ion-content class="has-footer">
+        <ion-list>
+          <ion-item>
+
+            <div class="searchlist row">
+              <div class="col col-10" >主题</div>
+              <div class="col">
+                <input type="text" class="input-text" placeholder="主题内容"></div>
+              <div class="col col-10" >时间</div>
+              <div class="col">
+                <input type="text" class="input-text" placeholder="开始时间"></div>
+              <div class="helpline col col-10">------  </div>
+              <div class="col">
+                <input type="text" class="input-text" placeholder="截止时间"></div>
+                <button class="button button-assertive button-small" style="margin:auto">查找</button>
+            </div>
+            
+
+           <!--  <div class="list">
+              <label class="item item-input">
+                <input type="text" placeholder="主题内容"></label>
+                <br>
+              <label class="item item-input">
+                <input type="text" placeholder="开始时间"></label>
+                <br>
+              <label class="item item-input">
+                <input type="text" placeholder="截止时间"></label>
+                <br>
+              <button class="button button-assertive" style="margin:auto">查找</button>
+            </div> -->
+
+          </ion-item>
+
+          <ion-item ng-repeat="item in items" class="item item-thumbnail-right">
+            <img ng-src="{{item.imgsrc}}" />        
+            <a href="#/main/nlisto" >Hello, {{item.id}}!</a>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-tab>
+
+   
+
+  </ion-tabs>
 
 
-    
+ 
 
-  </ul>
 
-  <div class="hidden" style="display:block;"></div>
 
-  </div>
-  <br style="clear:both"></div>
+<ng-include src = "'footer.html'"></ng-include>
+</ion-view>
 
-  </div>
-
-  </section>
-
-  <div id="top">
-  <img src="images/2014/m/top_icon_31x11.png" id="goTopBtn"></div>
-
-  <center> <font size="3">第1页首页 上一页&nbsp;
-  <a href="embedded.asp?page=2&amp;mc1=2&amp;lx=&amp;po=91">下一页</a>
-  &nbsp;
-  <a href="embedded.asp?page=19&amp;mc1=2&amp;lx=&amp;po=91">尾页</a>
-  总148条</font> 
-  </center>
-  <br>  
-  <center>
-  <input type="button" onclick="javascript:window.location.href=&quot;http://17f.go5le.net/99_tj/main_dj.asp?po=91&quot;" value="返回主页">  
-  &nbsp;&nbsp;
-  <input type="button" onclick="javascript:history.go(-1)" value="返回上一页">  
-  &nbsp;&nbsp;
-  <input type="button" onclick="javascript:window.location.href=&quot;http://17f.go5le.net/99_tj/38/index_sh.asp?po=91&quot;" value="我的"></center>
-  <br>  
-  <br>  
-  <!-- footer begin -->  
-  <!--<div style="position:fixed; text-align:center; left:0px; bottom:0px; _position:absolute; width:100%; background:url(../../41/images/btbg.png) repeat-x scroll 0 0; height:40px;">  
-  <br>  
-  <li style="width:100%; float:left; height:44px; background:url(../../41/images/btbg.png) no-repeat right center;">
-  <footer>
-  <p class="fontArial">浙江省直机关团工委（内部交流）</p>
-  </footer footer end
-  </li>
-  </div>
-  -->
-    
-  </ion-content>
-
+  <script id="footer.html" type="text/ng-template">
+      
   <ion-footer-bar class="bar-stable no-padding">
     <div class="tabs tabs-icon-top">
-      <a class="tab-item" href="#/main/default">
-        <i class="icon ion-ios7-home"></i>
+      <a class="tab-item" href="#/main/default"> <i class="icon ion-ios7-home"></i>
         首页
       </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-star"></i>
+      <a class="tab-item" href="#"> <i class="icon ion-star"></i>
         收藏
       </a>
       <a class="tab-item" href="#">
@@ -367,5 +111,16 @@ MyMar=setInterval(Marquee,speed);
       </a>
     </div>
   </ion-footer-bar>
+      
+  </script>
 
-</ion-view>
+  <script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-header-bar>
+      <h1 class="title">My Popover Title</h1>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-popover-view>
+</script>

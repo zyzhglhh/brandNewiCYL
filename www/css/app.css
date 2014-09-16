@@ -209,3 +209,84 @@ a.center-block {
 	width: 40px;
 }
 
+.subdue{
+	font-size: 16px;
+ 	font-weight: bold;
+ 	background-color: #eee;
+ 	padding: 6px;
+}
+.item>.subdue .subdued{
+	color: #f33;
+}
+.subdue span{
+	position:absolute;
+	right: 1.5em;
+	text-decoration: none;
+}
+
+/*.act{
+	margin-top:44px;
+	z-index: 100;
+}*/
+
+.zerolist ,.onelist, .twolist, .threelist{
+	font-family: "微软雅黑";
+	font-weight: bold;
+	color:#aaaaaa;
+
+}
+.zerolist  .input-text,.onelist  .input-text,.twolist  .input-text,.threelist  .input-text{
+	margin-top:-0.375em;
+}
+
+.limitheight{
+	line-height: 29px;}
+
+
+
+.button-font{
+	font-size: "仿宋";
+}
+
+.button-line span{
+	position:absolute;
+	right: 1.5em;
+	text-decoration: none;
+}
+
+.searchlist{
+	font-family: "微软雅黑";
+	font-weight: bold;
+	color:#000;
+	font-size: 12px;
+}
+
+.searchlist .input-text{
+	margin-top:-0.575em;
+	font-family: "宋体";
+	font-weight: normal;
+	color:#aaaaaa;
+	font-size: 12px;
+}
+
+.helpline{
+	color: #aaaaaa;
+	text-align: center;
+}
+
+.cpsearchlist{
+	font-family: "微软雅黑";
+	font-weight: bold;
+	color:#000;
+}
+
+.cpsearchlist .input-text{
+	margin-top:-0.15em;
+	font-family: "宋体";
+	font-weight: normal;
+	color:#aaaaaa;
+}
+
+.button-limit{
+	text-align: center;
+}
