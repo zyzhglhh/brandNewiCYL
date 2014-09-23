@@ -1,0 +1,98 @@
+<ion-view title="我的活动">
+
+  <ion-header-bar class="bar-positive" align-title="center">
+    <img src="img/badge.png" width="33">  
+    <h1 class="title">
+      <a href="#/main/myactivity" style="text-decoration:none">我的活动</a>
+    </h1>
+    <div class="buttons">
+    <button class="button button-clear" ng-click="openPopover($event)"><i class="icon ion-navicon-round"></i></button>
+    </div>
+
+
+
+  </ion-header-bar>
+  <!-- <ion-content scroll="true" overflow-scroll="true" class="nne" auto-play="true">  
+  -->
+  <ion-content class="has-footer">
+  <ion-list>
+    <ion-item>
+      <div class="searchlist row">
+        <div class="col">
+          意向
+          <input type="radio" name="gender" value="意向" checked="checked"></div>
+        <div class="col">
+          确定
+          <input type="radio" name="gender" value="确定"></div>
+        <div class="col">
+          签到
+          <input type="radio" name="gender" value="签到"></div>
+        <div class="col">
+          核实
+          <input type="radio" name="gender" value="核实"></div>
+      </div>
+      <div class="searchlist row">
+        <div class="col col-25" >活动内容</div>
+        <div class="col">
+          <input type="text" class="input-text" placeholder="活动内容"></div>
+          <button class="button button-assertive button-small" >查询</button>
+      </div>
+      
+
+    </ion-item>
+
+    <ion-item ng-repeat="item in items" class="item item-thumbnail-right">
+        
+    <h2>
+      <a href="#/main/nlisto" >Hello, {{item.id}}!【1】 友邦集成吊顶</a>
+    </h2>
+    <p>单号：20140908165919</p>
+    <p>报名截止时间：</p>
+    <span class="remind-span">提示：123</span>
+      <button class="button button-assertive button-small" >现场签到</button>
+    </ion-item>
+  </ion-list>
+  </ion-content>
+ 
+
+
+ 
+
+
+
+<ng-include src = "'footer.html'"></ng-include>
+</ion-view>
+
+  <script id="footer.html" type="text/ng-template">
+      
+  <ion-footer-bar class="bar-stable no-padding">
+    <div class="tabs tabs-icon-top">
+      <a class="tab-item" href="#/main/default"> <i class="icon ion-ios7-home"></i>
+        首页
+      </a>
+      <a class="tab-item" href="#"> <i class="icon ion-star"></i>
+        收藏
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-gear-a"></i>
+        管理
+      </a>
+      <a class="tab-item" mine-href>
+        <i class="icon ion-person"></i>
+        我的
+      </a>
+    </div>
+  </ion-footer-bar>
+      
+  </script>
+
+  <script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-header-bar>
+      <h1 class="title">My Popover Title</h1>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-popover-view>
+</script>

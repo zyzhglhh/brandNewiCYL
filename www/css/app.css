@@ -290,3 +290,55 @@ a.center-block {
 .button-limit{
 	text-align: center;
 }
+
+.syslist span{
+	text-align: center;
+}
+
+.sysfir{
+	margin-top:10px;
+}
+.syssec{
+	font-style: "宋体";
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+.sysli{
+	width:90%;
+	margin:0 auto;
+}
+.sysli li a{
+	text-decoration:none;
+}
+.sysli li a button{
+	font-weight: bold;
+	padding-top: 4px;
+}
+.sysli li a button span{
+	font-size: 12px;
+	padding-bottom: 4px;
+}
+
+.nsignin-head{
+	font-style: "圆体";
+	font-size:20px;
+
+}
+
+.nsignin-content{
+	font-style: "仿宋";
+	font-size:16px;
+	margin-top: 10px;
+	margin-left: 30px;
+}
+
+.signin-red{
+	color: red;
+}
+
+.remind-span{
+	font-size: 14px;
+	line-height: 35px;
+}

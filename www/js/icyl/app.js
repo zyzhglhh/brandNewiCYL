@@ -399,6 +399,72 @@ angular.module('icyl', dependencies)
       }
     })
 
+    .state('main.nsignin', {
+      url:'/nsignin',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/nsignin.html',
+          controller: 'nSignIn'
+        }
+      }
+    })
+
+    .state('main.total', {
+      url:'/total',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/total.html',
+          controller: 'tOtal'
+        }
+      }
+    })
+
+    .state('main.remind', {
+      url:'/remind',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/remind.html',
+          controller: 'reMind'
+        }
+      }
+    })
+
+    .state('main.myactivity', {
+      url:'/myactivity',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/myactivity.html',
+          controller: 'myActivity'
+        }
+      }
+    })
+
+    .state('main.mynote', {
+      url:'/mynote',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/mynote.html',
+          controller: 'myNote'
+        }
+      }
+    })
+
+    .state('main.largeactivities', {
+      url:'/largeactivities',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/main/largeactivities.html',
+          controller: 'largeActivities'
+        }
+      }
+    })
+
     // .state('main.mine', {
     //   url:'/mine',
     //   access: { authenticate: true, offline: 'main.mineoffline' },

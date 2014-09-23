@@ -1,37 +1,127 @@
-<ion-view>
+<ion-view title="智惠生活">
 
-  <ion-nav-bar class="bar-stable nav-title-slide-ios7">
-      <!-- <ion-nav-back-button class="button-clear hide"><i class="icon ion-ios7-arrow-back"></i> </ion-nav-back-button> -->
-      <ion-nav-buttons side="left">
-        <button class="button button-clear" custom-go-back>
-          <i class="icon ion-ios7-arrow-back"></i>
-        </button>
-      </ion-nav-buttons>
-  </ion-nav-bar>
+<ion-content>
 
-  <ion-content scroll="true" overflow-scroll="true" class="iframe-wrapper">
-    <iframe seamless name="life" src="http://17f.go5le.net/bootstrap-3.1.1/index.asp"></iframe>
-  </ion-content>
+    <ion-slide-box does-continue="true" slide-interval="3000" auto-play="true">
+      <ion-slide>
+        <div class="box">
+          <img src="img/mainImg3.png" class="img-responsive center-block">
+<!--           <div class="word-front center-block">
+            <h3>建设美丽浙江 创造美好生活</h3>
+            <h4>浙江省直机关“智慧团青”</h4>
+          </div> -->
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <img src="img/mainImg3.png" class="img-responsive center-block">
+<!--           <div class="word-front center-block">
+            <h3>建设美丽浙江 创造美好生活</h3>
+            <h4>浙江省直机关“智慧团青”APP</h4>
+          </div> -->
+        </div>
+      </ion-slide>
+    </ion-slide-box>
 
-<!--   <ion-footer-bar class="bar-stable no-padding">
+    <div class="padding position">
+      <div class="background-img">
+        <img src="img/main_backimg_brige.jpg" alt="钱塘江" class="img-responsive center-block"></div>
+      <div class="row no-padding">
+        <div class="col no-padding">
+
+          <a href="#/main/nnews" class="button center-block background-clear">
+            <img src="img/badge.png" alt="团徽" class="img-responsive center-block cell-img img-size default">智慧快讯</a>
+        </div>
+        <div class="col no-padding">
+          <a href="#/main/nknowlbase" class="button center-block background-clear">
+            <img src="img/tj1.png" class="img-responsive center-block cell-img img-size default">生活娱乐</a>
+        </div>
+        <div class="col no-padding">
+          <a href="#/main/nlink" class="button center-block background-clear">
+            <img src="img/tj2.png" class="img-responsive center-block cell-img img-size default">众乐乐</a>
+        </div>
+      </div>
+      <div class="row no-padding">
+        <div class="col no-padding">
+          <a href="#/main/brand" class="button center-block background-clear">
+            <img src="img/tj5.png" class="img-responsive center-block cell-img img-size default">青年旅游</a>
+        </div>
+        <div class="col no-padding">
+          <a href="#/main/career" class="button center-block background-clear">
+            <img src="img/tj4.png" class="img-responsive center-block cell-img img-size default">贷款理财</a>
+        </div>
+        <div class="col no-padding">
+          <a href="#/main/love" class="button center-block background-clear">
+            <img src="img/tj3.png" class="img-responsive center-block cell-img img-size default">帮帮忙</a>
+        </div>
+      </div>
+      <div class="row no-padding">
+        <div class="col no-padding">
+          <a href="#/main/beauty" class="button center-block background-clear">
+
+            <img src="img/tj6.png" class="img-responsive center-block cell-img img-size default">生活用品</a>
+            
+        </div>
+        <div class="col no-padding">
+          
+            <a href="#/main/beauty" class="button center-block background-clear">
+
+            <img src="img/tj6.png" class="img-responsive center-block cell-img img-size default">中介服务</a>
+        </div>
+        <div class="col no-padding col-33">
+          <a href="#/main/life" class="button center-block background-clear">
+            <img src="img/tj7.png" class="img-responsive center-block cell-img img-size default">大宗团购</a>
+        </div>
+        <div class="col no-padding col-33">
+
+          <a mine-href class="button center-block background-clear">
+
+            <img src="img/tj8.png" class="img-responsive center-block cell-img img-size default">众筹投</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+</ion-content>
+
+ 
+
+
+
+<ng-include src = "'footer.html'"></ng-include>
+</ion-view>
+
+  <script id="footer.html" type="text/ng-template">
+      
+  <ion-footer-bar class="bar-stable no-padding">
     <div class="tabs tabs-icon-top">
-      <a class="tab-item" href="#/main/default">
-        <i class="icon ion-ios7-home"></i>
+      <a class="tab-item" href="#/main/default"> <i class="icon ion-ios7-home"></i>
         首页
       </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-star"></i>
+      <a class="tab-item" href="#"> <i class="icon ion-star"></i>
         收藏
       </a>
       <a class="tab-item" href="#">
         <i class="icon ion-gear-a"></i>
         管理
       </a>
-      <a class="tab-item" href="#/main/sysmgmt">
+      <a class="tab-item" mine-href>
         <i class="icon ion-person"></i>
         我的
       </a>
     </div>
-  </ion-footer-bar> -->
+  </ion-footer-bar>
+      
+  </script>
 
-</ion-view>
+  <script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-header-bar>
+      <h1 class="title">My Popover Title</h1>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-popover-view>
+</script>

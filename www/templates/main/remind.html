@@ -1,0 +1,77 @@
+<ion-view title="活动提醒">
+
+  <ion-header-bar class="bar-positive" align-title="center">
+    <img src="img/badge.png" width="33">  
+    <h1 class="title">
+      <a href="#/main/remind" style="text-decoration:none">活动提醒</a>
+    </h1>
+    <div class="buttons">
+    <button class="button button-clear" ng-click="openPopover($event)"><i class="icon ion-navicon-round"></i></button>
+    </div>
+
+
+
+  </ion-header-bar>
+  <!-- <ion-content scroll="true" overflow-scroll="true" class="nne" auto-play="true">  
+  -->
+  <ion-content class="has-footer">
+  <ion-list>
+
+    <ion-item>
+      <img src="img/hdtx1.png" />  
+      
+    </ion-item>
+    <ion-item ng-repeat="item in items" class="item item-thumbnail-left">
+      <img ng-src="{{item.imgsrc}}" />
+      <h3>标题</h3>
+      <br>
+      <div class="list">
+        <label class="item item-input">
+          <textarea placeholder="Comments"></textarea>
+        </label>
+      </div>
+      <button class="button button-assertive button-small" >点击修改提示</button>
+      <span class="remind-span">-剩下360天</span>
+    </ion-item>
+  </ion-list>
+  </ion-content>
+
+
+
+
+<ng-include src = "'footer.html'"></ng-include>
+</ion-view>
+
+  <script id="footer.html" type="text/ng-template">
+      
+  <ion-footer-bar class="bar-stable no-padding">
+    <div class="tabs tabs-icon-top">
+      <a class="tab-item" href="#/main/default"> <i class="icon ion-ios7-home"></i>
+        首页
+      </a>
+      <a class="tab-item" href="#"> <i class="icon ion-star"></i>
+        收藏
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-gear-a"></i>
+        管理
+      </a>
+      <a class="tab-item" mine-href>
+        <i class="icon ion-person"></i>
+        我的
+      </a>
+    </div>
+  </ion-footer-bar>
+      
+  </script>
+
+  <script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-header-bar>
+      <h1 class="title">My Popover Title</h1>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-popover-view>
+</script>

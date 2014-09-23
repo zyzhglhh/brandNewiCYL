@@ -290,13 +290,71 @@ angular.module('icyl.controllers', [])
 }])
 
 //智慧生活页面控制器
-.controller('mainLife', ['$scope', function($scope) {
+// .controller('mainLife', ['$scope', function($scope) {
+.controller('mainLife', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
 //系统管理页面控制器
-.controller('mainSysMgmt', ['$scope', function($scope) {
+//.controller('mainSysMgmt', ['$scope', function($scope) {
+.controller('mainSysMgmt', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item2:{id:2,imgsrc:'http://localhost/wonder/img/badge.png'},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png'}};
 
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
 }])
 
 //用户登录页面控制器
@@ -632,6 +690,197 @@ angular.module('icyl.controllers', [])
   });
 }])
 
+.controller('nSignIn', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png',name:'“琴”童小天才 音乐夏令营 正式接受',address:'杭州市西湖区转塘长陇路10号翠庄艺术文化村...',active:'[我要参加]'},
+                  item2:{id:2,imgsrc:'',name:'每一份爱心付出,都会积累在需要的时候得到回报.',address:'',active:''},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png',name:'省政协机关团委开展“送书送器材下...',address:'',active:''}};
+
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
+}])
+
+.controller('tOtal', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png',name:'“琴”童小天才 音乐夏令营 正式接受',address:'杭州市西湖区转塘长陇路10号翠庄艺术文化村...',active:'[我要参加]'},
+                  item2:{id:2,imgsrc:'',name:'每一份爱心付出,都会积累在需要的时候得到回报.',address:'',active:''},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png',name:'省政协机关团委开展“送书送器材下...',address:'',active:''}};
+
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
+}])
+
+.controller('reMind', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png',name:'“琴”童小天才 音乐夏令营 正式接受',address:'杭州市西湖区转塘长陇路10号翠庄艺术文化村...',active:'[我要参加]'},
+                  item2:{id:2,imgsrc:'',name:'每一份爱心付出,都会积累在需要的时候得到回报.',address:'',active:''},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png',name:'省政协机关团委开展“送书送器材下...',address:'',active:''}};
+
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
+}])
+
+.controller('myActivity', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png',name:'“琴”童小天才 音乐夏令营 正式接受',address:'杭州市西湖区转塘长陇路10号翠庄艺术文化村...',active:'[我要参加]'},
+                  item2:{id:2,imgsrc:'',name:'每一份爱心付出,都会积累在需要的时候得到回报.',address:'',active:''},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png',name:'省政协机关团委开展“送书送器材下...',address:'',active:''}};
+
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
+}])
+
+.controller('myNote', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png',name:'“琴”童小天才 音乐夏令营 正式接受',address:'杭州市西湖区转塘长陇路10号翠庄艺术文化村...',active:'[我要参加]'},
+                  item2:{id:2,imgsrc:'',name:'每一份爱心付出,都会积累在需要的时候得到回报.',address:'',active:''},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png',name:'省政协机关团委开展“送书送器材下...',address:'',active:''}};
+
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
+}])
+
+.controller('largeActivities', ['$scope', '$ionicPopover', '$ionicPopup', function($scope, $ionicPopover, $ionicPopup) {
+  // $scope.items=[1,2,3];
+  $scope.items = {item1:{id:1,imgsrc:'http://localhost/wonder/img/badge.png',name:'“琴”童小天才 音乐夏令营 正式接受',address:'杭州市西湖区转塘长陇路10号翠庄艺术文化村...',active:'[我要参加]'},
+                  item2:{id:2,imgsrc:'',name:'每一份爱心付出,都会积累在需要的时候得到回报.',address:'',active:''},
+                  item3:{id:3,imgsrc:'http://localhost/wonder/img/badge.png',name:'省政协机关团委开展“送书送器材下...',address:'',active:''}};
+
+  //-----
+  $ionicPopover.fromTemplateUrl('my-popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hide popover
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on('popover.removed', function() {
+    // Execute action
+  });
+}])
 
 
 

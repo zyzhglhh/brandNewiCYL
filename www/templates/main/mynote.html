@@ -1,0 +1,86 @@
+<ion-view title="我的留言">
+
+  <ion-header-bar class="bar-positive" align-title="center">
+    <img src="img/badge.png" width="33">  
+    <h1 class="title">
+      <a href="#/main/mynote" style="text-decoration:none">浙江省团建</a>
+    </h1>
+    <div class="buttons">
+    <button class="button button-clear" ng-click="openPopover($event)"><i class="icon ion-navicon-round"></i></button>
+    </div>
+
+
+
+  </ion-header-bar>
+  <!-- <ion-content scroll="true" overflow-scroll="true" class="nne" auto-play="true"> -->
+   
+
+  <ion-tabs class="tabs-positive tabs-icon-only  tabs-top ">
+
+    <ion-tab title="我的回复" >
+      <ion-content class="has-footer">
+        <ion-list>
+          <ion-item ng-repeat="item in items" class="item item-thumbnail-right">
+               
+            <h2>留给Hello, {{item.id}}!</h2>
+            <p>内容</p>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-tab>
+
+    <ion-tab title="我的留言" >
+      <ion-content class="has-footer">
+        <ion-list>
+          <ion-item ng-repeat="item in items" class="item item-thumbnail-right">
+            <h2>留给Hello, {{item.id}}!</h2>
+            <p>内容</p>
+          </ion-item>
+
+        </ion-list>
+      </ion-content>
+    </ion-tab>
+    
+
+  </ion-tabs>
+
+
+
+
+
+<ng-include src = "'footer.html'"></ng-include>
+</ion-view>
+
+  <script id="footer.html" type="text/ng-template">
+      
+  <ion-footer-bar class="bar-stable no-padding">
+    <div class="tabs tabs-icon-top">
+      <a class="tab-item" href="#/main/default"> <i class="icon ion-ios7-home"></i>
+        首页
+      </a>
+      <a class="tab-item" href="#"> <i class="icon ion-star"></i>
+        收藏
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-gear-a"></i>
+        管理
+      </a>
+      <a class="tab-item" mine-href>
+        <i class="icon ion-person"></i>
+        我的
+      </a>
+    </div>
+  </ion-footer-bar>
+      
+  </script>
+
+  <script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-header-bar>
+      <h1 class="title">My Popover Title</h1>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-popover-view>
+</script>

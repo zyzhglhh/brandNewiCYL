@@ -1,227 +1,138 @@
-<ion-view>
+<ion-view title="91的订制">
 
-<!--   <ion-nav-bar class="bar-stable nav-title-slide-ios7"> -->
-      <!-- <ion-nav-back-button class="button-clear hide"><i class="icon ion-ios7-arrow-back"></i> </ion-nav-back-button> --><!-- 前面这句废弃 -->
-<!--       <ion-nav-buttons side="left">
-        <button class="button button-clear" custom-go-back>
-          <i class="icon ion-ios7-arrow-back"></i>
-        </button>
-      </ion-nav-buttons>
-  </ion-nav-bar> -->
+  <ion-header-bar class="bar-positive" align-title="center">
+    <img src="img/badge.png" width="33">  
+    <h1 class="title">
+      <a href="#/main/sysmgmt" style="text-decoration:none">91的订制</a>
+    </h1>
+    <div class="buttons">
+    <button class="button button-clear" ng-click="openPopover($event)"><i class="icon ion-navicon-round"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="has-footer">
 
-  <link rel="stylesheet" type="text/css" href="css/touch.css" media="screen">
-  
-  <ion-content scroll="true" overflow-scroll="true" class="iframe-wrapper">
-    
-    <div class="content">
-      <table border="0" width="100%">
-        <tbody>
-          <tr>
-            <td align="center">
-              <br>    
-              <img src="../27/d1.png" width="40"></td>
-            <td> <font size="5pt"></font>
-            </td>
-          </tr>
-          <tr>
-            <td align="center" colspan="2"> <font size="3pt" color="#8692AC">智慧团青管理</font>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!--<section class="cc-search" style="padding-top: 10px">    
-      <div class="c-form-search">
-        <form name="searchForm" method="get" action="search.php">
-          <input autocomplete="off" class="inp-search" id="keywords"
-            name="keywords" type="search" value="" placeholder="请输入食材名称">    
-          <input
-            class="bton-search" name="search-bton" type="submit" value=""></form>
+    <ion-list>
+      <div class="syslist">
+        <span>
+          <p class="sysfir"><img src="img/badge.png" width="55" style="text-align:center" /></p>
+          <p class="syssec">智慧团青管理</p>
+        </span>
       </div>
-    </section>
-    -->
-    <div class="content">
-      &nbsp;
-    
-    【浙江省团建-91】
-    </div>
-    <section class="in-commt">
-      <p class="in-comm-tag">
-
-        <a href="#main/default" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-          团青主页
-          <font size="2" color="#F0EBE4"></font>
-        </a>
-        <span class="space10">|</span>
-
-        <a href="#main/love" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-          通讯录
-          <font size="2" color="#F0EBE4">--团青联系</font>
-        </a>
-        <span class="space10">|</span>
-
-        <a href="../88/index.asp?no=91" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-          签到管理
-          <font size="2" color="#F0EBE4">--活动组织者使用</font>
-        </a>
-        <span class="space10">|</span>
-        <a href="../../mall/user/dj_pro_total.asp?no=91" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-          活动统计
-          <font size="2" color="#F0EBE4">--第一时间得到成员的报名信息</font>
-        </a>
-        <span class="space10">|</span>
-        <a href="category.asp?no=91" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-          活动提醒
-          <font size="2" color="#F0EBE4">--及时的给报名后的成员提醒</font>
-        </a>
-        <span class="space10">|</span>
-        <a href="../../mall/index/dingdan_list_dj.asp?no=91" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-          我的活动
-          <font size="2" color="#F0EBE4">-找出已报名的活动,现场签到</font>
-        </a>
-        <span class="space10">|</span>
-        <!-- <a href='../../mall/index/dingdan_list_djbm.asp?no=91' style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">    
-        活动组织
-        <font size=2 color="#F0EBE4">--个人发起或组织的活动</font>
-      </a>
-      <span class="space10">|</span>
-      -->
-      <a href="../../94/index.asp?no=91" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-        我的留言
-        <font size="2" color="#F0EBE4">--留言及建议</font>
-      </a>
-      <span class="space10">|</span>
-
-      <a href="../70/index.asp?no=91" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-        单身缘份
-        <font size="2" color="#F0EBE4">--单身团青年的红娘平台</font>
-      </a>
-      <span class="space10">|</span>
-      <!-- <a href='#' style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">    
-      意见征询
-      <font size=2 color="#F0EBE4">--征求建议，取得民意</font>
-    </a>
-    <span class="space10">|</span>
-    -_>
-    <!-- <a href='#' style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">    
-    对帐结算
-    <font size=2 color="#F0EBE4">--轻松的完成与业务人员的结算</font>
-    </a>
-    <span class="space10">|</span>
-    -->
-    <!--<a href='../../mall/user/dj_pro_totalxh.asp?no=91' style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">    
-    相关统计
-    <font size=2 color="#F0EBE4">--了解整体情况</font>
-    </a>
-    <span class="space10">|</span>
-    -->
-    <!--<a href='#../hs_1/lxr_login.asp' style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">    
-    会员管理
-    <font size=2 color="#F0EBE4">--会员发卡/对帐结算/活动分析</font>
-    </a>
-    <span class="space10">|</span>
-    <a href='../5/news_mb.asp?no=900006822' style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-    微站模板
-    <font size=2 color="#F0EBE4">--上百种精美模板</font>
-    </a>
-    <span class="space10">|</span>
-    <a href='../mall/index/dingdan_list_gwc.asp?no=91' style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-    个人购物车
-    <font size=2 color="#F0EBE4">--未下活动操作</font>
-    </a>
-    <span class="space10">|</span>
-    <a href='../5/news_help.asp' style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-    操作帮助
-    <font size=2 color="#F0EBE4">--轻松的操作所有功能</font>
-    </a>
-    <span class="space10">|</span>
-    <a href='../mall/index/dingdan_list.asp?no=91' style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-    个人活动
-    <font size=2 color="#F0EBE4">--个人及推荐活动</font>
-    </a>
-    <span class="space10">|</span>
-    -->
-    <!-- <a href="user.php@act=user_center"
-          style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">    
-    增值利益
-    <font size=2 color="#F0EBE4">--增值服务同时，获得利益</font>
-    </a>
-    -->
-    <a href="../5/news_help.asp" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-    操作帮助
-    <font size="2" color="#F0EBE4">--轻松的操作所有功能</font>
-    </a>
-    <span class="space10">|</span>
-    <a href="../5/news_help.asp" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-    即时发布
-    <font size="2" color="#F0EBE4">--第一时间分享自己的感想</font>
-    </a>
-    <span class="space10">|</span>
-    <a href="../../admin_manage/system/sy_edithy_sj.asp?no=91" style="display: block; font-size: 18px; color: #fff; text-indent: 1em; font-weight: bold; height: 50px; line-height: 50px; background: -webkit-gradient(linear, 0 0, 0 100%, from(#ff9737), to(#cc6202) );">
-    资料修改
-    <font size="2" color="#F0EBE4">--个人相关信息补充修改</font>
-    </a>
-    <span class="space10">|</span>
-
-    </p>
-    </section>
-    <footer class="footer">
-    <section class="footer-t">
-    <p class="user-info">
-    <span>
-    <!-- [<a
-            href='user.php@act=login'>登录</a>
-    ]&nbsp;[
-    <a
-            href='user.php@act=register'>免费注册</a>
-    ]
-    <br />    
-    -->
-    <!--  <a href="../main_dj.asp?no=91" title="">返回主页</a>
-    &nbsp;|&nbsp;
-    <a href="../jinbi.asp" >获取积分</a>
-    &nbsp;|&nbsp;
-    <a href="../mall/index/pro_show_sj.asp?id=901&po=91" >积分添加</a>
-    </span>
-    -->
-    <a href="http://17f.go5le.net/99_tj/main_dj.asp?po=91" title="">主页</a>
-    &nbsp;|&nbsp;
-    <a href="../../mall/index/login_tj.asp?lt=44&amp;no=91">切换/退出</a>
-    &nbsp;|&nbsp;我的积分：10000
-    </span>
-    </p>
-    <p class="gotop">
-    <a href="javascript:scroll(0,0)" id="J_GoTop">
-    top <b></b>
-    </a>
-    </p>
-    </section>
-    <nav class="footer-l"></nav>
-    <p class="copyright">2014-2018 浙江省省直机关团工委·智慧团青</p>
-    </footer>
-    </div>
-    <script src="../dist/js/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        var cookie = document.cookie.match(new RegExp('(^| )xsunion=([^;]*)(;|$)'));
-        if(!!cookie[0]) {
-          localStorage.setItem('xsunion', cookie[0]);
-        }
-        //alert(cookie);
-      });
-    </script>
-
-    
+      <!-- <div class="sysli"> -->
+      <ul class="sysli">
+        <li>
+          <a href="#/main/default">
+            <button class="button button-calm button-block">团青主页</button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/love">
+            <button class="button button-calm button-block">
+              通讯录
+              <span>--团青联系</span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/nsignin">
+            <button class="button button-calm button-block">
+              签到管理
+              <span>--活动组织者使用</span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/total">
+            <button class="button button-calm button-block">
+              活动统计
+              <span>--第一时间得到成员的报名信息</span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/remind">
+            <button class="button button-calm button-block">
+              活动提醒
+              <span>--及时的给报名后的成员提醒</span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/myactivity">
+            <button class="button button-calm button-block">
+              我的活动
+              <span>--找出已报名的活动,现场签到</span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/mynote">
+            <button class="button button-calm button-block">
+              我的留言
+              <span>--留言及建议</span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/default">
+            <button class="button button-calm button-block">
+              单身缘分
+              <span>--单身团青年的红娘平台</span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/default">
+            <button class="button button-calm button-block">
+              操作帮助
+              <span>--轻松的操作所有功能</span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/default">
+            <button class="button button-calm button-block">
+              即时发布
+              <span>--第一时间分享自己的感想</span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/default">
+            <button class="button button-calm button-block">
+              资料修改
+              <span>--个人相关信息补充修改</span>
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="#/main/default">
+            <button class="button button-calm button-block">
+              账号生成
+              <span>--生成会员帐号</span>
+            </button>
+          </a>
+        </li>
+        </ul>
+      
+    </ion-list>
   </ion-content>
 
+ 
+
+
+
+<ng-include src = "'footer.html'"></ng-include>
+</ion-view>
+
+  <script id="footer.html" type="text/ng-template">
+      
   <ion-footer-bar class="bar-stable no-padding">
     <div class="tabs tabs-icon-top">
-      <a class="tab-item" href="#/main/default">
-        <i class="icon ion-ios7-home"></i>
+      <a class="tab-item" href="#/main/default"> <i class="icon ion-ios7-home"></i>
         首页
       </a>
-      <a class="tab-item" href="#">
-        <i class="icon ion-star"></i>
+      <a class="tab-item" href="#"> <i class="icon ion-star"></i>
         收藏
       </a>
       <a class="tab-item" href="#">
@@ -234,5 +145,16 @@
       </a>
     </div>
   </ion-footer-bar>
+      
+  </script>
 
-</ion-view>
+  <script id="my-popover.html" type="text/ng-template">
+  <ion-popover-view>
+    <ion-header-bar>
+      <h1 class="title">My Popover Title</h1>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-popover-view>
+</script>
