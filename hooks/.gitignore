@@ -1,0 +1,4 @@
+# Ignore everything in this directory
+after_prepare/
+# Except this file
+!.gitignore
