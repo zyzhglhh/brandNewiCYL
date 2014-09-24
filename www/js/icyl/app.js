@@ -452,6 +452,10 @@ angular.module('icyl', dependencies)
 
 }])
 
+.config(['$ionicConfigProvider', function ($ionicConfigProvider) {
+  $ionicConfigProvider.prefetchTemplates(false);
+}])
+
 .config(['w5cValidatorProvider', function (w5cValidatorProvider) {
 
      // 全局配置
