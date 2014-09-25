@@ -122,21 +122,25 @@ angular.module('icyl.services', ['ngResource'])
 //数据模型函数
 .factory('Data', ['$resource', function($resource){
   return {
-    User: $resource('http://17f.go5le.net/mall/index/chklogin_app.asp', 
+    User: $resource('http://:baseurl/:path/public/:route', 
                     {
-                      //baseurl:'localhost', 
-                      //path:'PHPServ'
-                      callback: 'JSON_CALLBACK' //jsonp_flag
+                      baseurl:'localhost', 
+                      path:'myserver',
+                      // callback: 'JSON_CALLBACK' //jsonp_flag
                     }, 
                     {
                       //signin: {method:'POST', params:{c:'user', a:'get_token'}, timeout: 3000},//json_flag
                       //signup: {method:'POST', params:{c:'user', a:'register'}, timeout: 3000}, //json_flag
                       //checktoken: {method:'POST', params:{c:'user', a:'user_verify'}, timeout: 3000}, //json_flag
                       //updateuserinfo: {method:'POST', params:{c:'user', a:'update_userinfo'}, timeout: 3000},  //json_flag
-                      signin: {method:'JSONP', params:{c:'user', a:'get_token'}, timeout: 3000}, //jsonp_flag
-                      signup: {method:'JSONP', params:{c:'user', a:'register'}, timeout: 3000},  //jsonp_flag
-                      checktoken: {method:'JSONP', params:{c:'user', a:'user_verify'}, timeout: 3000}, //jsonp_flag
-                      updateuserinfo: {method:'JSONP', params:{c:'user', a:'update_userinfo'}, timeout: 3000},  //jsonp_flag
+                      // signin: {method:'JSONP', params:{c:'user', a:'get_token'}, timeout: 3000}, //jsonp_flag
+                      // signup: {method:'JSONP', params:{c:'user', a:'register'}, timeout: 3000},  //jsonp_flag
+                      // checktoken: {method:'JSONP', params:{c:'user', a:'user_verify'}, timeout: 3000}, //jsonp_flag
+                      // updateuserinfo: {method:'JSONP', params:{c:'user', a:'update_userinfo'}, timeout: 3000},  //jsonp_flag
+                      signin: {method:'POST', params:{route:'login'}, timeout: 3000}, //json_flag laravel
+                      signup: {method:'POST', params:{route:'register'}, timeout: 3000},  //json_flag laravel
+                      checktoken: {method:'POST', params:{route:'checkToken'}, timeout: 3000}, //json_flag laravel
+                      updateuserinfo: {method:'POST', params:{route:'updateUserinfo'}, timeout: 3000},  //json_flag laravel
                       update_avatar: {method:'POST'},
                       update_mobile: {method:'POST'},
                       update_password: {method:'POST'}
@@ -185,7 +189,7 @@ angular.module('icyl.services', ['ngResource'])
       userLogin: function($scope) {
         $scope.loginData = {
           username: 'alexgzhou',
-          password: '123456789',
+          password: '12345678',
           rememberPwd: true
         };
 
