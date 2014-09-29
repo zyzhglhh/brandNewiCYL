@@ -142,7 +142,7 @@ a.center-block {
 .platform-ios.platform-cordova:not(.fullscreen) ion-content.scroll-content:not(.has-header) {
   top: 20px; }
 
-.tabs-top .tabs {
+.tabs-top > .tabs {
 	top: 244px;
 }
 

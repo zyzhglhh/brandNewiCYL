@@ -445,6 +445,17 @@ angular.module('icyl', dependencies)
       }
     })
 
+    .state('main.testc', {
+      url:'/testc',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/test/test_card_tabs.html',
+          controller: 'mainTestC'
+        }
+      }
+    })
+
     ;
 
   // if none of the above states are matched, use this as the fallback
