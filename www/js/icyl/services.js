@@ -81,6 +81,29 @@ angular.module('icyl.services', ['ngResource'])
 //   };
 // }])
 
+// //CSS值存储--废弃
+// .service('CssPairs', function () {
+//   this.store = function (key, value) {
+//     this.init();
+//     this.pairs[key] = value;
+//   };
+//   // this.unset = function (key) {
+//   //   this.pairs[key] = '';
+//   // };
+//   this.delete = function (key) {
+//     delete this.pairs[key];
+//   };
+//   this.init = function () {
+//     if (this.pairs === undefined) {
+//       this.pairs = {};
+//     }
+//   };
+//   this.clear = function () {
+//     this.pairs = {};
+//   };
+//   return this;
+// })
+
 //自定义导航状态存储
 .service('CustomNav', ['DEFAULT_NAV_TREE', 'DEFAULT_NAV_TREE_REVERT', function (DEFAULT_NAV_TREE, DEFAULT_NAV_TREE_REVERT) {
   this.record = function (state) {

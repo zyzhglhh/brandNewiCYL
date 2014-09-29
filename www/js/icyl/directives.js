@@ -21,43 +21,70 @@ angular.module('icyl.directives', [])
     };
 }])
 
-//获取当前元素位置
+//获取并保存当前元素位置
 .directive( "elemPosition", ['$ionicPosition', '$window', '$timeout', function ($ionicPosition, $window, $timeout) {
     return {
         restrict: "AE",
         link: function (scope, element, attrs) {
-            var win = angular.element($window);
+            // var elemOffset = $ionicPosition.offset(element);
+            // CssPairs.store('tabsTop', elemOffset.top);
+            // console.log(CssPairs.pairs.tabsTop);
+            // scope.tabsTop = {top: elemOffset.top + 'px'};
+            // scope.contentTop = {top: elemOffset.top + 49 + 'px', bottom: '55px'};
+            // CssPairs.store('tabsTop', {top: elemOffset.top + 'px'});
+            // CssPairs.store('contentTop', {top: elemOffset.top + 49 + 'px', bottom: '55px'});
+
+
+
+            // var win = angular.element($window);
             // console.log(element);
 
             // var elemPosition = $ionicPosition.position(element);
             var elemOffset = $ionicPosition.offset(element);
-
             var tabs = angular.element(document.querySelector('.tabs-top > .tabs'));
-
             var scrollContent;
+
             $timeout(function(){
 
                 scrollContent = angular.element(document.querySelector('.tabs-top > .pane > .scroll-content')); //放在timeout外面获取是undefined, 因为dom还没有加载完.
-                console.log(scrollContent);
+                tab = angular.element(document.querySelectorAll('.tabs-top > .tabs > a.tab-item'));
+                // console.log(scrollContent);
                 // console.log(elemOffset.top);
+                // console.log(tab[0] + "就是MouseEvent的srcElement");
 
                 scope.$watch(elemOffset.top, function () {
+                    // scrollContent = angular.element(document.querySelectorAll('.tabs-top > .pane > .scroll-content')); //放在timeout外面获取是undefined, 因为dom还没有加载完.
                     tabs[0].style.top = elemOffset.top + "px";
                     scrollContent[0].style.top = elemOffset.top + 49 + "px";
                     scrollContent[0].style.bottom = "55px";
-                    console.log(elemOffset.top, tabs[0].style.top, scrollContent[0].style.top, scrollContent[0].style.bottom);
+                    // console.log(elemOffset.top, tabs[0].style.top, scrollContent[0].style.top, scrollContent[0].style.bottom);
                 }, true);
 
-                win.bind('resize', function () {
-                    scope.$apply(function () {
-                        elemOffset = $ionicPosition.offset(element);
-                        tabs[0].style.top = elemOffset.top + "px";
-                        scrollContent[0].style.top = elemOffset.top + 49 + "px";
-                        scrollContent[0].style.bottom = "55px";
-                        console.log(elemOffset.top);
-                        // console.log(tabs);
+                angular.forEach(tab, function (elem, index, atab) {
+                    angular.element(elem).bind('click', function () {
+                        scope.$apply(function () {
+                            elemOffset = $ionicPosition.offset(element);
+                            scrollContent = angular.element(document.querySelector('.tabs-top > .pane > .scroll-content')); //放在timeout外面获取是undefined, 因为dom还没有加载完.
+                            // console.log(scrollContent);
+                            scrollContent[0].style.top = elemOffset.top + 49 + "px";
+                            scrollContent[0].style.bottom = "55px";
+                            // console.log(elemOffset.top);
+                            // console.log(tabs);
+                        });
                     });
+                    // console.log(elem);
                 });
+
+                // win.bind('resize', function () {
+                //     scope.$apply(function () {
+                //         elemOffset = $ionicPosition.offset(element);
+                //         tabs[0].style.top = elemOffset.top + "px";
+                //         scrollContent[0].style.top = elemOffset.top + 49 + "px";
+                //         scrollContent[0].style.bottom = "55px";
+                //         // console.log(elemOffset.top);
+                //         // console.log(tabs);
+                //     });
+                // });
             });
 
             // var scrollContent = angular.element(document.querySelector('.tabs-top > .pane > .scroll-content'));
@@ -84,6 +111,16 @@ angular.module('icyl.directives', [])
         }
     };
 }])
+
+// //动态初始化当前元素位置
+// .directive( "setPosition", ['CssPairs', function (CssPairs) {
+//     return {
+//         restrict: "A",
+//         link: function (scope, element, attrs) {
+//             console.log(CssPairs.pairs.tabsTop);
+//         }
+//     };
+// }])
 
 //自定义我的链接
 .directive( "mineHref", ['$state', 'Storage', function ($state, Storage) {
