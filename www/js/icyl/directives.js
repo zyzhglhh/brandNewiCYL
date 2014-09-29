@@ -36,7 +36,7 @@ angular.module('icyl.directives', [])
 
 
 
-            // var win = angular.element($window);
+            var win = angular.element($window);
             // console.log(element);
 
             // var elemPosition = $ionicPosition.position(element);
@@ -75,16 +75,16 @@ angular.module('icyl.directives', [])
                     // console.log(elem);
                 });
 
-                // win.bind('resize', function () {
-                //     scope.$apply(function () {
-                //         elemOffset = $ionicPosition.offset(element);
-                //         tabs[0].style.top = elemOffset.top + "px";
-                //         scrollContent[0].style.top = elemOffset.top + 49 + "px";
-                //         scrollContent[0].style.bottom = "55px";
-                //         // console.log(elemOffset.top);
-                //         // console.log(tabs);
-                //     });
-                // });
+                win.bind('resize', function () {
+                    scope.$apply(function () {
+                        elemOffset = $ionicPosition.offset(element);
+                        tabs[0].style.top = elemOffset.top + "px";
+                        scrollContent[0].style.top = elemOffset.top + 49 + "px";
+                        scrollContent[0].style.bottom = "55px";
+                        // console.log(elemOffset.top);
+                        // console.log(tabs);
+                    });
+                });
             });
 
             // var scrollContent = angular.element(document.querySelector('.tabs-top > .pane > .scroll-content'));
