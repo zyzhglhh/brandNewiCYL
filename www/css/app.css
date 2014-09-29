@@ -142,17 +142,18 @@ a.center-block {
 .platform-ios.platform-cordova:not(.fullscreen) ion-content.scroll-content:not(.has-header) {
   top: 20px; }
 
-.tabs-top > .tabs {
-	top: 244px;
-}
 
-.tabs-top .pane .scroll-content {
+
+/*如果tabs之上还要放置banner等图片, 需要手动对tabs-top的绝对位置进行定位, 如下(已经用代码动态实现)*/
+/*.tabs-top > .tabs {
+	top: 244px;
+}*/
+/*.tabs-top > .pane > .scroll-content {
 	top: 293px;
 	bottom: 55px;
-}
-
+}*/
 .ad-banner, .ad-banner .box {
 	margin-top: 0;
-	max-height: 200px;
+/*	max-height: 200px;*/
 	z-index: 99;
 }

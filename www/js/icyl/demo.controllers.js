@@ -33,6 +33,64 @@ angular.module('demo.controllers', [])
 }])
 
 
+.controller('mainDemoDianping', ['$scope', '$timeout', function($scope, $timeout) {
+
+  $scope.items = [1,2,3];
+  var count = 4;
+
+  //下拉刷新
+  $scope.doRefresh = function() {
+    // $scope.$apply(function(){
+      $scope.items.push(count);
+      count++;
+      $scope.items.push(count);
+      count++;
+      $scope.items.push(count);
+      count++;
+    // });
+    $scope.$broadcast('scroll.refreshComplete');
+  };
+
+  //上拉加载
+  //$scope.items = [];
+  $scope.loadMoreData = function() {
+    $scope.items.push(count);
+    count++;
+    $scope.items.push(count);
+    count++;
+    $scope.items.push(count);
+    count++;
+    $timeout(function(){
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+    },2000);
+  };
+  $scope.moreDataCanBeLoaded = function() {
+    return true;
+  };
+  $scope.$on('stateChangeSuccess', function() {
+    $scope.loadMoreData();
+  });
+
+  //删除、排序、滑动选项
+  $scope.data = {
+    showDelete: false,  //可以注释掉
+    showReorder: false  //可以注释掉
+  };
+  $scope.share = function(item) {
+    //console.log(item);
+    alert('Share Item: ' + item);
+  };
+  $scope.moveItem = function(item, fromIndex, toIndex) {
+    $scope.items.splice(fromIndex, 1);
+    $scope.items.splice(toIndex, 0, item);
+  };
+  $scope.onItemDelete = function(item) {
+    $scope.items.splice($scope.items.indexOf(item), 1);
+  };
+
+}])
+
+
 .controller('mainTestC', ['$scope', '$ionicPopover', function($scope, $ionicPopover) {
   $ionicPopover.fromTemplateUrl('my-popover.html', {
     scope: $scope,
@@ -155,6 +213,7 @@ angular.module('demo.controllers', [])
     var elem = angular.element(e.srcElement);
     var elemPosition = $ionicPosition.position(elem);
     console.log(elemPosition);
+    console.log(elem);
   };
 }])
 

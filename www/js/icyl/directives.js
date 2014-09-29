@@ -1,10 +1,10 @@
 angular.module('icyl.directives', [])
 
 //自定义返回按钮
-.directive( "customGoBack", ['$state', 'CustomNav', function($state, CustomNav) {
+.directive( "customGoBack", ['$state', 'CustomNav', function ($state, CustomNav) {
     return {
         restrict: "A",
-        link: function( scope, element, attrs ) {
+        link: function (scope, element, attrs) {
             element.bind( "click", function () {
                 if (!!CustomNav.fromState) {
                     $state.go(CustomNav.fromState);
@@ -21,11 +21,75 @@ angular.module('icyl.directives', [])
     };
 }])
 
+//获取当前元素位置
+.directive( "elemPosition", ['$ionicPosition', '$window', '$timeout', function ($ionicPosition, $window, $timeout) {
+    return {
+        restrict: "AE",
+        link: function (scope, element, attrs) {
+            var win = angular.element($window);
+            // console.log(element);
+
+            // var elemPosition = $ionicPosition.position(element);
+            var elemOffset = $ionicPosition.offset(element);
+
+            var tabs = angular.element(document.querySelector('.tabs-top > .tabs'));
+
+            var scrollContent;
+            $timeout(function(){
+
+                scrollContent = angular.element(document.querySelector('.tabs-top > .pane > .scroll-content')); //放在timeout外面获取是undefined, 因为dom还没有加载完.
+                console.log(scrollContent);
+                // console.log(elemOffset.top);
+
+                scope.$watch(elemOffset.top, function () {
+                    tabs[0].style.top = elemOffset.top + "px";
+                    scrollContent[0].style.top = elemOffset.top + 49 + "px";
+                    scrollContent[0].style.bottom = "55px";
+                    console.log(elemOffset.top, tabs[0].style.top, scrollContent[0].style.top, scrollContent[0].style.bottom);
+                }, true);
+
+                win.bind('resize', function () {
+                    scope.$apply(function () {
+                        elemOffset = $ionicPosition.offset(element);
+                        tabs[0].style.top = elemOffset.top + "px";
+                        scrollContent[0].style.top = elemOffset.top + 49 + "px";
+                        scrollContent[0].style.bottom = "55px";
+                        console.log(elemOffset.top);
+                        // console.log(tabs);
+                    });
+                });
+            });
+
+            // var scrollContent = angular.element(document.querySelector('.tabs-top > .pane > .scroll-content'));
+            // console.log(tabs[0].style.top = 100 + "px");
+            // console.log(scrollContent);
+            // console.log(elemPosition);
+            // console.log(elemOffset.top);
+
+            // scope.$watch(elemOffset.top, function () {
+            //     tabs[0].style.top = elemOffset.top + "px";
+            //     // console.log(elemOffset.top);
+            // }, true);
+
+            // win.bind('resize', function () {
+            //     scope.$apply(function () {
+            //         elemOffset = $ionicPosition.offset(element);
+            //         tabs[0].style.top = elemOffset.top + "px";
+            //         // scrollContent[0].style.top = elemOffset.top + 49 + "px";
+            //         // scrollContent[0].style.bottom = "55px";
+            //         // console.log(elemOffset.top);
+            //         // console.log(tabs);
+            //     });
+            // });
+        }
+    };
+}])
+
 //自定义我的链接
-.directive( "mineHref", ['$state', 'Storage', function($state, Storage) {
+.directive( "mineHref", ['$state', 'Storage', function ($state, Storage) {
     return {
         restrict: "A",
-        link: function( scope, element, attrs ) {
+        link: function (scope, element, attrs) {
             if (!!Storage.kget('xsunion') && Storage.kget('xsunion').length>60) {
                 element[0].href = '#/main/sysmgmt';
                 //console.log(Storage.kget('xsunion'));    //====================test
@@ -40,12 +104,12 @@ angular.module('icyl.directives', [])
 }])
 
 //自定义iframe，和default.html:114配合使用：done
-.directive( "iframeSetCookie", ['$window', 'Storage', function($window, Storage) {
+.directive( "iframeSetCookie", ['$window', 'Storage', function ($window, Storage) {
     return {
         restrict: "E",
         replace: true,
         //template:"<div style='display:none'></div>",
-        link: function( scope, element, attrs ) {
+        link: function (scope, element, attrs) {
             //var iframeId = attrs.id;
             var iframeSrc = attrs.src;
             var iframeStyle = attrs.style;
@@ -115,10 +179,10 @@ angular.module('icyl.directives', [])
 }])
 
 //自定义分享按钮(每个页面只能有一个本元素)
-.directive( "socialSharing", ['Storage', function(Storage) {
+.directive( "socialSharing", ['Storage', function (Storage) {
     return {
         restrict: "A",
-        link: function( scope, element, attrs ) {
+        link: function (scope, element, attrs) {
             Storage.kremove('socialSharing');
             element.bind( "click", function () {
                 if (!!Storage.kget('socialSharing')) {
@@ -136,7 +200,7 @@ angular.module('icyl.directives', [])
                             console.log('result: ' + result);
                             //window.alert('result: ' + result);    //===============test
                             //Storage.kremove('socialSharing');
-                            scope.$apply(function() {
+                            scope.$apply(function () {
                                 //element[0].value = sharing[0]+sharing[2]+sharing[3]+result;
                                 //element[0].innerText = sharing[0]+sharing[2]+sharing[3]+result;
                                 document.getElementById('test').innerHTML = sharing[0]+sharing[2]+sharing[3]+result;
@@ -154,7 +218,7 @@ angular.module('icyl.directives', [])
 }])
 
 //打开外部页面按钮：封装了Cordova插件inAppBrowser
-.directive("openExternal", ['$windos', function($window){
+.directive("openExternal", ['$windos', function ($window) {
     return{
         restrict: 'E',
         scope: {
@@ -171,7 +235,7 @@ angular.module('icyl.directives', [])
         // link: function( scope, element, attrs ) {
         //     console.log(scope.$id);    //====================test
         // },
-        controller: function($scope){
+        controller: function ($scope) {
 
             // var wrappedFunction = function(action){
             //     return function(){
@@ -181,7 +245,7 @@ angular.module('icyl.directives', [])
             //     }
             // };   //没必要用apply，除非需要在主界面上同步显示这一$scope中的变量变化
 
-            var inAppBrowserClosed = function() {
+            var inAppBrowserClosed = function () {
                 if(inAppBrowser !== null){
                     //console.log("did it");    //====================test
                     //inAppBrowser.removeEventListener('exit', wrappedFunction($scope.exit));
@@ -204,14 +268,14 @@ angular.module('icyl.directives', [])
                     $scope.exit();
                 }
             };
-            var inAppBrowserStart = function() {
+            var inAppBrowserStart = function () {
                 if(inAppBrowser !== null){
                     if($scope.loadOpen){
                         //$window.alert($scope.url);
                         inAppBrowser.executeScript({
                                 code: 'document.cookie="' + $scope.cookie + '";'
                             },
-                            function(values) {
+                            function (values) {
                                 //$window.alert('document.cookie======'+values[0]);
                             }
                         );
@@ -220,14 +284,14 @@ angular.module('icyl.directives', [])
                     }
                 }
             };
-            var inAppBrowserStop = function() {
+            var inAppBrowserStop = function () {
                 if(inAppBrowser !== null){
                     if($scope.loadStop){
                         //$window.alert($scope.url);
                         inAppBrowser.executeScript({
                                 code: 'document.cookie.match(new RegExp("(^| )xsunion=([^;]*)(;|$)"));'
                             },
-                            function(values) {
+                            function (values) {
                                 //$window.alert('document.cookie.match======'+values[0][0]);
                             }
                         );
@@ -240,7 +304,7 @@ angular.module('icyl.directives', [])
             //$scope.exit(); //====================test
             //console.log($scope.$id);    //====================test
             var inAppBrowser;// = $window.open('http://17f.go5le.net/preload.html','_blank','hidden=yes');
-            $scope.openUrl = function(){
+            $scope.openUrl = function () {
                 inAppBrowser = $window.open(encodeURI($scope.url),'_blank','location=yes');
                 // inAppBrowser.executeScript({
                 //     code: "document.cookie = 'xsunion=staff%5Fsts=2&telephone=0571%2D83731771&card5=900000001&name=900006840&dw=%B3%F8%C1%F4%CF%E3%B4%A8%B2%CB%BB%F0%B9%F8&card4=900000002&card2=900006840&card%5Fno1=900006840&shopid1=900000003&staff%5Fgrade=1&reg%5Fnbr=900006840&card3=900000003'"

@@ -456,6 +456,17 @@ angular.module('icyl', dependencies)
       }
     })
 
+    .state('main.dianping', {
+      url:'/dianping',
+      access: { authenticate: false },
+      views: {
+        'main-container': {
+          templateUrl: 'templates/test/demo_dianping.html',
+          controller: 'mainDemoDianping'
+        }
+      }
+    })
+
     ;
 
   // if none of the above states are matched, use this as the fallback
