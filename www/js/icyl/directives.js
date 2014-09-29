@@ -52,13 +52,13 @@ angular.module('icyl.directives', [])
                 // console.log(elemOffset.top);
                 // console.log(tab[0] + "就是MouseEvent的srcElement");
 
-                scope.$watch(elemOffset.top, function () {
-                    // scrollContent = angular.element(document.querySelectorAll('.tabs-top > .pane > .scroll-content')); //放在timeout外面获取是undefined, 因为dom还没有加载完.
+                // scope.$watch(elemOffset.top, function () {
+                //     // scrollContent = angular.element(document.querySelectorAll('.tabs-top > .pane > .scroll-content')); //放在timeout外面获取是undefined, 因为dom还没有加载完.
                     tabs[0].style.top = elemOffset.top + "px";
                     scrollContent[0].style.top = elemOffset.top + 49 + "px";
                     scrollContent[0].style.bottom = "55px";
-                    // console.log(elemOffset.top, tabs[0].style.top, scrollContent[0].style.top, scrollContent[0].style.bottom);
-                }, true);
+                //     // console.log(elemOffset.top, tabs[0].style.top, scrollContent[0].style.top, scrollContent[0].style.bottom);
+                // }, true);
 
                 angular.forEach(tab, function (elem, index, atab) {
                     angular.element(elem).bind('click', function () {
