@@ -145,6 +145,7 @@ angular.module('icyl.services', ['ngResource'])
 //数据模型函数
 .factory('Data', ['$resource', function($resource){
   return {
+    // User: $resource('http://17f.go5le.net/mall/index/chklogin_app.asp', 
     User: $resource('http://:baseurl/:path/public/:route', 
                     {
                       baseurl:'localhost', 
