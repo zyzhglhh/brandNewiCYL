@@ -19,6 +19,7 @@
     <ion-slide>
       <div class="box">
         <img src="img/mainImg3.png" class="img-responsive center-block">
+        <div elem-position></div>
         <div class="word-front center-block">
           <h3>建设美丽浙江 创造美好生活</h3>
           <h4>浙江省直机关“智慧团青”</h4>
@@ -35,36 +36,73 @@
       </div>
     </ion-slide>
   </ion-slide-box>
-    
-  <ion-tabs class="tabs-positive tabs-icon-only tabs-top">
 
-    <ion-tab title="Home" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
-      <ion-content class="has-footer no-header">
-        <a class="button button-block" href="#/main/testl">列表功能</a>
-        <a class="button button-block" href="#/main/testr">超级列表</a>
-        <a class="button button-block" href="#/main/tests">滑动区域</a>
-        <a class="button button-block" href="#/main/testp">浮动弹出</a>
-        <a class="button button-block" href="#/main/testa">活动弹出</a>
-      </ion-content>
-    </ion-tab>
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-light">
+    <ion-tabs class="tabs-positive tabs-icon-only tabs-top custom-top">
 
-    <ion-tab title="About" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline">
-      <ion-content>
-        <a class="button button-block" href="itms://itunes.apple.com/gb/app/yi-dong-cai-bian/id391945719?mt=8">APP跳转</a>
-      </ion-content>
-    </ion-tab>
+      <ion-tab title="Home" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
+        <ion-content class="has-footer no-header">
+          <a class="button button-block" href="#/main/testl">列表功能</a>
+          <a class="button button-block" href="#/main/testr">超级列表</a>
+          <a class="button button-block" href="#/main/tests">滑动区域</a>
+          <a class="button button-block" href="#/main/testp">浮动弹出</a>
+          <a class="button button-block" href="#/main/testa">活动弹出</a>
+        </ion-content>
+      </ion-tab>
 
-    <ion-tab title="Settings" icon-on="ion-ios7-gear" icon-off="ion-ios7-gear-outline">
-      <ion-content>
-      </ion-content>
-    </ion-tab>
+      <ion-tab title="About" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline">
+        <ion-content class="has-footer no-header">
+          <a class="button button-block" href="itms://itunes.apple.com/gb/app/yi-dong-cai-bian/id391945719?mt=8">APP跳转</a>
+          <a class="button button-block" href="#/main/testc">卡片列表</a>
+          <a class="button button-block" href="#/main/dianping">大众点评</a>
+        </ion-content>
+      </ion-tab>
 
-    <ion-tab title="link" icon-on="ion-ios7-pricetag" icon-off="ion-ios7-pricetag-outline" href="#/main/default">
-      <ion-content>
-      </ion-content>
-    </ion-tab>
+      <ion-tab title="Settings" icon-on="ion-ios7-gear" icon-off="ion-ios7-gear-outline">
+        <ion-content class="has-footer no-header padding">
+          <ion-list class="card">
+            <ion-item class="item-avatar">
+              <img src="http://ionicframework.com/img/docs/mcfly.jpg">
+              <h2>Marty McFly</h2>
+              <p>November 05, 1955</p>
+            </ion-item>
+            <ion-item class="item-body">
+              <img class="full-image" src="http://ionicframework.com/img/docs/delorean.jpg">
+              <p>
+                This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                the content is from a card-body consisting of an image and paragraph text. The footer
+                consists of a tabs, icons aligned left, within the card-footer.
+              </p>
+              <p>
+                <a href="#" class="subdued">1 Like</a>
+                <a href="#" class="subdued">5 Comments</a>
+              </p>
+            </ion-item>
+            <ion-item class="tabs tabs-secondary tabs-icon-left">
+              <a class="tab-item" href="#">
+                <i class="icon ion-thumbsup"></i>
+                Like
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-chatbox"></i>
+                Comment
+              </a>
+              <a class="tab-item" href="#">
+                <i class="icon ion-share"></i>
+                Share
+              </a>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-tab>
 
-  </ion-tabs>
+      <ion-tab title="link" icon-on="ion-ios7-pricetag" icon-off="ion-ios7-pricetag-outline" href="#/main/default">
+        <ion-content class="has-footer no-header">
+        </ion-content>
+      </ion-tab>
+
+    </ion-tabs>
+  </div>
 
   <ng-include src="'templates/common/footer.html'"></ng-include>
 
